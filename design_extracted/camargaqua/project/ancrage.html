@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Notre Ancrage — CamargAqua</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/site.css" />
+<style>
+section { padding: clamp(48px, 6vw, 90px) 0; }
+.page-hero { padding: clamp(40px, 6vw, 80px) 0 clamp(20px, 3vw, 40px);}
+.page-hero h1 { font-size: clamp(48px, 6.4vw, 96px);}
+.breadcrumb { font-size: 13px; color: var(--muted); margin-bottom: 24px;}
+.breadcrumb a { color: var(--muted);}
+.breadcrumb .sep { margin: 0 10px; color: var(--shrimp);}
+.page-hero-image { margin-top: 40px; height: clamp(280px, 38vw, 460px); border-radius: 6px; overflow: hidden; position: relative;}
+.page-hero-image img { width:100%; height:100%; object-fit:cover; position: absolute; inset: 0;}
+
+.anchor-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(36px, 5vw, 80px); align-items: start;}
+.anchor-copy p { font-size: 17px; line-height: 1.7; color: var(--royal-2); margin: 0 0 18px;}
+.anchor-copy p strong { color: var(--royal); font-weight: 600;}
+.anchor-copy p .pink { color: var(--shrimp-deep); font-weight: 500;}
+.anchor-image { aspect-ratio: 4/5; border-radius: 6px; overflow: hidden; position: relative;}
+.anchor-image img { width:100%; height:100%; object-fit: cover; position: absolute; inset: 0;}
+@media (max-width: 900px){ .anchor-grid { grid-template-columns: 1fr; } }
+
+.engagements { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;}
+.eng {
+  background: var(--bg-soft);
+  border-radius: 6px;
+  padding: 36px 28px;
+}
+.eng.pink { background: var(--shrimp-pale);}
+.eng .k { font-size: 12px; color: var(--shrimp-deep); margin-bottom: 14px; font-weight: 500;}
+.eng h4 { font-size: 22px; font-weight: 500; margin-bottom: 10px;}
+.eng p { font-size: 14px; color: var(--muted); line-height: 1.6; margin: 0;}
+@media (max-width: 900px){ .engagements { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body data-screen-label="04 Notre Ancrage">
+
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a class="brand" href="index.html"><span class="brand-mark"></span><span class="brand-name">Camarg<em>Aqua</em></span></a>
+    <nav class="primary">
+      <a href="index.html">Accueil</a>
+      <a href="projet.html">Le Projet</a>
+      <a href="produit.html">Le Produit</a>
+      <a href="ancrage.html" class="active">Notre Ancrage</a>
+    </nav>
+    <a class="cta" href="contact.html">Nous contacter</a>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="wrap">
+    <div class="breadcrumb"><a href="index.html">Accueil</a><span class="sep">/</span>Notre Ancrage</div>
+    <div class="eyebrow">Notre Ancrage</div>
+    <h1 style="margin-top: 18px; font-weight: 300;">Camargue. <span class="it">Là où tout commence.</span></h1>
+    <p class="lede" style="max-width: 56ch; margin-top: 24px;">
+      Un territoire, un port — l'identité, l'exigence et la responsabilité.
+    </p>
+    <div class="page-hero-image">
+      <img src="https://images.unsplash.com/photo-1518609878373-06d740f60d8b?w=2200&q=80&auto=format&fit=crop" alt="Camargue" />
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="anchor-grid">
+      <div class="anchor-copy">
+        <div class="eyebrow">Le territoire</div>
+        <h2 style="margin-top: 14px; font-size: clamp(36px, 4.4vw, 56px); font-weight: 300; margin-bottom: 28px;">Une géographie <span class="it">qui engage.</span></h2>
+        <p>
+          La Camargue offre ce que peu de territoires conjuguent encore :
+          un <strong>accès direct à une eau de mer de qualité</strong>,
+          un savoir-faire historique et une géographie protégée.
+        </p>
+        <p>
+          <span class="pink">Port-Saint-Louis-du-Rhône</span> — au croisement
+          du fleuve et de la Méditerranée — concentre toutes les conditions
+          d'un projet industriel de cette nature.
+        </p>
+        <p>
+          Notre engagement : <strong>produire localement, employer localement, valoriser localement.</strong>
+        </p>
+      </div>
+      <div class="anchor-image">
+        <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1400&q=80&auto=format&fit=crop" alt="Salins de Camargue" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background: var(--bg-soft);">
+  <div class="wrap">
+    <header class="section-head">
+      <div>
+        <div class="eyebrow">Engagements</div>
+        <h2 style="margin-top: 14px; font-size: clamp(36px, 4.4vw, 56px); font-weight: 300;">Trois axes,<br /><span class="it">un même engagement.</span></h2>
+      </div>
+      <div class="head-meta">
+        <p class="lede">Territoire, souveraineté, responsabilité — les piliers de notre ancrage.</p>
+      </div>
+    </header>
+
+    <div class="engagements">
+      <article class="eng">
+        <div class="k">Territoire</div>
+        <h4>Une géographie unique.</h4>
+        <p>Delta du Rhône, façade méditerranéenne, lumière minérale — au service du produit.</p>
+      </article>
+      <article class="eng pink">
+        <div class="k">Souveraineté</div>
+        <h4>Relocaliser, durablement.</h4>
+        <p>La France importe la quasi-totalité de ses crevettes. Nous reconstruisons une filière nationale.</p>
+      </article>
+      <article class="eng">
+        <div class="k">Responsabilité</div>
+        <h4>Acteur du territoire.</h4>
+        <p>Emplois non délocalisables, partenariats locaux, intégration paysagère du site.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="CTA">
+  <div class="wrap">
+    <div style="background: var(--shrimp); border-radius: 6px; padding: clamp(48px, 6vw, 80px); display: grid; grid-template-columns: 1.4fr 1fr; gap: 32px; align-items: end;">
+      <div>
+        <h2 style="color: var(--royal); font-size: clamp(32px, 4vw, 48px); font-weight: 300;">Collectivités, partenaires —<br /><em style="font-style: italic; color: var(--bg);">échangeons.</em></h2>
+      </div>
+      <div style="display: flex; gap: 12px; justify-content: flex-end; flex-wrap: wrap;">
+        <a class="btn btn-primary" href="contact.html" style="background: var(--royal); border-color: var(--royal); color: var(--bg);">Nous contacter</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="brand" href="index.html" style="color:#F5F4F0;"><span class="brand-mark"></span><span class="brand-name">Camarg<em>Aqua</em></span></a>
+        <div class="tagline">Une aquaculture française, ancrée en <em>Camargue.</em></div>
+      </div>
+      <div class="col"><h5>Navigation</h5><ul>
+        <li><a href="index.html">Accueil</a></li><li><a href="projet.html">Le Projet</a></li>
+        <li><a href="produit.html">Le Produit</a></li><li><a href="ancrage.html">Notre Ancrage</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul></div>
+      <div class="col"><h5>Société</h5><ul><li><a href="#">Mentions légales</a></li><li><a href="#">Confidentialité</a></li></ul></div>
+      <div class="col"><h5>Suivre</h5><ul><li><a href="#">LinkedIn</a></li><li><a href="contact.html">Presse</a></li></ul></div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 CamargAqua SAS</span>
+      <span>Port-Saint-Louis-du-Rhône <span class="dot">●</span> France</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

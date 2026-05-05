@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Contact — CamargAqua</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/site.css" />
+<style>
+section { padding: clamp(48px, 6vw, 90px) 0; }
+.page-hero { padding: clamp(40px, 6vw, 80px) 0 clamp(20px, 3vw, 30px);}
+.page-hero h1 { font-size: clamp(48px, 6.4vw, 96px);}
+.breadcrumb { font-size: 13px; color: var(--muted); margin-bottom: 24px;}
+.breadcrumb a { color: var(--muted);}
+.breadcrumb .sep { margin: 0 10px; color: var(--shrimp);}
+
+.contact-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: clamp(40px, 6vw, 80px);
+  align-items: start;
+}
+.contact-card {
+  background: var(--bg-soft);
+  border-radius: 6px;
+  padding: clamp(28px, 4vw, 44px);
+}
+.contact-row {
+  display: grid; grid-template-columns: 110px 1fr;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--line);
+  align-items: baseline;
+}
+.contact-row:first-child { padding-top: 0;}
+.contact-row:last-child { border-bottom: 0;}
+.contact-row .k { font-size: 12px; color: var(--shrimp-deep); font-weight: 500;}
+.contact-row .v { font-size: 16px; color: var(--royal); }
+.contact-row .v a { border-bottom: 1px solid var(--shrimp); padding-bottom: 2px;}
+.contact-row .v a:hover{ color: var(--shrimp-deep); }
+.contact-row .v small { display:block; color: var(--muted); font-size: 13px; margin-top: 4px; }
+
+.form {
+  background: var(--shrimp-pale);
+  border-radius: 6px;
+  padding: clamp(28px, 4vw, 44px);
+  display: grid; gap: 22px;
+}
+.field { display: grid; gap: 6px;}
+.field label { font-size: 12px; color: var(--shrimp-deep); font-weight: 500;}
+.field input, .field textarea, .field select {
+  font-family: var(--sans); font-size: 15px; color: var(--royal);
+  background: var(--bg);
+  border: 1px solid transparent;
+  border-radius: 6px;
+  padding: 12px 14px;
+  transition: border-color .2s ease;
+}
+.field input:focus, .field textarea:focus, .field select:focus {
+  outline: 0; border-color: var(--shrimp-deep);
+}
+.field textarea { resize: vertical; min-height: 110px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px;}
+
+@media (max-width: 900px){ .contact-grid { grid-template-columns: 1fr; } .form-row { grid-template-columns: 1fr;} }
+</style>
+</head>
+<body data-screen-label="05 Contact">
+
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a class="brand" href="index.html"><span class="brand-mark"></span><span class="brand-name">Camarg<em>Aqua</em></span></a>
+    <nav class="primary">
+      <a href="index.html">Accueil</a>
+      <a href="projet.html">Le Projet</a>
+      <a href="produit.html">Le Produit</a>
+      <a href="ancrage.html">Notre Ancrage</a>
+    </nav>
+    <a class="cta" href="contact.html" style="background: var(--shrimp); color: var(--royal);">Nous contacter</a>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="wrap">
+    <div class="breadcrumb"><a href="index.html">Accueil</a><span class="sep">/</span>Contact</div>
+    <div class="eyebrow">Contact</div>
+    <h1 style="margin-top: 18px; font-weight: 300;">Échanger <span class="it">avec nous.</span></h1>
+    <p class="lede" style="max-width: 50ch; margin-top: 20px;">
+      Réponse sous 48 heures ouvrées.
+    </p>
+  </div>
+</section>
+
+<section style="padding-top: 0;">
+  <div class="wrap">
+    <div class="contact-grid">
+      <aside class="contact-card">
+        <div class="contact-row">
+          <div class="k">Adresse</div>
+          <div class="v">CamargAqua SAS<br /><small>Port-Saint-Louis-du-Rhône, 13230</small></div>
+        </div>
+        <div class="contact-row">
+          <div class="k">Direction</div>
+          <div class="v"><a href="mailto:direction@camargaqua.fr">direction@camargaqua.fr</a></div>
+        </div>
+        <div class="contact-row">
+          <div class="k">Commercial</div>
+          <div class="v"><a href="mailto:commercial@camargaqua.fr">commercial@camargaqua.fr</a><small>Chefs, mareyeurs, partenaires</small></div>
+        </div>
+        <div class="contact-row">
+          <div class="k">Presse</div>
+          <div class="v"><a href="mailto:presse@camargaqua.fr">presse@camargaqua.fr</a></div>
+        </div>
+        <div class="contact-row">
+          <div class="k">Téléphone</div>
+          <div class="v">+33 (0)4 ·· ·· ·· ··</div>
+        </div>
+      </aside>
+
+      <form class="form" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Message envoyé ✓';">
+        <div class="form-row">
+          <div class="field"><label for="f-nom">Nom</label><input id="f-nom" type="text" required /></div>
+          <div class="field"><label for="f-org">Organisation</label><input id="f-org" type="text" /></div>
+        </div>
+        <div class="form-row">
+          <div class="field"><label for="f-mail">Email</label><input id="f-mail" type="email" required /></div>
+          <div class="field"><label for="f-type">Demande</label>
+            <select id="f-type">
+              <option>Direction</option><option>Commercial</option><option>Presse</option><option>Partenariat</option><option>Autre</option>
+            </select>
+          </div>
+        </div>
+        <div class="field"><label for="f-msg">Message</label><textarea id="f-msg" required></textarea></div>
+        <button class="btn btn-primary" type="submit" style="cursor:pointer; align-self: start;">Envoyer le message</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="brand" href="index.html" style="color:#F5F4F0;"><span class="brand-mark"></span><span class="brand-name">Camarg<em>Aqua</em></span></a>
+        <div class="tagline">Une aquaculture française, ancrée en <em>Camargue.</em></div>
+      </div>
+      <div class="col"><h5>Navigation</h5><ul>
+        <li><a href="index.html">Accueil</a></li><li><a href="projet.html">Le Projet</a></li>
+        <li><a href="produit.html">Le Produit</a></li><li><a href="ancrage.html">Notre Ancrage</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul></div>
+      <div class="col"><h5>Société</h5><ul><li><a href="#">Mentions légales</a></li><li><a href="#">Confidentialité</a></li></ul></div>
+      <div class="col"><h5>Suivre</h5><ul><li><a href="#">LinkedIn</a></li><li><a href="contact.html">Presse</a></li></ul></div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 CamargAqua SAS</span>
+      <span>Port-Saint-Louis-du-Rhône <span class="dot">●</span> France</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

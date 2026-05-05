@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Page introuvable — CamargAqua</title>
+<meta name="robots" content="noindex" />
+<meta name="theme-color" content="#FBF3EC" />
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/assets/site.css" />
+<style>
+.nf-wrap {
+  min-height: calc(100vh - 72px);
+  display: grid; place-items: center;
+  text-align: center;
+  padding: clamp(40px, 8vw, 120px) var(--gutter);
+}
+.nf-wrap .num {
+  font-family: var(--serif);
+  font-size: clamp(120px, 22vw, 280px);
+  line-height: 1;
+  color: var(--shrimp);
+  font-weight: 300; font-style: italic;
+  margin-bottom: 16px;
+}
+.nf-wrap h1 {
+  font-size: clamp(36px, 4vw, 56px);
+  font-weight: 300;
+  margin-bottom: 16px;
+}
+.nf-wrap p { color: var(--muted); font-size: 17px; margin: 0 0 32px; }
+.nf-wrap .actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a class="brand" href="/index.html"><span class="brand-mark"></span><span class="brand-name">Camarg<em>Aqua</em></span></a>
+    <nav class="primary" aria-label="Navigation principale">
+      <a href="/index.html">Accueil</a>
+      <a href="/projet.html">Le Projet</a>
+      <a href="/produit.html">Le Produit</a>
+      <a href="/ancrage.html">Notre Ancrage</a>
+    </nav>
+    <a class="cta" href="/contact.html">Nous contacter</a>
+    <button class="menu-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false">
+      <svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+      <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="6" y1="6" x2="18" y2="18"/><line x1="6" y1="18" x2="18" y2="6"/></svg>
+    </button>
+  </div>
+</header>
+
+<main>
+  <div class="nf-wrap">
+    <div>
+      <div class="num">404</div>
+      <h1>Cette page <span class="it">n'existe pas.</span></h1>
+      <p>Le lien est peut-être obsolète, ou la page a été déplacée.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="/index.html">Retour à l'accueil</a>
+        <a class="btn" href="/contact.html">Nous écrire</a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script src="/assets/site.js" defer></script>
+</body>
+</html>

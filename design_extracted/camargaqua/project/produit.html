@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Le Produit — CamargAqua</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/site.css" />
+<style>
+section { padding: clamp(48px, 6vw, 90px) 0; }
+.page-hero { padding: clamp(40px, 6vw, 80px) 0 clamp(20px, 3vw, 40px);}
+.page-hero h1 { font-size: clamp(48px, 6.4vw, 96px);}
+.breadcrumb { font-size: 13px; color: var(--muted); margin-bottom: 24px;}
+.breadcrumb a { color: var(--muted);}
+.breadcrumb .sep { margin: 0 10px; color: var(--shrimp);}
+.page-hero-image { margin-top: 40px; height: clamp(300px, 42vw, 520px); border-radius: 6px; overflow: hidden; position: relative;}
+.page-hero-image img { width:100%; height:100%; object-fit:cover; position: absolute; inset: 0;}
+
+.pf-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: clamp(36px, 5vw, 80px);
+  align-items: center;
+}
+.pf-image { aspect-ratio: 4/5; position: relative; overflow: hidden; border-radius: 6px;}
+.pf-image img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover;}
+.pf-text h2 { font-size: clamp(36px, 4.4vw, 56px); font-weight: 300; margin-bottom: 22px;}
+.pf-text h2 em { color: var(--shrimp-deep); font-style: italic;}
+.pf-text p { font-size: 17px; line-height: 1.7; color: var(--royal-2); margin: 0 0 16px;}
+.pf-text p em { color: var(--shrimp-deep); font-style: italic;}
+@media (max-width: 900px){ .pf-grid { grid-template-columns: 1fr; } }
+
+.specs {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+.spec {
+  background: var(--bg-soft);
+  border-radius: 6px;
+  padding: 28px 24px;
+}
+.spec.pink { background: var(--shrimp-pale);}
+.spec .k { font-size: 12px; color: var(--shrimp-deep); margin-bottom: 12px; font-weight: 500;}
+.spec .v { font-family: var(--serif); font-size: 24px; color: var(--royal); font-weight: 400; line-height: 1.2; margin-bottom: 6px;}
+.spec .d { font-size: 13px; color: var(--muted); line-height: 1.55;}
+@media (max-width: 900px){ .specs { grid-template-columns: repeat(2, 1fr); } }
+
+.gallery {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.gal-cell { aspect-ratio: 4/5; position: relative; overflow: hidden; border-radius: 6px;}
+.gal-cell img { width: 100%; height: 100%; object-fit: cover;}
+@media (max-width: 820px){ .gallery { grid-template-columns: 1fr 1fr;} }
+</style>
+</head>
+<body data-screen-label="03 Le Produit">
+
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a class="brand" href="index.html"><span class="brand-mark"></span><span class="brand-name">Camarg<em>Aqua</em></span></a>
+    <nav class="primary">
+      <a href="index.html">Accueil</a>
+      <a href="projet.html">Le Projet</a>
+      <a href="produit.html" class="active">Le Produit</a>
+      <a href="ancrage.html">Notre Ancrage</a>
+    </nav>
+    <a class="cta" href="contact.html">Nous contacter</a>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="wrap">
+    <div class="breadcrumb"><a href="index.html">Accueil</a><span class="sep">/</span>Le Produit</div>
+    <div class="eyebrow">Le Produit</div>
+    <h1 style="margin-top: 18px; font-weight: 300;">Une crevette <span class="it">d'une fraîcheur rare.</span></h1>
+    <p class="lede" style="max-width: 56ch; margin-top: 24px;">
+      Élevée en eau de mer, livrée le jour même de la récolte.
+    </p>
+    <div class="page-hero-image">
+      <img src="https://images.unsplash.com/photo-1565680018434-b513d5e5fd47?w=2200&q=80&auto=format&fit=crop" alt="Crevette CamargAqua" />
+    </div>
+  </div>
+</section>
+
+<section style="background: var(--shrimp-pale);">
+  <div class="wrap">
+    <div class="pf-grid">
+      <div class="pf-image">
+        <img src="https://images.unsplash.com/photo-1559847844-5315695dadae?w=1400&q=80&auto=format&fit=crop" alt="Crevette en cuisine" />
+      </div>
+      <div class="pf-text">
+        <div class="eyebrow">Le caractère</div>
+        <h2 style="margin-top: 14px;">Une chair ferme,<br />un goût <em>franc, marin.</em></h2>
+        <p>
+          La <em>Litopenaeus vannamei</em> est élevée dans une eau de qualité constante,
+          dans des conditions qui respectent son cycle naturel.
+        </p>
+        <p>
+          Récoltée à pleine maturité, conditionnée sur place, expédiée en chaîne
+          du froid maîtrisée. Aucune congélation, aucun transport longue distance.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <header class="section-head">
+      <div>
+        <div class="eyebrow">Caractéristiques</div>
+        <h2 style="margin-top: 14px; font-size: clamp(36px, 4.4vw, 56px); font-weight: 300;">Spécifications <span class="it">produit.</span></h2>
+      </div>
+    </header>
+    <div class="specs">
+      <div class="spec"><div class="k">Origine</div><div class="v">France · Camargue</div><div class="d">Eau de mer méditerranéenne.</div></div>
+      <div class="spec pink"><div class="k">Fraîcheur</div><div class="v">J+0 / J+1</div><div class="d">Du bassin à l'expédition.</div></div>
+      <div class="spec"><div class="k">Méthode</div><div class="v">Sans antibiotique</div><div class="d">Biosécurité stricte.</div></div>
+      <div class="spec"><div class="k">Traçabilité</div><div class="v">Lot unitaire</div><div class="d">De la post-larve au client.</div></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top: 0;">
+  <div class="wrap">
+    <header class="section-head">
+      <div>
+        <div class="eyebrow">Atmosphères</div>
+        <h2 style="margin-top: 14px; font-size: clamp(36px, 4.4vw, 56px); font-weight: 300;">Le produit, <span class="it">en images.</span></h2>
+      </div>
+    </header>
+    <div class="gallery">
+      <div class="gal-cell"><img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=1200&q=80&auto=format&fit=crop" alt="Bassin" /></div>
+      <div class="gal-cell"><img src="https://images.unsplash.com/photo-1615141982883-c7ad0e69fd62?w=1200&q=80&auto=format&fit=crop" alt="Détail produit" /></div>
+      <div class="gal-cell"><img src="https://images.unsplash.com/photo-1559847844-5315695dadae?w=1200&q=80&auto=format&fit=crop" alt="Table" /></div>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="CTA">
+  <div class="wrap">
+    <div style="background: var(--shrimp); border-radius: 6px; padding: clamp(48px, 6vw, 80px); display: grid; grid-template-columns: 1.4fr 1fr; gap: 32px; align-items: end;">
+      <div>
+        <h2 style="color: var(--royal); font-size: clamp(32px, 4vw, 48px); font-weight: 300;">Chefs, mareyeurs —<br /><em style="font-style: italic; color: var(--bg);">parlons-nous.</em></h2>
+      </div>
+      <div style="display: flex; gap: 12px; justify-content: flex-end; flex-wrap: wrap;">
+        <a class="btn btn-primary" href="contact.html" style="background: var(--royal); border-color: var(--royal); color: var(--bg);">Nous contacter</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="brand" href="index.html" style="color:#F5F4F0;"><span class="brand-mark"></span><span class="brand-name">Camarg<em>Aqua</em></span></a>
+        <div class="tagline">Une aquaculture française, ancrée en <em>Camargue.</em></div>
+      </div>
+      <div class="col"><h5>Navigation</h5><ul>
+        <li><a href="index.html">Accueil</a></li><li><a href="projet.html">Le Projet</a></li>
+        <li><a href="produit.html">Le Produit</a></li><li><a href="ancrage.html">Notre Ancrage</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul></div>
+      <div class="col"><h5>Société</h5><ul><li><a href="#">Mentions légales</a></li><li><a href="#">Confidentialité</a></li></ul></div>
+      <div class="col"><h5>Suivre</h5><ul><li><a href="#">LinkedIn</a></li><li><a href="contact.html">Presse</a></li></ul></div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 CamargAqua SAS</span>
+      <span>Port-Saint-Louis-du-Rhône <span class="dot">●</span> France</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
