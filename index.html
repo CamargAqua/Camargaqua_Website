@@ -349,7 +349,7 @@ section { padding: clamp(60px, 7vw, 110px) 0; }
         La France consomme la crevette par millions de portions par an — sans en produire. CamargAqua change l'équation, sur un marché en croissance, avec une empreinte carbone divisée par dix.
       </p>
     </div>
-    <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:14px;">
+    <div class="grid-4col">
       <!-- Carte 1 : croissance du marché -->
       <div style="background:rgba(245,244,240,0.06); border-left:3px solid var(--shrimp); border-radius:0 8px 8px 0; padding:32px 28px; transition: background .3s ease, transform .3s ease;" class="reveal reveal-delay-1" onmouseover="this.style.background='rgba(232,180,166,0.14)'; this.style.transform='translateY(-4px)'" onmouseout="this.style.background='rgba(245,244,240,0.06)'; this.style.transform='translateY(0)'">
         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--shrimp)" stroke-width="1.5" style="margin-bottom:20px;"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="14 7 21 7 21 14"/></svg>
@@ -398,7 +398,7 @@ section { padding: clamp(60px, 7vw, 110px) 0; }
         <p class="lede">Les fondations sont posées. La construction commence.</p>
       </div>
     </header>
-    <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:16px;">
+    <div class="grid-4col" style="gap:16px;">
       <div style="background:var(--bg); border-radius:6px; padding:28px 24px; border-top:3px solid var(--shrimp);" class="reveal reveal-delay-1">
         <div style="font-size:11px; color:var(--shrimp-deep); font-weight:600; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:14px;">✓ Réalisé</div>
         <h4 style="font-size:20px; font-weight:500; margin:0 0 10px;">Foncier acquis</h4>
@@ -424,47 +424,6 @@ section { padding: clamp(60px, 7vw, 110px) 0; }
 </section>
 
 <hr class="section-sep" />
-<!-- ═══ POURQUOI INVESTIR ═══ -->
-<section style="padding: clamp(64px,8vw,110px) 0;">
-  <div class="wrap">
-    <div class="chapter-label reveal">
-      <span class="ch-num">—</span>
-      <span class="ch-title">Pourquoi investir</span>
-    </div>
-    <header class="section-head reveal reveal-delay-1">
-      <div>
-        <h2 style="font-size:clamp(36px,4.4vw,56px); font-weight:300;">Quatre raisons<br /><span class="it">qui dérisquent le projet.</span></h2>
-      </div>
-      <div class="head-meta">
-        <p class="lede">Nous ne demandons pas un pari. Nous proposons un projet aux fondations posées.</p>
-      </div>
-    </header>
-    <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:20px;">
-      <div style="background:var(--bg-soft); padding:36px 32px; border-radius:8px; border-left:4px solid var(--shrimp); transition:background .3s ease, transform .3s ease;" class="reveal reveal-delay-1" onmouseover="this.style.background='var(--shrimp-pale)'; this.style.transform='translateY(-3px)'" onmouseout="this.style.background='var(--bg-soft)'; this.style.transform='translateY(0)'">
-        <div style="font-family:var(--serif); font-style:italic; font-size:32px; color:var(--shrimp-deep); margin-bottom:12px;">i.</div>
-        <h3 style="font-size:22px; font-weight:600; margin:0 0 12px;">Foncier acquis = projet ancré</h3>
-        <p style="font-size:15px; color:var(--royal-2); line-height:1.65; margin:0;">Le terrain à Port-Saint-Louis est sécurisé. Aucun risque locatif, aucune incertitude foncière. Les permis sont en cours d'instruction.</p>
-      </div>
-      <div style="background:var(--shrimp-pale); padding:36px 32px; border-radius:8px; border-left:4px solid var(--shrimp-deep); transition:background .3s ease, transform .3s ease;" class="reveal reveal-delay-2" onmouseover="this.style.background='var(--shrimp-soft)'; this.style.transform='translateY(-3px)'" onmouseout="this.style.background='var(--shrimp-pale)'; this.style.transform='translateY(0)'">
-        <div style="font-family:var(--serif); font-style:italic; font-size:32px; color:var(--shrimp-deep); margin-bottom:12px;">ii.</div>
-        <h3 style="font-size:22px; font-weight:600; margin:0 0 12px;">Marché 95 % importé = open field</h3>
-        <p style="font-size:15px; color:var(--royal-2); line-height:1.65; margin:0;">Aucun acteur français ne couvre la demande. Les premiers entrants industriels capteront durablement la prime de souveraineté et de fraîcheur.</p>
-      </div>
-      <div style="background:var(--bg-soft); padding:36px 32px; border-radius:8px; border-left:4px solid var(--shrimp); transition:background .3s ease, transform .3s ease;" class="reveal reveal-delay-3" onmouseover="this.style.background='var(--shrimp-pale)'; this.style.transform='translateY(-3px)'" onmouseout="this.style.background='var(--bg-soft)'; this.style.transform='translateY(0)'">
-        <div style="font-family:var(--serif); font-style:italic; font-size:32px; color:var(--shrimp-deep); margin-bottom:12px;">iii.</div>
-        <h3 style="font-size:22px; font-weight:600; margin:0 0 12px;">Technologie RAS = différenciation</h3>
-        <p style="font-size:15px; color:var(--royal-2); line-height:1.65; margin:0;">Recirculation en circuit fermé : production stable, indépendante de la météo, sans antibiotiques. Une qualité incomparable à l'élevage classique.</p>
-      </div>
-      <div style="background:var(--shrimp-pale); padding:36px 32px; border-radius:8px; border-left:4px solid var(--shrimp-deep); transition:background .3s ease, transform .3s ease;" class="reveal reveal-delay-4" onmouseover="this.style.background='var(--shrimp-soft)'; this.style.transform='translateY(-3px)'" onmouseout="this.style.background='var(--shrimp-pale)'; this.style.transform='translateY(0)'">
-        <div style="font-family:var(--serif); font-style:italic; font-size:32px; color:var(--shrimp-deep); margin-bottom:12px;">iv.</div>
-        <h3 style="font-size:22px; font-weight:600; margin:0 0 12px;">Camargue = marque, terroir, prime</h3>
-        <p style="font-size:15px; color:var(--royal-2); line-height:1.65; margin:0;">"Crevette de Camargue" comme "Riz de Camargue". Un nom qui se vend, un terroir qui se valorise, un positionnement gastronomique premium d'emblée.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<hr class="section-sep" />
 <!-- ═══ L'ÉQUIPE ═══ -->
 <section style="background: var(--bg-soft); padding: clamp(64px,8vw,110px) 0;">
   <div class="wrap">
@@ -480,7 +439,7 @@ section { padding: clamp(60px, 7vw, 110px) 0; }
         <p class="lede">Une équipe pluridisciplinaire — direction, technique aquacole, opérations terrain.</p>
       </div>
     </header>
-    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:24px;">
+    <div class="grid-3col">
       <article style="background:var(--bg); border-radius:8px; padding:36px 32px; text-align:center; transition: transform .3s ease, box-shadow .3s ease;" class="reveal reveal-delay-1" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 12px 32px rgba(15,27,77,0.10)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
         <div style="width:140px; height:140px; border-radius:50%; margin:0 auto 24px; background:#fff; overflow:hidden; border:2px solid var(--shrimp-pale);">
           <img src="assets/team/adrien.jpg" alt="Adrien RIEU" loading="lazy" width="280" height="280" style="width:100%; height:100%; object-fit:cover; background:#fff;" onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=&quot;width:100%;height:100%;display:grid;place-items:center;background:#fff;color:var(--shrimp-deep);font-family:var(--serif);font-size:40px;font-weight:400;&quot;>AR</div>'" />
