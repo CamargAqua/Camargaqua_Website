@@ -13,7 +13,9 @@
       "WebSearch",
       "WebFetch(domain:unsplash.com)",
       "WebFetch(domain:www.agriloops.com)",
-      "WebFetch(domain:www.unima.com)"
+      "WebFetch(domain:www.unima.com)",
+      "Bash(python3 -c ' *)",
+      "Bash(node -e ' *)"
     ]
   }
 }

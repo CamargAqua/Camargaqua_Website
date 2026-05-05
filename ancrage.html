@@ -1,8 +1,8 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="fr">
 <head>
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <title>Notre Ancrage — CamargAqua</title>
 <meta name="description" content="Camargue, Port-Saint-Louis-du-Rhône : un territoire, un port, une exigence. Souveraineté alimentaire, relocalisation, responsabilité." />
 <meta name="theme-color" content="#FBF3EC" />
@@ -21,13 +21,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&family=Cormorant+Garamond:wght@300;400&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="assets/site.css" />
 <style>
-section { padding: clamp(48px, 6vw, 90px) 0; }
-.page-hero { padding: clamp(40px, 6vw, 80px) 0 clamp(20px, 3vw, 40px); }
-.page-hero h1 { font-size: clamp(48px, 6.4vw, 96px); }
-
 .anchor-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(36px, 5vw, 80px); align-items: start; }
 .anchor-copy p { font-size: 17px; line-height: 1.7; color: var(--royal-2); margin: 0 0 18px; }
 .anchor-copy p strong { color: var(--royal); font-weight: 600; }
@@ -65,20 +61,24 @@ section { padding: clamp(48px, 6vw, 90px) 0; }
     </button>
   </div>
 </header>
-
+<!-- Menu mobile - hors topbar pour iOS -->
+<nav class="mobile-nav-overlay" aria-label="Menu mobile">
+  <a href="index.html">Accueil</a>
+  <a href="projet.html">Le Projet</a>
+  <a href="produit.html">Le Produit</a>
+  <a href="ancrage.html">Notre Ancrage</a>
+  <a class="mobile-cta" href="contact.html">Nous contacter</a>
+</nav>
 <main id="main">
 
-<section class="page-hero">
-  <div class="wrap">
+<section class="page-hero page-hero-bg" style="background-image: linear-gradient(105deg, rgba(250,233,226,0.93) 0%, rgba(250,233,226,0.82) 42%, rgba(250,233,226,0.42) 68%, rgba(15,27,77,0.15) 100%), url('https://images.unsplash.com/photo-1562747981-1975c624e26e?w=2400&q=85&auto=format&fit=crop'); background-size: cover; background-position: center 35%; min-height: clamp(340px, 45vh, 560px);">
+  <div class="wrap" style="position:relative; z-index:1;">
     <nav class="breadcrumb" aria-label="Fil d'ariane"><a href="index.html">Accueil</a><span class="sep">/</span>Notre Ancrage</nav>
     <div class="eyebrow">Notre Ancrage</div>
     <h1 style="margin-top: 18px; font-weight: 300;">Camargue. <span class="it">Là où tout commence.</span></h1>
-    <p class="lede" style="max-width: 56ch; margin-top: 24px;">
+    <p class="lede" style="margin-top: 20px;">
       Un territoire, un port — l'identité, l'exigence et la responsabilité.
     </p>
-    <div class="page-hero-image">
-      <img src="https://images.unsplash.com/photo-1562747981-1975c624e26e?w=2200&q=80&auto=format&fit=crop" alt="Flamants roses en Camargue" loading="eager" fetchpriority="high" width="2200" height="1238" />
-    </div>
   </div>
 </section>
 
@@ -178,8 +178,8 @@ section { padding: clamp(48px, 6vw, 90px) 0; }
   <div class="wrap">
     <div style="background: var(--shrimp); border-radius: 8px; padding: clamp(48px, 6vw, 80px); display: grid; grid-template-columns: 1.4fr 1fr; gap: 32px; align-items: end;" class="reveal">
       <div>
-        <h2 style="color: var(--royal); font-size: clamp(32px, 4vw, 48px); font-weight: 300;">Collectivités, élus, partenaires —<br /><em style="font-style: italic; color: var(--bg);">discutons.</em></h2>
-        <p style="color:var(--royal-2);font-size:15px;margin-top:14px;">On construit quelque chose d'ancré. Si votre territoire partage cette logique, parlons-en.</p>
+        <h2 style="color: var(--royal); font-size: clamp(32px, 4vw, 48px); font-weight: 300;">Un projet ancré,<br /><em style="font-style: italic; color: var(--bg);">ouvert aux partenaires.</em></h2>
+        <p style="color:var(--royal-2);font-size:15px;margin-top:14px;">Institutions, partenaires locaux, investisseurs — si notre démarche vous parle, parlons-nous.</p>
       </div>
       <div style="display: flex; gap: 12px; justify-content: flex-end; flex-wrap: wrap;">
         <a class="btn btn-primary" href="contact.html" style="background: var(--royal); border-color: var(--royal); color: var(--bg);">Nous contacter</a>

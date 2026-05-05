@@ -1,8 +1,8 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="fr">
 <head>
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <title>Contact — CamargAqua</title>
 <meta name="description" content="Contactez CamargAqua : direction, commercial, presse. Port-Saint-Louis-du-Rhône, Camargue. Réponse sous 48 h ouvrées." />
 <meta name="theme-color" content="#FBF3EC" />
@@ -19,13 +19,9 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&family=Cormorant+Garamond:wght@300;400&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="assets/site.css" />
 <style>
-section { padding: clamp(48px, 6vw, 90px) 0; }
-.page-hero { padding: clamp(40px, 6vw, 80px) 0 clamp(20px, 3vw, 30px); }
-.page-hero h1 { font-size: clamp(48px, 6.4vw, 96px); }
-
 .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 6vw, 80px); align-items: start; }
 .contact-card { background: var(--bg-soft); border-radius: 6px; padding: clamp(28px, 4vw, 44px); }
 .contact-row {
@@ -76,63 +72,84 @@ section { padding: clamp(48px, 6vw, 90px) 0; }
     </button>
   </div>
 </header>
-
+<!-- Menu mobile - hors topbar pour iOS -->
+<nav class="mobile-nav-overlay" aria-label="Menu mobile">
+  <a href="index.html">Accueil</a>
+  <a href="projet.html">Le Projet</a>
+  <a href="produit.html">Le Produit</a>
+  <a href="ancrage.html">Notre Ancrage</a>
+  <a class="mobile-cta" href="contact.html">Nous contacter</a>
+</nav>
 <main id="main">
 
-<section class="page-hero">
+<section class="page-hero" style="padding-bottom: clamp(20px,3vw,40px);">
   <div class="wrap">
     <nav class="breadcrumb" aria-label="Fil d'ariane"><a href="index.html">Accueil</a><span class="sep">/</span>Contact</nav>
     <div class="eyebrow">Contact</div>
     <h1 style="margin-top: 18px; font-weight: 300;">Échanger <span class="it">avec nous.</span></h1>
-    <p class="lede" style="max-width: 50ch; margin-top: 20px;">
-      Réponse sous 48 heures ouvrées.
+    <p style="max-width: 50ch; margin-top: 16px; font-size: 17px; color: var(--muted); line-height: 1.6;">
+      Investisseurs, chefs, mareyeurs, presse — choisissez votre demande ci-dessous. Réponse sous 48 h ouvrées.
     </p>
+
+    <!-- Liens d'accès rapide -->
+    <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top:28px;">
+      <a href="mailto:direction@camargaqua.fr" style="display:inline-flex; align-items:center; gap:8px; padding:10px 18px; border-radius:999px; border:1px solid var(--line); font-size:13px; color:var(--royal); font-weight:500; transition:all .2s ease; background:var(--bg);" onmouseover="this.style.borderColor='var(--shrimp)'; this.style.background='var(--shrimp-pale)'" onmouseout="this.style.borderColor='var(--line)'; this.style.background='var(--bg)'">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Investisseurs &amp; Direction
+      </a>
+      <a href="mailto:commercial@camargaqua.fr" style="display:inline-flex; align-items:center; gap:8px; padding:10px 18px; border-radius:999px; border:1px solid var(--line); font-size:13px; color:var(--royal); font-weight:500; transition:all .2s ease; background:var(--bg);" onmouseover="this.style.borderColor='var(--shrimp)'; this.style.background='var(--shrimp-pale)'" onmouseout="this.style.borderColor='var(--line)'; this.style.background='var(--bg)'">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Chefs &amp; Mareyeurs
+      </a>
+      <a href="mailto:presse@camargaqua.fr" style="display:inline-flex; align-items:center; gap:8px; padding:10px 18px; border-radius:999px; border:1px solid var(--line); font-size:13px; color:var(--royal); font-weight:500; transition:all .2s ease; background:var(--bg);" onmouseover="this.style.borderColor='var(--shrimp)'; this.style.background='var(--shrimp-pale)'" onmouseout="this.style.borderColor='var(--line)'; this.style.background='var(--bg)'">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Presse
+      </a>
+    </div>
   </div>
 </section>
 
-<section style="padding-top: 0;">
+<section style="padding-top: clamp(32px,4vw,56px);">
   <div class="wrap">
-    <div class="contact-grid">
-      <aside class="contact-card" aria-label="Coordonnées">
-        <div class="contact-row">
-          <div class="k">Adresse</div>
-          <div class="v">CamargAqua SAS<br /><small>Port-Saint-Louis-du-Rhône, 13230</small></div>
-        </div>
-        <div class="contact-row">
-          <div class="k">Direction</div>
-          <div class="v"><a href="mailto:direction@camargaqua.fr">direction@camargaqua.fr</a></div>
-        </div>
-        <div class="contact-row">
-          <div class="k">Commercial</div>
-          <div class="v"><a href="mailto:commercial@camargaqua.fr">commercial@camargaqua.fr</a><small>Chefs, mareyeurs, partenaires</small></div>
-        </div>
-        <div class="contact-row">
-          <div class="k">Presse</div>
-          <div class="v"><a href="mailto:presse@camargaqua.fr">presse@camargaqua.fr</a></div>
-        </div>
-        <div class="contact-row">
-          <div class="k">Téléphone</div>
-          <div class="v">+33 (0)4 ·· ·· ·· ··</div>
-        </div>
-      </aside>
-
+    <div style="max-width: 760px; margin: 0 auto;">
       <form id="contact-form" class="form" novalidate>
         <div class="form-row">
-          <div class="field"><label for="f-nom">Nom</label><input id="f-nom" name="nom" type="text" autocomplete="name" required /></div>
-          <div class="field"><label for="f-org">Organisation</label><input id="f-org" name="organisation" type="text" autocomplete="organization" /></div>
+          <div class="field"><label for="f-nom">Nom *</label><input id="f-nom" name="nom" type="text" autocomplete="name" placeholder="Votre nom" required /></div>
+          <div class="field"><label for="f-org">Organisation</label><input id="f-org" name="organisation" type="text" autocomplete="organization" placeholder="Société, restaurant…" /></div>
         </div>
         <div class="form-row">
-          <div class="field"><label for="f-mail">Email</label><input id="f-mail" name="email" type="email" autocomplete="email" required /></div>
-          <div class="field"><label for="f-type">Demande</label>
+          <div class="field"><label for="f-mail">Email *</label><input id="f-mail" name="email" type="email" autocomplete="email" placeholder="votre@email.com" required /></div>
+          <div class="field"><label for="f-type">Objet de la demande</label>
             <select id="f-type" name="type">
-              <option>Direction</option><option>Commercial</option><option>Presse</option><option>Partenariat</option><option>Autre</option>
+              <option>Investissement</option>
+              <option>Direction</option>
+              <option>Commercial — Chefs / Mareyeurs</option>
+              <option>Partenariat</option>
+              <option>Presse</option>
+              <option>Autre</option>
             </select>
           </div>
         </div>
-        <div class="field"><label for="f-msg">Message</label><textarea id="f-msg" name="message" required></textarea></div>
+        <div class="field"><label for="f-msg">Message *</label><textarea id="f-msg" name="message" placeholder="Décrivez votre projet, vos questions…" required></textarea></div>
         <div class="form-status" role="status" aria-live="polite"></div>
-        <button class="btn btn-primary" type="submit" style="align-self: start;">Envoyer le message</button>
+        <button class="btn btn-primary" type="submit">Envoyer le message</button>
       </form>
+
+      <!-- Contact direct -->
+      <div style="margin-top:40px; padding-top:32px; border-top:1px solid var(--line); display:grid; grid-template-columns:repeat(3,1fr); gap:20px; text-align:center;">
+        <div>
+          <div style="font-size:11px; color:var(--shrimp-deep); font-weight:600; letter-spacing:.1em; text-transform:uppercase; margin-bottom:6px;">Direction</div>
+          <a href="mailto:direction@camargaqua.fr" style="font-size:14px; color:var(--royal); border-bottom:1px solid var(--shrimp);">direction@camargaqua.fr</a>
+        </div>
+        <div>
+          <div style="font-size:11px; color:var(--shrimp-deep); font-weight:600; letter-spacing:.1em; text-transform:uppercase; margin-bottom:6px;">Commercial</div>
+          <a href="mailto:commercial@camargaqua.fr" style="font-size:14px; color:var(--royal); border-bottom:1px solid var(--shrimp);">commercial@camargaqua.fr</a>
+        </div>
+        <div>
+          <div style="font-size:11px; color:var(--shrimp-deep); font-weight:600; letter-spacing:.1em; text-transform:uppercase; margin-bottom:6px;">Presse</div>
+          <a href="mailto:presse@camargaqua.fr" style="font-size:14px; color:var(--royal); border-bottom:1px solid var(--shrimp);">presse@camargaqua.fr</a>
+        </div>
+      </div>
     </div>
   </div>
 </section>

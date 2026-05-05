@@ -2,6 +2,12 @@
 (function () {
   'use strict';
 
+  // ——— Scroll to top on page load / refresh ———
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
+  window.scrollTo(0, 0);
+
   // ——— Scroll reveal ———
   var observer = new IntersectionObserver(function (entries) {
     entries.forEach(function (entry) {
@@ -10,7 +16,7 @@
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  }, { threshold: 0.10, rootMargin: '0px 0px -30px 0px' });
 
   document.querySelectorAll('.reveal').forEach(function (el) {
     observer.observe(el);
@@ -40,39 +46,50 @@
         countObserver.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.5 });
+  }, { threshold: 0.4 });
 
   document.querySelectorAll('[data-target]').forEach(function (el) {
     countObserver.observe(el);
   });
 
-  // Mobile menu toggle
+  // ——— Mobile menu — uses .mobile-nav-overlay (outside topbar to avoid backdrop-filter bug on iOS) ———
   var toggle = document.querySelector('.menu-toggle');
-  var nav = document.querySelector('nav.primary');
-  if (toggle && nav) {
+  var overlay = document.querySelector('.mobile-nav-overlay');
+
+  function closeMenu() {
+    document.body.classList.remove('menu-open');
+    if (toggle) toggle.setAttribute('aria-expanded', 'false');
+  }
+
+  if (toggle) {
     toggle.addEventListener('click', function () {
       var isOpen = document.body.classList.toggle('menu-open');
       toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
     });
-    nav.addEventListener('click', function (e) {
-      if (e.target.tagName === 'A') {
-        document.body.classList.remove('menu-open');
-        toggle.setAttribute('aria-expanded', 'false');
-      }
+  }
+
+  if (overlay) {
+    overlay.addEventListener('click', function (e) {
+      if (e.target.tagName === 'A') closeMenu();
     });
   }
 
-  // Contact form: send via mailto fallback (works without backend)
+  // Close menu on Escape key
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closeMenu();
+  });
+
+  // ——— Contact form: mailto fallback ———
   var form = document.getElementById('contact-form');
   if (form) {
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       var status = form.querySelector('.form-status');
-      var nom = (form.querySelector('#f-nom') || {}).value || '';
-      var org = (form.querySelector('#f-org') || {}).value || '';
+      var nom   = (form.querySelector('#f-nom')  || {}).value || '';
+      var org   = (form.querySelector('#f-org')  || {}).value || '';
       var email = (form.querySelector('#f-mail') || {}).value || '';
-      var type = (form.querySelector('#f-type') || {}).value || '';
-      var msg = (form.querySelector('#f-msg') || {}).value || '';
+      var type  = (form.querySelector('#f-type') || {}).value || '';
+      var msg   = (form.querySelector('#f-msg')  || {}).value || '';
 
       if (!nom.trim() || !email.trim() || !msg.trim()) {
         if (status) {
@@ -90,31 +107,26 @@
         'Autre':       'contact@camargaqua.fr'
       };
       var to = routing[type] || 'contact@camargaqua.fr';
-      var subject = '[' + type + '] Contact site — ' + nom;
-      var body =
-        'Nom : ' + nom + '\n' +
-        'Organisation : ' + org + '\n' +
-        'Email : ' + email + '\n' +
-        'Type de demande : ' + type + '\n\n' +
-        '----\n' + msg;
+      var subject = '[' + type + '] Contact — ' + nom;
+      var body = 'Nom : ' + nom + '\nOrganisation : ' + org +
+                 '\nEmail : ' + email + '\nDemande : ' + type +
+                 '\n\n' + msg;
 
-      var href = 'mailto:' + to +
+      window.location.href = 'mailto:' + to +
         '?subject=' + encodeURIComponent(subject) +
-        '&body=' + encodeURIComponent(body);
-
-      window.location.href = href;
+        '&body='    + encodeURIComponent(body);
 
       if (status) {
         status.className = 'form-status ok';
-        status.textContent = 'Votre client mail va s’ouvrir avec le message pré-rempli. Si rien ne se passe, écrivez-nous directement à ' + to + '.';
+        status.textContent = 'Votre messagerie va s’ouvrir avec le message pré-rempli. Si rien ne se passe, écrivez-nous directement à ' + to + '.';
       }
     });
   }
 
-  // Mark current page in nav (defensive — markup also sets .active)
+  // ——— Mark active nav link ———
   var path = location.pathname.split('/').pop() || 'index.html';
-  document.querySelectorAll('nav.primary a').forEach(function (a) {
-    var href = a.getAttribute('href');
-    if (href === path) a.classList.add('active');
+  document.querySelectorAll('nav.primary a, .mobile-nav-overlay a').forEach(function (a) {
+    if (a.getAttribute('href') === path) a.classList.add('active');
   });
+
 })();

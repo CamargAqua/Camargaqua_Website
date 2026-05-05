@@ -1,8 +1,8 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="fr">
 <head>
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <title>Le Produit — CamargAqua</title>
 <meta name="description" content="Une crevette d'une fraîcheur rare, élevée en eau de mer en Camargue. Chair ferme, goût franc, sans antibiotique, livrée le jour même de la récolte." />
 <meta name="theme-color" content="#FBF3EC" />
@@ -21,15 +21,11 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&family=Cormorant+Garamond:wght@300;400&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="assets/site.css" />
 <style>
-section { padding: clamp(48px, 6vw, 90px) 0; }
-.page-hero { padding: clamp(40px, 6vw, 80px) 0 clamp(20px, 3vw, 40px); }
-.page-hero h1 { font-size: clamp(48px, 6.4vw, 96px); }
-
 .pf-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(36px, 5vw, 80px); align-items: center; }
-.pf-image { aspect-ratio: 4/5; position: relative; overflow: hidden; border-radius: 6px; }
+.pf-image { aspect-ratio: 4/3; position: relative; overflow: hidden; border-radius: 6px; }
 .pf-image img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .pf-text h2 { font-size: clamp(36px, 4.4vw, 56px); font-weight: 300; margin-bottom: 22px; }
 .pf-text h2 em { color: var(--shrimp-deep); font-style: italic; }
@@ -71,27 +67,38 @@ section { padding: clamp(48px, 6vw, 90px) 0; }
     </button>
   </div>
 </header>
-
+<!-- Menu mobile - hors topbar pour iOS -->
+<nav class="mobile-nav-overlay" aria-label="Menu mobile">
+  <a href="index.html">Accueil</a>
+  <a href="projet.html">Le Projet</a>
+  <a href="produit.html">Le Produit</a>
+  <a href="ancrage.html">Notre Ancrage</a>
+  <a class="mobile-cta" href="contact.html">Nous contacter</a>
+</nav>
 <main id="main">
 
-<section class="page-hero">
-  <div class="wrap">
+<section class="page-hero page-hero-bg" style="
+  background-image:
+    linear-gradient(105deg, rgba(250,233,226,0.93) 0%, rgba(250,233,226,0.82) 42%, rgba(250,233,226,0.42) 68%, rgba(15,27,77,0.15) 100%),
+    url('https://images.unsplash.com/photo-1674962296996-b17a771d44b3?w=2400&q=85&auto=format&fit=crop');
+  background-size: cover;
+  background-position: center 40%;
+  min-height: clamp(340px, 45vh, 560px);
+">
+  <div class="wrap" style="position:relative; z-index:1;">
     <nav class="breadcrumb" aria-label="Fil d'ariane"><a href="index.html">Accueil</a><span class="sep">/</span>Le Produit</nav>
     <div class="eyebrow">Le Produit</div>
     <h1 style="margin-top: 18px; font-weight: 300;">Une crevette <span class="it">d'une fraîcheur rare.</span></h1>
-    <p class="lede" style="max-width: 56ch; margin-top: 24px;">
+    <p class="lede" style="margin-top: 20px;">
       Élevée en eau de mer, livrée le jour même de la récolte.
     </p>
-    <div class="page-hero-image">
-      <img src="https://images.unsplash.com/photo-1674962296996-b17a771d44b3?w=2200&q=80&auto=format&fit=crop" alt="Crevettes fraîches Litopenaeus vannamei" loading="eager" fetchpriority="high" width="2200" height="1238" />
-    </div>
   </div>
 </section>
 
 <hr class="section-sep" />
 
 <!-- ═══ CARACTÈRE ═══ -->
-<section style="padding: clamp(64px,8vw,110px) 0;">
+<section style="padding: clamp(36px,4vw,60px) 0;">
   <div class="wrap">
     <div class="chapter-label reveal">
       <span class="ch-num">—</span>
@@ -105,22 +112,22 @@ section { padding: clamp(48px, 6vw, 90px) 0; }
         <h2 style="margin-top: 0;">Une chair ferme,<br />un goût <em>franc, marin.</em></h2>
         <p>La <em>Litopenaeus vannamei</em> est élevée dans une eau de mer méditerranéenne à température constante. Elle grandit lentement, sans stress, sans compromis.</p>
         <p>Récoltée à pleine maturité, conditionnée sur place dans l'heure, expédiée le jour même. <strong>Jamais congelée. Jamais importée.</strong> Une première en France.</p>
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:28px;">
-          <div style="padding:18px; background:var(--shrimp-pale); border-radius:6px; transition:background .25s ease;" onmouseover="this.style.background='var(--shrimp-soft)'" onmouseout="this.style.background='var(--shrimp-pale)'">
-            <div style="font-size:11px;color:var(--shrimp-deep);font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px;">Goût</div>
-            <div style="font-family:var(--serif);font-size:18px;color:var(--royal);">Marin, iodé, doux</div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:20px;">
+          <div style="padding:12px 16px; background:var(--shrimp-pale); border-radius:6px; transition:background .25s ease;" onmouseover="this.style.background='var(--shrimp-soft)'" onmouseout="this.style.background='var(--shrimp-pale)'">
+            <div style="font-size:10px;color:var(--shrimp-deep);font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px;">Goût</div>
+            <div style="font-family:var(--serif);font-size:16px;color:var(--royal);">Marin, iodé, doux</div>
           </div>
-          <div style="padding:18px; background:var(--shrimp-pale); border-radius:6px; transition:background .25s ease;" onmouseover="this.style.background='var(--shrimp-soft)'" onmouseout="this.style.background='var(--shrimp-pale)'">
-            <div style="font-size:11px;color:var(--shrimp-deep);font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px;">Texture</div>
-            <div style="font-family:var(--serif);font-size:18px;color:var(--royal);">Chair ferme, croquante</div>
+          <div style="padding:12px 16px; background:var(--shrimp-pale); border-radius:6px; transition:background .25s ease;" onmouseover="this.style.background='var(--shrimp-soft)'" onmouseout="this.style.background='var(--shrimp-pale)'">
+            <div style="font-size:10px;color:var(--shrimp-deep);font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px;">Texture</div>
+            <div style="font-family:var(--serif);font-size:16px;color:var(--royal);">Chair ferme, croquante</div>
           </div>
-          <div style="padding:18px; background:var(--bg-soft); border-radius:6px; transition:background .25s ease;" onmouseover="this.style.background='var(--shrimp-pale)'" onmouseout="this.style.background='var(--bg-soft)'">
-            <div style="font-size:11px;color:var(--shrimp-deep);font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px;">Fraîcheur</div>
-            <div style="font-family:var(--serif);font-size:18px;color:var(--royal);">J+0 · du bassin</div>
+          <div style="padding:12px 16px; background:var(--bg-soft); border-radius:6px; transition:background .25s ease;" onmouseover="this.style.background='var(--shrimp-pale)'" onmouseout="this.style.background='var(--bg-soft)'">
+            <div style="font-size:10px;color:var(--shrimp-deep);font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px;">Fraîcheur</div>
+            <div style="font-family:var(--serif);font-size:16px;color:var(--royal);">J+0 · du bassin</div>
           </div>
-          <div style="padding:18px; background:var(--bg-soft); border-radius:6px; transition:background .25s ease;" onmouseover="this.style.background='var(--shrimp-pale)'" onmouseout="this.style.background='var(--bg-soft)'">
-            <div style="font-size:11px;color:var(--shrimp-deep);font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px;">Origine</div>
-            <div style="font-family:var(--serif);font-size:18px;color:var(--royal);">100 % Camargue</div>
+          <div style="padding:12px 16px; background:var(--bg-soft); border-radius:6px; transition:background .25s ease;" onmouseover="this.style.background='var(--shrimp-pale)'" onmouseout="this.style.background='var(--bg-soft)'">
+            <div style="font-size:10px;color:var(--shrimp-deep);font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px;">Origine</div>
+            <div style="font-family:var(--serif);font-size:16px;color:var(--royal);">100 % Camargue</div>
           </div>
         </div>
       </div>
@@ -131,13 +138,13 @@ section { padding: clamp(48px, 6vw, 90px) 0; }
 <hr class="section-sep" />
 
 <!-- ═══ PROCESS ═══ -->
-<section style="background: var(--bg-soft); padding: clamp(64px,8vw,110px) 0;">
+<section style="background: var(--bg-soft); padding: clamp(36px,4vw,60px) 0;">
   <div class="wrap">
     <div class="chapter-label reveal">
       <span class="ch-num">—</span>
       <span class="ch-title">Le processus</span>
     </div>
-    <header class="section-head reveal reveal-delay-1" style="margin-bottom:48px;">
+    <header class="section-head reveal reveal-delay-1" style="margin-bottom:28px;">
       <div>
         <h2 style="font-size:clamp(36px,4.4vw,56px); font-weight:300;">De l'œuf à la crevette <span class="it">premium.</span></h2>
       </div>
@@ -229,20 +236,6 @@ section { padding: clamp(48px, 6vw, 90px) 0; }
 </section>
 
 <hr class="section-sep" />
-
-<section style="padding: clamp(48px,6vw,80px) 0;">
-  <div class="wrap">
-    <div style="background: var(--shrimp); border-radius: 8px; padding: clamp(48px, 6vw, 80px); display: grid; grid-template-columns: 1.4fr 1fr; gap: 32px; align-items: end;">
-      <div>
-        <h2 style="color: var(--royal); font-size: clamp(32px, 4vw, 48px); font-weight: 300;">Chefs, mareyeurs —<br /><em style="font-style: italic; color: var(--bg);">parlons approvisionnement.</em></h2>
-        <p style="color:var(--royal-2); font-size:15px; margin-top:14px;">Dites-nous vos volumes, vos contraintes de livraison, votre établissement. On s'adapte.</p>
-      </div>
-      <div style="display: flex; gap: 12px; justify-content: flex-end; flex-wrap: wrap;">
-        <a class="btn btn-primary" href="contact.html" style="background: var(--royal); border-color: var(--royal); color: var(--bg);">Nous contacter</a>
-      </div>
-    </div>
-  </div>
-</section>
 
 </main>
 

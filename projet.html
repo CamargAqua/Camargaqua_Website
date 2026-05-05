@@ -1,8 +1,8 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="fr">
 <head>
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <title>Le Projet — CamargAqua</title>
 <meta name="description" content="Une unité d'aquaculture de précision en Camargue, parmi les plus avancées d'Europe : système recirculé, biosécurité, traçabilité unitaire." />
 <meta name="theme-color" content="#FBF3EC" />
@@ -21,13 +21,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&family=Cormorant+Garamond:wght@300;400&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="assets/site.css" />
 <style>
-section { padding: clamp(48px, 6vw, 90px) 0; }
-.page-hero { padding: clamp(40px, 6vw, 80px) 0 clamp(20px, 3vw, 40px); }
-.page-hero h1 { font-size: clamp(48px, 6.4vw, 96px); }
-
 .project-body {
   display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 5vw, 70px);
   align-items: start;
@@ -59,33 +55,103 @@ section { padding: clamp(48px, 6vw, 90px) 0; }
     </button>
   </div>
 </header>
-
+<!-- Menu mobile - hors topbar pour iOS -->
+<nav class="mobile-nav-overlay" aria-label="Menu mobile">
+  <a href="index.html">Accueil</a>
+  <a href="projet.html">Le Projet</a>
+  <a href="produit.html">Le Produit</a>
+  <a href="ancrage.html">Notre Ancrage</a>
+  <a class="mobile-cta" href="contact.html">Nous contacter</a>
+</nav>
 <main id="main">
 
-<section class="page-hero">
-  <div class="wrap">
+<section class="page-hero page-hero-bg" style="
+  background-image:
+    linear-gradient(105deg, rgba(250,233,226,0.93) 0%, rgba(250,233,226,0.82) 42%, rgba(250,233,226,0.42) 68%, rgba(15,27,77,0.15) 100%),
+    url('https://images.unsplash.com/photo-1628859742240-269783f56d17?w=2400&q=85&auto=format&fit=crop');
+  background-size: cover;
+  background-position: center 50%;
+  min-height: clamp(340px, 45vh, 560px);
+">
+  <div class="wrap" style="position:relative; z-index:1;">
     <nav class="breadcrumb" aria-label="Fil d'ariane"><a href="index.html">Accueil</a><span class="sep">/</span>Le Projet</nav>
     <div class="eyebrow">Le Projet</div>
     <h1 style="margin-top: 18px; font-weight: 300;">La maîtrise <span class="it">comme méthode.</span></h1>
-    <p class="lede" style="max-width: 56ch; margin-top: 24px;">
+    <p class="lede" style="margin-top: 20px;">
       Une unité d'aquaculture de précision en Camargue, parmi les plus avancées d'Europe.
     </p>
-    <div class="page-hero-image">
-      <img src="https://images.unsplash.com/photo-1628859742240-269783f56d17?w=2200&q=80&auto=format&fit=crop" alt="Vue aérienne d'une ferme aquacole en mer" loading="eager" fetchpriority="high" width="2200" height="1238" />
-    </div>
   </div>
 </section>
 
-<section>
+<!-- ═══ INFRASTRUCTURE & IMPLANTATION ═══ -->
+<section style="padding: clamp(40px,5vw,72px) 0;">
   <div class="wrap">
-    <div class="project-body">
-      <div>
-        <p><strong>CamargAqua est née d'une conviction :</strong> la France a le territoire et le savoir-faire pour produire, chez elle, une crevette de qualité supérieure.</p>
-        <p>Implantée à <span class="pink">Port-Saint-Louis-du-Rhône</span>, notre unité bénéficie d'un accès direct à l'eau de mer et d'un foncier adapté à un projet industriel d'envergure.</p>
+    <div class="chapter-label reveal" style="margin-bottom:32px;">
+      <span class="ch-num">—</span>
+      <span class="ch-title">Implantation &amp; Infrastructure</span>
+    </div>
+
+    <!-- Grille principale : grande image gauche + colonne droite -->
+    <div style="display:grid; grid-template-columns:1.15fr 1fr; gap:16px; align-items:stretch;" class="reveal reveal-delay-1">
+
+      <!-- Image principale 3D — render 1 -->
+      <div style="position:relative; border-radius:10px; overflow:hidden; background:var(--bg-soft); min-height:340px;">
+        <img src="assets/renders/render-1.jpeg"
+             alt="Vue 3D du bâtiment CamargAqua"
+             loading="lazy"
+             style="width:100%; height:100%; object-fit:cover; display:block;"
+             onerror="this.style.display='none'" />
+        <!-- Placeholder visible si image absente -->
+        <div class="render-placeholder" style="position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:12px; padding:32px; text-align:center;">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--shrimp-deep)" stroke-width="1.2" opacity="0.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+          <span style="font-size:13px; color:var(--muted); font-style:italic;">Déposez votre visuel 3D ici<br/><code style="font-size:11px; background:var(--bg-warm); padding:2px 6px; border-radius:3px; font-style:normal;">assets/renders/render-1.jpeg</code></span>
+        </div>
+        <!-- Badge localisation -->
+        <div style="position:absolute; bottom:16px; left:16px; background:rgba(250,233,226,0.92); backdrop-filter:blur(8px); padding:10px 16px; border-radius:8px; z-index:2;">
+          <div style="font-size:10px; color:var(--shrimp-deep); font-weight:600; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:3px;">Localisation</div>
+          <div style="font-family:var(--serif); font-size:15px; color:var(--royal);">Port-Saint-Louis-du-Rhône</div>
+        </div>
       </div>
-      <div>
-        <p>Le site repose sur les standards les plus exigeants : biosécurité, efficience énergétique, bien-être animal.</p>
-        <p>Notre ambition : <strong>construire en France une filière aquacole de référence</strong> — industrielle dans son exécution, artisanale dans son exigence.</p>
+
+      <!-- Colonne droite : image 2 + données clés -->
+      <div style="display:flex; flex-direction:column; gap:14px;">
+
+        <!-- Image secondaire 3D — render 2 -->
+        <div style="position:relative; border-radius:10px; overflow:hidden; background:var(--bg-soft); flex:1; min-height:180px;">
+          <img src="assets/renders/render-2.jpeg"
+               alt="Intérieur bassins CamargAqua — 3D"
+               loading="lazy"
+               style="width:100%; height:100%; object-fit:cover; display:block;"
+               onerror="this.style.display='none'" />
+          <div class="render-placeholder" style="position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px; padding:24px; text-align:center;">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--shrimp-deep)" stroke-width="1.2" opacity="0.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+            <span style="font-size:12px; color:var(--muted); font-style:italic;">Visuel intérieur · 3D<br/><code style="font-size:11px; background:var(--bg-warm); padding:2px 6px; border-radius:3px; font-style:normal;">assets/renders/render-2.jpeg</code></span>
+          </div>
+        </div>
+
+        <!-- Données infrastructure -->
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+          <div style="background:var(--royal-3); border-radius:8px; padding:18px 16px;">
+            <div style="font-size:10px; color:var(--shrimp); font-weight:600; letter-spacing:.1em; text-transform:uppercase; margin-bottom:6px;">Foncier</div>
+            <div style="font-family:var(--serif); font-size:20px; color:#F5F4F0; font-weight:300;">Acquis</div>
+            <div style="font-size:12px; color:rgba(245,244,240,0.5); margin-top:3px;">Sécurisé, titré</div>
+          </div>
+          <div style="background:var(--bg-soft); border-radius:8px; padding:18px 16px;">
+            <div style="font-size:10px; color:var(--shrimp-deep); font-weight:600; letter-spacing:.1em; text-transform:uppercase; margin-bottom:6px;">Eau de mer</div>
+            <div style="font-family:var(--serif); font-size:20px; color:var(--royal); font-weight:300;">Directe</div>
+            <div style="font-size:12px; color:var(--muted); margin-top:3px;">Méditerranée · accès immédiat</div>
+          </div>
+          <div style="background:var(--bg-soft); border-radius:8px; padding:18px 16px;">
+            <div style="font-size:10px; color:var(--shrimp-deep); font-weight:600; letter-spacing:.1em; text-transform:uppercase; margin-bottom:6px;">Production</div>
+            <div style="font-family:var(--serif); font-size:20px; color:var(--royal); font-weight:300;">250 t/an</div>
+            <div style="font-size:12px; color:var(--muted); margin-top:3px;">Phase 1 · extensible</div>
+          </div>
+          <div style="background:var(--royal-3); border-radius:8px; padding:18px 16px;">
+            <div style="font-size:10px; color:var(--shrimp); font-weight:600; letter-spacing:.1em; text-transform:uppercase; margin-bottom:6px;">Région</div>
+            <div style="font-family:var(--serif); font-size:20px; color:#F5F4F0; font-weight:300;">Camargue</div>
+            <div style="font-size:12px; color:rgba(245,244,240,0.5); margin-top:3px;">Réserve UNESCO · PACA</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -155,20 +221,6 @@ section { padding: clamp(48px, 6vw, 90px) 0; }
             </div>
             <div style="font-family:var(--serif); font-size:22px; color:var(--royal); font-weight:400; line-height:1.15; margin-bottom:4px;">Eau pure</div>
             <p style="font-size:13px; color:var(--muted); line-height:1.5; margin:0;">Filtrée en continu, recyclée à 95 %.</p>
-          </div>
-          <div style="background:var(--bg); border-radius:8px; padding:24px 22px; border-bottom:3px solid var(--shrimp-pale); transition: all .3s ease;" onmouseover="this.style.borderColor='var(--shrimp)'; this.style.transform='translateY(-3px)'; this.style.background='var(--shrimp-pale)'" onmouseout="this.style.borderColor='var(--shrimp-pale)'; this.style.transform='translateY(0)'; this.style.background='var(--bg)'">
-            <div style="width:42px; height:42px; background:var(--shrimp-pale); border-radius:50%; display:grid; place-items:center; margin-bottom:14px; color:var(--shrimp-deep);">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M14 14.76V3a2 2 0 0 0-4 0v11.76a4 4 0 1 0 4 0z"/></svg>
-            </div>
-            <div style="font-family:var(--serif); font-size:22px; color:var(--royal); font-weight:400; line-height:1.15; margin-bottom:4px;">28 °C stable</div>
-            <p style="font-size:13px; color:var(--muted); line-height:1.5; margin:0;">Toute l'année, indépendant de la météo.</p>
-          </div>
-          <div style="background:var(--bg); border-radius:8px; padding:24px 22px; border-bottom:3px solid var(--shrimp-pale); transition: all .3s ease;" onmouseover="this.style.borderColor='var(--shrimp)'; this.style.transform='translateY(-3px)'; this.style.background='var(--shrimp-pale)'" onmouseout="this.style.borderColor='var(--shrimp-pale)'; this.style.transform='translateY(0)'; this.style.background='var(--bg)'">
-            <div style="width:42px; height:42px; background:var(--shrimp-pale); border-radius:50%; display:grid; place-items:center; margin-bottom:14px; color:var(--shrimp-deep);">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 12c2-1 4-1 6 0s4 1 6 0 4-1 6 0"/><path d="M3 6c2-1 4-1 6 0s4 1 6 0 4-1 6 0"/><path d="M3 18c2-1 4-1 6 0s4 1 6 0 4-1 6 0"/></svg>
-            </div>
-            <div style="font-family:var(--serif); font-size:22px; color:var(--royal); font-weight:400; line-height:1.15; margin-bottom:4px;">Zéro rejet</div>
-            <p style="font-size:13px; color:var(--muted); line-height:1.5; margin:0;">Aucun impact sur le milieu naturel.</p>
           </div>
           <div style="background:var(--bg); border-radius:8px; padding:24px 22px; border-bottom:3px solid var(--shrimp-pale); transition: all .3s ease;" onmouseover="this.style.borderColor='var(--shrimp)'; this.style.transform='translateY(-3px)'; this.style.background='var(--shrimp-pale)'" onmouseout="this.style.borderColor='var(--shrimp-pale)'; this.style.transform='translateY(0)'; this.style.background='var(--bg)'">
             <div style="width:42px; height:42px; background:var(--shrimp-pale); border-radius:50%; display:grid; place-items:center; margin-bottom:14px; color:var(--shrimp-deep);">
