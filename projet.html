@@ -21,7 +21,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&family=Cormorant+Garamond:wght@300;400&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="assets/site.css" />
 <style>
 .project-body {
@@ -159,95 +159,41 @@
 
 <hr class="section-sep" />
 
-<!-- ═══ RAS TECHNIQUE ═══ -->
-<section style="background: var(--bg-soft); padding: clamp(64px,8vw,110px) 0;">
+<!-- ═══ RAS ALLÉGÉ ═══ -->
+<section style="background: var(--bg-soft); padding: clamp(48px,6vw,80px) 0;">
   <div class="wrap">
     <div class="chapter-label reveal">
       <span class="ch-num">—</span>
       <span class="ch-title">Technologie RAS</span>
     </div>
-    <header class="section-head reveal reveal-delay-1">
+    <header class="section-head reveal reveal-delay-1" style="margin-bottom: 40px;">
       <div>
-        <h2 style="font-size: clamp(36px, 4.4vw, 56px); font-weight: 300;">Le RAS — <span class="it">circuit fermé,<br />contrôle total.</span></h2>
+        <h2 style="font-size: clamp(32px, 4vw, 52px); font-weight: 300;">Circuit fermé, <span class="it">contrôle total.</span></h2>
       </div>
       <div class="head-meta">
-        <p class="lede">Recirculating Aquaculture System. L'eau est filtrée, purifiée et réinjectée en continu. Aucun rejet. Aucune dépendance au milieu naturel.</p>
+        <p class="lede">Un système RAS (Recirculating Aquaculture System) : l'eau est filtrée, purifiée et réinjectée en boucle. Zéro rejet. Zéro dépendance aux aléas naturels.</p>
       </div>
     </header>
-    <div class="ras-grid">
-      <div class="ras-steps reveal reveal-delay-1">
-        <div class="ras-step">
-          <div class="ras-step-num">1.</div>
-          <div class="ras-step-content">
-            <h4>Bassins circulaires de fluidisation</h4>
-            <p>Les crevettes évoluent dans des bassins cylindriques à flux centrifuge — courant constant, densité maîtrisée, stress minimal.</p>
-          </div>
-        </div>
-        <div class="ras-step">
-          <div class="ras-step-num">2.</div>
-          <div class="ras-step-content">
-            <h4>Filtration mécanique</h4>
-            <p>Séparation des matières en suspension par tambours filtrants rotatifs. Élimination des fèces et résidus alimentaires avant recirculation.</p>
-          </div>
-        </div>
-        <div class="ras-step">
-          <div class="ras-step-num">3.</div>
-          <div class="ras-step-content">
-            <h4>Biofiltre à nitrobactéries</h4>
-            <p>Les bactéries nitrifiantes transforment l'ammoniac (NH₃) en nitrites puis en nitrates, rendant l'eau biologiquement stable.</p>
-          </div>
-        </div>
-        <div class="ras-step">
-          <div class="ras-step-num">4.</div>
-          <div class="ras-step-content">
-            <h4>UV · Dégazage · Oxygénation</h4>
-            <p>Stérilisation UV des pathogènes, dégazage du CO₂ excédentaire, réoxygénation à l'air pur avant retour en bassin.</p>
-          </div>
-        </div>
-        <div class="ras-step">
-          <div class="ras-step-num">5.</div>
-          <div class="ras-step-content">
-            <h4>Monitoring temps réel</h4>
-            <p>O₂, pH, température, NH₃, turbidité — mesurés en continu. Alertes automatiques. Protocoles de réponse standardisés.</p>
-          </div>
-        </div>
+    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;" class="reveal reveal-delay-2">
+      <div style="background: var(--bg); border-radius: 10px; padding: 28px 22px; border-top: 3px solid var(--shrimp);">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--shrimp-deep)" stroke-width="1.6" style="margin-bottom:16px;"><path d="M12 2.5C8 8 5 12 5 16a7 7 0 0 0 14 0c0-4-3-8-7-13.5z"/></svg>
+        <div style="font-size: 17px; font-weight: 600; color: var(--royal); margin-bottom: 6px;">Eau recyclée à 95 %</div>
+        <p style="font-size: 13px; color: var(--muted); line-height: 1.6; margin: 0;">Filtrée en continu, sans rejet en milieu naturel.</p>
       </div>
-      <div class="reveal reveal-delay-2">
-        <!-- Grille visuelle : 6 garanties en cartes avec icônes -->
-        <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 12px;">
-          <div style="background:var(--bg); border-radius:8px; padding:24px 22px; border-bottom:3px solid var(--shrimp-pale); transition: all .3s ease;" onmouseover="this.style.borderColor='var(--shrimp)'; this.style.transform='translateY(-3px)'; this.style.background='var(--shrimp-pale)'" onmouseout="this.style.borderColor='var(--shrimp-pale)'; this.style.transform='translateY(0)'; this.style.background='var(--bg)'">
-            <div style="width:42px; height:42px; background:var(--shrimp-pale); border-radius:50%; display:grid; place-items:center; margin-bottom:14px; color:var(--shrimp-deep);">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 2.5C8 8 5 12 5 16a7 7 0 0 0 14 0c0-4-3-8-7-13.5z"/></svg>
-            </div>
-            <div style="font-family:var(--serif); font-size:22px; color:var(--royal); font-weight:400; line-height:1.15; margin-bottom:4px;">Eau pure</div>
-            <p style="font-size:13px; color:var(--muted); line-height:1.5; margin:0;">Filtrée en continu, recyclée à 95 %.</p>
-          </div>
-          <div style="background:var(--bg); border-radius:8px; padding:24px 22px; border-bottom:3px solid var(--shrimp-pale); transition: all .3s ease;" onmouseover="this.style.borderColor='var(--shrimp)'; this.style.transform='translateY(-3px)'; this.style.background='var(--shrimp-pale)'" onmouseout="this.style.borderColor='var(--shrimp-pale)'; this.style.transform='translateY(0)'; this.style.background='var(--bg)'">
-            <div style="width:42px; height:42px; background:var(--shrimp-pale); border-radius:50%; display:grid; place-items:center; margin-bottom:14px; color:var(--shrimp-deep);">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-            </div>
-            <div style="font-family:var(--serif); font-size:22px; color:var(--royal); font-weight:400; line-height:1.15; margin-bottom:4px;">Zéro antibiotique</div>
-            <p style="font-size:13px; color:var(--muted); line-height:1.5; margin:0;">Biosécurité stricte, sans intrant chimique.</p>
-          </div>
-          <div style="background:var(--bg); border-radius:8px; padding:24px 22px; border-bottom:3px solid var(--shrimp-pale); transition: all .3s ease;" onmouseover="this.style.borderColor='var(--shrimp)'; this.style.transform='translateY(-3px)'; this.style.background='var(--shrimp-pale)'" onmouseout="this.style.borderColor='var(--shrimp-pale)'; this.style.transform='translateY(0)'; this.style.background='var(--bg)'">
-            <div style="width:42px; height:42px; background:var(--shrimp-pale); border-radius:50%; display:grid; place-items:center; margin-bottom:14px; color:var(--shrimp-deep);">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            </div>
-            <div style="font-family:var(--serif); font-size:22px; color:var(--royal); font-weight:400; line-height:1.15; margin-bottom:4px;">Sans saison</div>
-            <p style="font-size:13px; color:var(--muted); line-height:1.5; margin:0;">Production régulière 365 jours/an.</p>
-          </div>
-          <div style="background:var(--bg); border-radius:8px; padding:24px 22px; border-bottom:3px solid var(--shrimp-pale); transition: all .3s ease;" onmouseover="this.style.borderColor='var(--shrimp)'; this.style.transform='translateY(-3px)'; this.style.background='var(--shrimp-pale)'" onmouseout="this.style.borderColor='var(--shrimp-pale)'; this.style.transform='translateY(0)'; this.style.background='var(--bg)'">
-            <div style="width:42px; height:42px; background:var(--shrimp-pale); border-radius:50%; display:grid; place-items:center; margin-bottom:14px; color:var(--shrimp-deep);">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M9 11l3 3 8-8"/><path d="M21 12c0 5-4 9-9 9s-9-4-9-9 4-9 9-9c1.5 0 3 .4 4.3 1"/></svg>
-            </div>
-            <div style="font-family:var(--serif); font-size:22px; color:var(--royal); font-weight:400; line-height:1.15; margin-bottom:4px;">Traçable</div>
-            <p style="font-size:13px; color:var(--muted); line-height:1.5; margin:0;">Lot unitaire, de l'œuf au client final.</p>
-          </div>
-        </div>
-        <div style="margin-top:16px; background:var(--royal-3); border-radius:8px; padding:24px 28px;" class="reveal reveal-delay-3">
-          <div style="font-size:11px; color:var(--shrimp); font-weight:600; letter-spacing:0.12em; text-transform:uppercase; margin-bottom:10px;">En résumé</div>
-          <p style="font-size:15px; color:rgba(245,244,240,0.85); line-height:1.65; margin:0;">Un élevage <strong style="color:#F5F4F0;">indépendant des saisons et de la météo</strong>, produisant une crevette d'une régularité absolue.</p>
-        </div>
+      <div style="background: var(--bg); border-radius: 10px; padding: 28px 22px; border-top: 3px solid var(--shrimp);">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--shrimp-deep)" stroke-width="1.6" style="margin-bottom:16px;"><circle cx="12" cy="12" r="9"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        <div style="font-size: 17px; font-weight: 600; color: var(--royal); margin-bottom: 6px;">Zéro antibiotique</div>
+        <p style="font-size: 13px; color: var(--muted); line-height: 1.6; margin: 0;">Biosécurité stricte, sans intrant chimique.</p>
+      </div>
+      <div style="background: var(--bg); border-radius: 10px; padding: 28px 22px; border-top: 3px solid var(--shrimp);">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--shrimp-deep)" stroke-width="1.6" style="margin-bottom:16px;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <div style="font-size: 17px; font-weight: 600; color: var(--royal); margin-bottom: 6px;">365 jours / an</div>
+        <p style="font-size: 13px; color: var(--muted); line-height: 1.6; margin: 0;">Production régulière, indépendante des saisons.</p>
+      </div>
+      <div style="background: var(--bg); border-radius: 10px; padding: 28px 22px; border-top: 3px solid var(--shrimp);">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--shrimp-deep)" stroke-width="1.6" style="margin-bottom:16px;"><path d="M9 11l3 3 8-8"/><path d="M21 12c0 5-4 9-9 9s-9-4-9-9 4-9 9-9c1.5 0 3 .4 4.3 1"/></svg>
+        <div style="font-size: 17px; font-weight: 600; color: var(--royal); margin-bottom: 6px;">Traçabilité totale</div>
+        <p style="font-size: 13px; color: var(--muted); line-height: 1.6; margin: 0;">Lot unitaire, de l'écloserie au client final.</p>
       </div>
     </div>
   </div>
@@ -255,26 +201,209 @@
 
 <hr class="section-sep" />
 
-<section style="padding: clamp(48px,6vw,80px) 0;">
+<!-- ═══ CARTE GÉOGRAPHIQUE ═══ -->
+<section style="background: var(--royal-3); padding: clamp(56px,7vw,96px) 0; overflow: hidden;">
   <div class="wrap">
-    <div class="chapter-label reveal">
-      <span class="ch-num">—</span>
-      <span class="ch-title">Repères chiffrés</span>
+    <div class="chapter-label reveal" style="margin-bottom: 40px;">
+      <span class="ch-num" style="color: var(--shrimp);">—</span>
+      <span class="ch-title" style="color: rgba(245,244,240,0.4); letter-spacing: 0.14em;">Proximité</span>
     </div>
-    <div class="stats reveal reveal-delay-1">
-      <div class="stat-card"><div class="v"><span data-target="250">0</span><span class="u">t/an</span></div><div class="l">Production phase 1</div></div>
-      <div class="stat-card pink"><div class="v"><span data-target="95">0</span><span class="u">%</span></div><div class="l">Économie d'eau vs. plein air</div></div>
-      <div class="stat-card"><div class="v">0<span class="u">antibio.</span></div><div class="l">Sans antibiotique</div></div>
-      <div class="stat-card"><div class="v">24<span class="u">h</span></div><div class="l">Du bassin à la livraison</div></div>
+    <div style="display: grid; grid-template-columns: 1fr 1.1fr; gap: clamp(40px,6vw,80px); align-items: center;" class="reveal reveal-delay-1">
+      <!-- Texte -->
+      <div>
+        <h2 style="font-size: clamp(32px,4.2vw,54px); font-weight: 300; color: #F5F4F0; line-height: 1.1; margin-bottom: 20px;">
+          Au cœur du Sud.<br /><span style="color: var(--shrimp); font-weight: 300;">À portée de France.</span>
+        </h2>
+        <p style="font-size: 16px; color: rgba(245,244,240,0.6); line-height: 1.75; margin-bottom: 36px; max-width: 38ch;">Port-Saint-Louis-du-Rhône est le seul point de France où la Méditerranée, le Rhône et une zone industrielle se rencontrent. Un avantage logistique unique.</p>
+        <!-- Ville distances -->
+        <div style="display: flex; flex-direction: column; gap: 0;">
+          <div style="display: flex; align-items: center; justify-content: space-between; padding: 14px 0; border-bottom: 1px solid rgba(245,244,240,0.08);">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <div style="width: 6px; height: 6px; border-radius: 50%; background: var(--shrimp);"></div>
+              <span style="font-size: 15px; color: #F5F4F0; font-weight: 500;">Marseille</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 20px;">
+              <span style="font-size: 14px; color: rgba(245,244,240,0.45);">70 km</span>
+              <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; color: var(--shrimp); background: rgba(232,180,166,0.12); padding: 4px 10px; border-radius: 20px;">J+0</span>
+            </div>
+          </div>
+          <div style="display: flex; align-items: center; justify-content: space-between; padding: 14px 0; border-bottom: 1px solid rgba(245,244,240,0.08);">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <div style="width: 6px; height: 6px; border-radius: 50%; background: var(--shrimp);"></div>
+              <span style="font-size: 15px; color: #F5F4F0; font-weight: 500;">Montpellier</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 20px;">
+              <span style="font-size: 14px; color: rgba(245,244,240,0.45);">100 km</span>
+              <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; color: var(--shrimp); background: rgba(232,180,166,0.12); padding: 4px 10px; border-radius: 20px;">J+0</span>
+            </div>
+          </div>
+          <div style="display: flex; align-items: center; justify-content: space-between; padding: 14px 0; border-bottom: 1px solid rgba(245,244,240,0.08);">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <div style="width: 6px; height: 6px; border-radius: 50%; background: var(--shrimp);"></div>
+              <span style="font-size: 15px; color: #F5F4F0; font-weight: 500;">Lyon</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 20px;">
+              <span style="font-size: 14px; color: rgba(245,244,240,0.45);">280 km</span>
+              <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; color: var(--shrimp); background: rgba(232,180,166,0.12); padding: 4px 10px; border-radius: 20px;">J+0</span>
+            </div>
+          </div>
+          <div style="display: flex; align-items: center; justify-content: space-between; padding: 14px 0; border-bottom: 1px solid rgba(245,244,240,0.08);">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <div style="width: 6px; height: 6px; border-radius: 50%; background: rgba(245,244,240,0.3);"></div>
+              <span style="font-size: 15px; color: rgba(245,244,240,0.5); font-weight: 500;">Bordeaux</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 20px;">
+              <span style="font-size: 14px; color: rgba(245,244,240,0.3);">520 km</span>
+              <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; color: rgba(245,244,240,0.35); background: rgba(245,244,240,0.06); padding: 4px 10px; border-radius: 20px;">J+1</span>
+            </div>
+          </div>
+          <div style="display: flex; align-items: center; justify-content: space-between; padding: 14px 0;">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <div style="width: 6px; height: 6px; border-radius: 50%; background: rgba(245,244,240,0.3);"></div>
+              <span style="font-size: 15px; color: rgba(245,244,240,0.5); font-weight: 500;">Paris</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 20px;">
+              <span style="font-size: 14px; color: rgba(245,244,240,0.3);">780 km</span>
+              <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; color: rgba(245,244,240,0.35); background: rgba(245,244,240,0.06); padding: 4px 10px; border-radius: 20px;">J+1</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Carte SVG France stylisée -->
+      <div style="position: relative; display: flex; align-items: center; justify-content: center;">
+        <svg viewBox="0 0 340 380" style="width: 100%; max-width: 380px; opacity: 0.9;" xmlns="http://www.w3.org/2000/svg">
+          <!-- Silhouette France simplifiée -->
+          <path d="M120,20 L155,18 L175,30 L210,25 L240,40 L260,55 L270,80 L265,100 L280,115 L290,140 L285,165 L300,185 L295,210 L275,235 L260,255 L240,265 L220,280 L200,295 L185,310 L170,320 L155,315 L140,300 L120,290 L100,275 L80,260 L65,240 L55,215 L50,190 L60,165 L50,140 L55,115 L70,95 L75,70 L90,50 Z" fill="none" stroke="rgba(245,244,240,0.12)" stroke-width="1.5"/>
+          <!-- Lignes rayonnantes depuis Port-Saint-Louis -->
+          <line x1="175" y1="248" x2="210" y2="285" stroke="rgba(232,180,166,0.25)" stroke-width="1" stroke-dasharray="4,3"/>
+          <line x1="175" y1="248" x2="148" y2="275" stroke="rgba(232,180,166,0.25)" stroke-width="1" stroke-dasharray="4,3"/>
+          <line x1="175" y1="248" x2="178" y2="170" stroke="rgba(232,180,166,0.25)" stroke-width="1" stroke-dasharray="4,3"/>
+          <line x1="175" y1="248" x2="100" y2="180" stroke="rgba(232,180,166,0.15)" stroke-width="1" stroke-dasharray="4,3"/>
+          <line x1="175" y1="248" x2="162" y2="65" stroke="rgba(232,180,166,0.1)" stroke-width="1" stroke-dasharray="4,3"/>
+          <!-- Point Port-Saint-Louis (origine) -->
+          <circle cx="175" cy="248" r="10" fill="rgba(232,180,166,0.15)" />
+          <circle cx="175" cy="248" r="5" fill="var(--shrimp)" />
+          <circle cx="175" cy="248" r="3" fill="#F5F4F0" />
+          <!-- Marseille -->
+          <circle cx="210" cy="285" r="4" fill="rgba(232,180,166,0.7)" />
+          <text x="217" y="289" font-size="10" fill="rgba(245,244,240,0.6)" font-family="Space Grotesk, sans-serif">Marseille</text>
+          <!-- Montpellier -->
+          <circle cx="148" cy="275" r="4" fill="rgba(232,180,166,0.7)" />
+          <text x="104" y="272" font-size="10" fill="rgba(245,244,240,0.6)" font-family="Space Grotesk, sans-serif">Montpellier</text>
+          <!-- Lyon -->
+          <circle cx="178" cy="170" r="4" fill="rgba(232,180,166,0.7)" />
+          <text x="186" y="174" font-size="10" fill="rgba(245,244,240,0.6)" font-family="Space Grotesk, sans-serif">Lyon</text>
+          <!-- Bordeaux -->
+          <circle cx="100" cy="180" r="3" fill="rgba(245,244,240,0.25)" />
+          <text x="58" y="177" font-size="10" fill="rgba(245,244,240,0.3)" font-family="Space Grotesk, sans-serif">Bordeaux</text>
+          <!-- Paris -->
+          <circle cx="162" cy="65" r="3" fill="rgba(245,244,240,0.25)" />
+          <text x="168" y="62" font-size="10" fill="rgba(245,244,240,0.3)" font-family="Space Grotesk, sans-serif">Paris</text>
+          <!-- Label origine -->
+          <text x="175" y="268" font-size="9" fill="rgba(232,180,166,0.8)" font-family="Space Grotesk, sans-serif" text-anchor="middle">Port-Saint-Louis</text>
+        </svg>
+      </div>
     </div>
   </div>
 </section>
+
+<hr class="section-sep" />
+
+<!-- ═══ J+0 FRISE ═══ -->
+<section style="background: var(--bg); padding: clamp(56px,7vw,96px) 0;">
+  <div class="wrap">
+    <div class="chapter-label reveal" style="margin-bottom: 40px;">
+      <span class="ch-num">—</span>
+      <span class="ch-title">De la Camargue à votre assiette</span>
+    </div>
+    <div style="display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 48px;" class="reveal reveal-delay-1">
+      <h2 style="font-size: clamp(32px,4vw,52px); font-weight: 300; max-width: 16ch;">La même journée, <span class="it">livrée.</span></h2>
+      <div style="text-align: right; padding-top: 8px;">
+        <div style="font-size: clamp(44px,5vw,72px); font-weight: 700; color: var(--royal); letter-spacing: -0.03em; line-height: 1;">J+0</div>
+        <div style="font-size: 13px; color: var(--muted); margin-top: 2px;">Vietnam → France : 21 jours surgelé</div>
+      </div>
+    </div>
+    <!-- Frise horizontale -->
+    <div style="position: relative; padding-top: 20px;" class="reveal reveal-delay-2">
+      <!-- Ligne de connexion -->
+      <div style="position: absolute; top: 34px; left: calc(100%/10); right: calc(100%/10); height: 1px; background: linear-gradient(to right, var(--shrimp) 0%, var(--shrimp) 70%, var(--line) 100%); z-index: 0;"></div>
+      <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; position: relative; z-index: 1;">
+        <!-- Étape 1 -->
+        <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+          <div style="width: 28px; height: 28px; border-radius: 50%; background: var(--shrimp); display: grid; place-items: center; margin-bottom: 16px; box-shadow: 0 0 0 4px var(--bg);">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--royal)" stroke-width="2.5"><path d="M12 2.5C8 8 5 12 5 16a7 7 0 0 0 14 0c0-4-3-8-7-13.5z"/></svg>
+          </div>
+          <div style="font-size: 11px; font-weight: 700; color: var(--shrimp-deep); letter-spacing: 0.08em; margin-bottom: 6px;">06 H 00</div>
+          <div style="font-size: 15px; font-weight: 600; color: var(--royal); margin-bottom: 4px;">Bassin</div>
+          <p style="font-size: 12px; color: var(--muted); line-height: 1.5; margin: 0;">Eau de mer Méditerranée, T° contrôlée</p>
+        </div>
+        <!-- Étape 2 -->
+        <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+          <div style="width: 28px; height: 28px; border-radius: 50%; background: var(--shrimp); display: grid; place-items: center; margin-bottom: 16px; box-shadow: 0 0 0 4px var(--bg);">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--royal)" stroke-width="2.5"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+          </div>
+          <div style="font-size: 11px; font-weight: 700; color: var(--shrimp-deep); letter-spacing: 0.08em; margin-bottom: 6px;">07 H 00</div>
+          <div style="font-size: 15px; font-weight: 600; color: var(--royal); margin-bottom: 4px;">Récolte</div>
+          <p style="font-size: 12px; color: var(--muted); line-height: 1.5; margin: 0;">Pêche à pleine maturité, vivant ou frais</p>
+        </div>
+        <!-- Étape 3 -->
+        <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+          <div style="width: 28px; height: 28px; border-radius: 50%; background: var(--shrimp); display: grid; place-items: center; margin-bottom: 16px; box-shadow: 0 0 0 4px var(--bg);">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--royal)" stroke-width="2.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+          </div>
+          <div style="font-size: 11px; font-weight: 700; color: var(--shrimp-deep); letter-spacing: 0.08em; margin-bottom: 6px;">08 H 00</div>
+          <div style="font-size: 15px; font-weight: 600; color: var(--royal); margin-bottom: 4px;">Conditionnement</div>
+          <p style="font-size: 12px; color: var(--muted); line-height: 1.5; margin: 0;">Emballé dans l'heure, sous froid dirigé</p>
+        </div>
+        <!-- Étape 4 -->
+        <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+          <div style="width: 28px; height: 28px; border-radius: 50%; background: var(--shrimp); display: grid; place-items: center; margin-bottom: 16px; box-shadow: 0 0 0 4px var(--bg);">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--royal)" stroke-width="2.5"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+          </div>
+          <div style="font-size: 11px; font-weight: 700; color: var(--shrimp-deep); letter-spacing: 0.08em; margin-bottom: 6px;">09 H 00</div>
+          <div style="font-size: 15px; font-weight: 600; color: var(--royal); margin-bottom: 4px;">Expédition</div>
+          <p style="font-size: 12px; color: var(--muted); line-height: 1.5; margin: 0;">Camion frigorifique, départ Port-Saint-Louis</p>
+        </div>
+        <!-- Étape 5 -->
+        <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+          <div style="width: 28px; height: 28px; border-radius: 50%; background: var(--royal); display: grid; place-items: center; margin-bottom: 16px; box-shadow: 0 0 0 4px var(--bg);">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--shrimp)" stroke-width="2.5"><path d="M3 2l1.5 1.5"/><path d="M9 1v2"/><path d="M15 3l-1.5 1.5"/><path d="M4 8H2"/><path d="M20 8h-2"/><path d="M19.5 3 18 4.5"/><path d="M9 21c-4.5 0-7-2.5-7-7 0-3.5 2-6.5 5-7.5"/><path d="M9 21c4.5 0 7-2.5 7-7 0-3.5-2-6.5-5-7.5"/><path d="M9 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+          </div>
+          <div style="font-size: 11px; font-weight: 700; color: var(--royal); letter-spacing: 0.08em; margin-bottom: 6px;">MIDI</div>
+          <div style="font-size: 15px; font-weight: 600; color: var(--royal); margin-bottom: 4px;">Votre assiette</div>
+          <p style="font-size: 12px; color: var(--muted); line-height: 1.5; margin: 0;">Marseille, Lyon, Montpellier — le jour même</p>
+        </div>
+      </div>
+    </div>
+    <!-- Comparaison import -->
+    <div style="margin-top: 48px; padding: 24px 28px; background: var(--bg-soft); border-radius: 10px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;" class="reveal reveal-delay-3">
+      <div style="display: flex; align-items: center; gap: 16px;">
+        <div style="width: 3px; height: 40px; background: var(--shrimp); border-radius: 2px; flex-shrink: 0;"></div>
+        <div>
+          <div style="font-size: 11px; color: var(--shrimp-deep); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 4px;">CamargAqua</div>
+          <div style="font-size: 20px; font-weight: 700; color: var(--royal);">6 heures · 80 km</div>
+        </div>
+      </div>
+      <div style="font-size: 22px; color: var(--line);">vs.</div>
+      <div style="display: flex; align-items: center; gap: 16px;">
+        <div style="width: 3px; height: 40px; background: var(--line); border-radius: 2px; flex-shrink: 0;"></div>
+        <div>
+          <div style="font-size: 11px; color: var(--muted); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 4px;">Crevette importée</div>
+          <div style="font-size: 20px; font-weight: 700; color: var(--muted);">21 jours · 12 000 km surgelé</div>
+        </div>
+      </div>
+      <div style="font-size: 14px; color: var(--muted); max-width: 28ch; line-height: 1.6;">Vietnam, Équateur, Madagascar — surgelées à -18 °C pour traverser les océans.</div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-sep" />
 
 <section>
   <div class="wrap">
     <div style="background: var(--shrimp); border-radius: 6px; padding: clamp(48px, 6vw, 80px); display: grid; grid-template-columns: 1.4fr 1fr; gap: 32px; align-items: end;">
       <div>
-        <h2 style="color: var(--royal); font-size: clamp(32px, 4vw, 48px); font-weight: 300;">Un produit qui découle<br />de cette <em style="font-style: italic; color: var(--bg);">maîtrise.</em></h2>
+        <h2 style="color: var(--royal); font-size: clamp(32px, 4vw, 48px); font-weight: 300;">Un produit qui découle<br />de cette <span class="it" style="color: var(--royal-3);">maîtrise.</span></h2>
       </div>
       <div style="display: flex; gap: 12px; justify-content: flex-end; flex-wrap: wrap;">
         <a class="btn btn-primary" href="produit.html" style="background: var(--royal); border-color: var(--royal); color: var(--bg);">Le produit</a>

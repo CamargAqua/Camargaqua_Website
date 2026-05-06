@@ -123,6 +123,28 @@
     });
   }
 
+  // ——— Team data hydration from _data/team.json (Pages CMS) ———
+  if (document.querySelector('[data-team-slot]')) {
+    fetch('/_data/team.json')
+      .then(function (r) { return r.json(); })
+      .then(function (data) {
+        var members = Array.isArray(data) ? data : (data.members || []);
+        document.querySelectorAll('[data-team-slot]').forEach(function (card) {
+          var m = members[parseInt(card.dataset.teamSlot, 10)];
+          if (!m) return;
+          var roleEl = card.querySelector('.team-card-role');
+          var nameEl = card.querySelector('.team-card-name');
+          var descEl = card.querySelector('.team-card-desc');
+          var img    = card.querySelector('.team-card-photo img');
+          if (roleEl) roleEl.textContent = m.role;
+          if (nameEl) nameEl.textContent = m.name;
+          if (descEl) descEl.textContent = m.desc;
+          if (img && m.photo) { img.src = m.photo; img.alt = m.name; }
+        });
+      })
+      .catch(function () {}); // static HTML fallback remains
+  }
+
   // ——— Mark active nav link ———
   var path = location.pathname.split('/').pop() || 'index.html';
   document.querySelectorAll('nav.primary a, .mobile-nav-overlay a').forEach(function (a) {

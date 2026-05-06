@@ -1,0 +1,29 @@
+# CamargAqua — Pages CMS configuration
+# Documentation : https://pagescms.org/docs/
+
+media:
+  input: assets/team
+  output: /assets/team
+
+content:
+  - name: team
+    label: "Équipe"
+    path: _data/team.json
+    type: file
+    fields:
+      - name: members
+        label: Membres de l'équipe
+        type: list
+        fields:
+          - name: name
+            label: Nom complet
+            type: string
+          - name: role
+            label: Rôle / Titre
+            type: string
+          - name: desc
+            label: Description courte
+            type: string
+          - name: photo
+            label: Photo
+            type: image

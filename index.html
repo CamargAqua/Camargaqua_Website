@@ -24,7 +24,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&family=Cormorant+Garamond:wght@300;400&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 <link rel="preload" as="image" href="https://images.unsplash.com/photo-1562747981-1975c624e26e?w=2400&q=85&auto=format&fit=crop" fetchpriority="high" />
 <link rel="stylesheet" href="assets/site.css" />
 <style>
@@ -108,8 +108,12 @@
   text-shadow: 0 1px 12px rgba(250,233,226,0.5);
 }
 .home-hero h1 .it {
-  color: var(--shrimp-deep);
-  text-shadow: 0 2px 16px rgba(250,233,226,0.7), 0 0 40px rgba(250,233,226,0.4);
+  background: var(--shrimp);
+  color: var(--bg);
+  padding: 0.01em 0.14em 0.04em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  text-shadow: none;
 }
 .home-hero .lede { max-width: 44ch; margin-top: 20px; font-size: clamp(20px, 2vw, 26px); }
 .home-hero-meta {
@@ -382,21 +386,85 @@
         La France consomme la crevette par millions de portions par an — sans en produire. CamargAqua change l'équation, sur un marché en croissance, avec une empreinte carbone divisée par dix.
       </p>
     </div>
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+    <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px;">
       <!-- Carte 1 : croissance du marché -->
       <div style="background:rgba(245,244,240,0.07); border-left:3px solid var(--shrimp); border-radius:0 10px 10px 0; padding:36px 32px; transition: background .3s ease, transform .3s ease;" class="reveal reveal-delay-1" onmouseover="this.style.background='rgba(232,180,166,0.16)'; this.style.transform='translateY(-4px)'" onmouseout="this.style.background='rgba(245,244,240,0.07)'; this.style.transform='translateY(0)'">
         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--shrimp)" stroke-width="1.5" style="margin-bottom:20px;"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="14 7 21 7 21 14"/></svg>
-        <div style="font-family:var(--serif); font-size:clamp(48px,5.5vw,72px); font-weight:300; color:#F5F4F0; line-height:1;">+<span data-target="6">0</span><span style="font-size:0.36em; color:var(--shrimp); margin-left:3px; font-style:italic;">%</span></div>
+        <div style="font-family:var(--serif); font-size:clamp(48px,5.5vw,72px); font-weight:300; color:#F5F4F0; line-height:1;">+<span data-target="6">0</span><span style="font-size:0.36em; color:var(--shrimp); margin-left:3px;">%</span></div>
         <div style="font-size:11px; color:rgba(245,244,240,0.55); margin-top:16px; letter-spacing:0.06em; font-weight:600; text-transform:uppercase;">Croissance annuelle</div>
         <p style="font-size:14px; color:rgba(245,244,240,0.5); margin:10px 0 0; line-height:1.6;">Demande crevette en hausse continue depuis 2018.</p>
       </div>
-      <!-- Carte 2 : distance moyenne import -->
+      <!-- Carte 2 : consommation France -->
       <div style="background:rgba(232,180,166,0.10); border-left:3px solid var(--shrimp-deep); border-radius:0 10px 10px 0; padding:36px 32px; transition: background .3s ease, transform .3s ease;" class="reveal reveal-delay-2" onmouseover="this.style.background='rgba(232,180,166,0.20)'; this.style.transform='translateY(-4px)'" onmouseout="this.style.background='rgba(232,180,166,0.10)'; this.style.transform='translateY(0)'">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--shrimp)" stroke-width="1.5" style="margin-bottom:20px;"><path d="M3 3h18v18H3z"/><path d="M3 9h18M3 15h18M9 3v18"/></svg>
+        <div style="font-family:var(--serif); font-size:clamp(48px,5.5vw,72px); font-weight:300; color:#F5F4F0; line-height:1;"><span data-target="120000">0</span><span style="font-size:0.32em; color:var(--shrimp); margin-left:4px;">t</span></div>
+        <div style="font-size:11px; color:rgba(245,244,240,0.55); margin-top:16px; letter-spacing:0.06em; font-weight:600; text-transform:uppercase;">Consommation France / an</div>
+        <p style="font-size:14px; color:rgba(245,244,240,0.5); margin:10px 0 0; line-height:1.6;">120 000 tonnes de crevettes consommées en France chaque année — importées à 95 %.</p>
+      </div>
+      <!-- Carte 3 : distance moyenne import -->
+      <div style="background:rgba(245,244,240,0.05); border-left:3px solid var(--shrimp); border-radius:0 10px 10px 0; padding:36px 32px; transition: background .3s ease, transform .3s ease;" class="reveal reveal-delay-3" onmouseover="this.style.background='rgba(232,180,166,0.16)'; this.style.transform='translateY(-4px)'" onmouseout="this.style.background='rgba(245,244,240,0.05)'; this.style.transform='translateY(0)'">
         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--shrimp)" stroke-width="1.5" style="margin-bottom:20px;"><path d="M12 2L2 7l10 5 10-5-10-5z"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
-        <div style="font-family:var(--serif); font-size:clamp(48px,5.5vw,72px); font-weight:300; color:#F5F4F0; line-height:1;"><span data-target="12000">0</span><span style="font-size:0.32em; color:var(--shrimp); margin-left:3px; font-style:italic;">km</span></div>
+        <div style="font-family:var(--serif); font-size:clamp(48px,5.5vw,72px); font-weight:300; color:#F5F4F0; line-height:1;"><span data-target="12000">0</span><span style="font-size:0.32em; color:var(--shrimp); margin-left:3px;">km</span></div>
         <div style="font-size:11px; color:rgba(245,244,240,0.55); margin-top:16px; letter-spacing:0.06em; font-weight:600; text-transform:uppercase;">Trajet moyen import</div>
         <p style="font-size:14px; color:rgba(245,244,240,0.5); margin:10px 0 0; line-height:1.6;">Vietnam, Équateur, Madagascar — surgelés, transportés à 12 000 km.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-sep" />
+<!-- ═══ L'ÉQUIPE ═══ -->
+<section style="background: var(--bg); padding: clamp(56px,7vw,96px) 0;">
+  <div class="wrap">
+    <div class="chapter-label reveal">
+      <span class="ch-num">—</span>
+      <span class="ch-title">L'équipe</span>
+    </div>
+    <header class="section-head reveal reveal-delay-1" style="margin-bottom: clamp(36px,5vw,64px);">
+      <div>
+        <h2 style="font-size:clamp(36px,4.4vw,56px); font-weight:300;">Les porteurs<br /><span class="it">du projet.</span></h2>
+      </div>
+      <div class="head-meta">
+        <p class="lede">Une équipe pluridisciplinaire — direction, technique aquacole, opérations terrain.</p>
+      </div>
+    </header>
+    <div class="grid-3col" style="gap: clamp(20px,3vw,36px);">
+      <!-- Adrien -->
+      <article class="team-card reveal reveal-delay-1" data-team-slot="0">
+        <div class="team-card-photo">
+          <img src="assets/team/adrien.jpg" alt="Adrien RIEU" loading="lazy" width="320" height="320" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=&quot;team-card-initials&quot;>AR</div>'" />
+        </div>
+        <div class="team-card-body">
+          <div class="team-card-role">Président</div>
+          <h3 class="team-card-name">Adrien RIEU</h3>
+          <div class="team-card-sep"></div>
+          <p class="team-card-desc">Stratégie, financement, gouvernance.</p>
+        </div>
+      </article>
+      <!-- Georges -->
+      <article class="team-card team-card--accent reveal reveal-delay-2" data-team-slot="1">
+        <div class="team-card-photo">
+          <img src="assets/team/georges.jpg" alt="Georges HETZEL" loading="lazy" width="320" height="320" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=&quot;team-card-initials&quot;>GH</div>'" />
+        </div>
+        <div class="team-card-body">
+          <div class="team-card-role">Directeur Technique</div>
+          <h3 class="team-card-name">Georges HETZEL</h3>
+          <div class="team-card-sep"></div>
+          <p class="team-card-desc">Ingénierie aquacole, RAS, biologie de la crevette.</p>
+        </div>
+      </article>
+      <!-- Victor -->
+      <article class="team-card reveal reveal-delay-3" data-team-slot="2">
+        <div class="team-card-photo">
+          <img src="assets/team/victor.jpg" alt="Victor MICHEL" loading="lazy" width="320" height="320" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=&quot;team-card-initials&quot;>VM</div>'" />
+        </div>
+        <div class="team-card-body">
+          <div class="team-card-role">Directeur Opérationnel</div>
+          <h3 class="team-card-name">Victor MICHEL</h3>
+          <div class="team-card-sep"></div>
+          <p class="team-card-desc">Opérations site, partenariats, déploiement industriel.</p>
+        </div>
+      </article>
     </div>
   </div>
 </section>
@@ -438,54 +506,6 @@
         <h4 style="font-size:20px; font-weight:500; margin:0 0 10px;">Production phase 1</h4>
         <p style="font-size:14px; color:var(--muted); margin:0; line-height:1.6;">250 t/an. Première crevette française d'envergure industrielle.</p>
       </div>
-    </div>
-  </div>
-</section>
-
-<hr class="section-sep" />
-<!-- ═══ L'ÉQUIPE — fond clair propre ═══ -->
-<section style="background: var(--bg); padding: clamp(56px,7vw,96px) 0;">
-  <div class="wrap">
-    <div class="chapter-label reveal">
-      <span class="ch-num">—</span>
-      <span class="ch-title">L'équipe</span>
-    </div>
-    <header class="section-head reveal reveal-delay-1">
-      <div>
-        <h2 style="font-size:clamp(36px,4.4vw,56px); font-weight:300;">Les porteurs<br /><span class="it">du projet.</span></h2>
-      </div>
-      <div class="head-meta">
-        <p class="lede">Une équipe pluridisciplinaire — direction, technique aquacole, opérations terrain.</p>
-      </div>
-    </header>
-    <div class="grid-3col">
-      <!-- Adrien — marine -->
-      <article style="background:var(--royal-3); border-radius:10px; padding:36px 32px; text-align:center; transition: transform .3s ease, box-shadow .4s ease;" class="reveal reveal-delay-1" onmouseover="this.style.transform='translateY(-6px)'; this.style.boxShadow='0 16px 40px rgba(15,27,77,0.25)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
-        <div style="width:130px; height:130px; border-radius:50%; margin:0 auto 24px; background:#fff; overflow:hidden; border:3px solid rgba(232,180,166,0.4);">
-          <img src="assets/team/adrien.jpg" alt="Adrien RIEU" loading="lazy" width="260" height="260" style="width:100%; height:100%; object-fit:cover;" onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=&quot;width:100%;height:100%;display:grid;place-items:center;background:#fff;color:var(--royal);font-family:var(--serif);font-size:40px;&quot;>AR</div>'" />
-        </div>
-        <div style="font-size:11px; color:var(--shrimp); font-weight:600; letter-spacing:0.14em; text-transform:uppercase; margin-bottom:8px;">Président</div>
-        <h3 style="font-size:22px; font-weight:500; margin:0 0 8px; color:#F5F4F0;">Adrien RIEU</h3>
-        <p style="font-size:14px; color:rgba(245,244,240,0.55); line-height:1.6; margin:0;">Stratégie, financement, gouvernance.</p>
-      </article>
-      <!-- Georges — rose -->
-      <article style="background:var(--shrimp); border-radius:10px; padding:36px 32px; text-align:center; transition: transform .3s ease, box-shadow .4s ease;" class="reveal reveal-delay-2" onmouseover="this.style.transform='translateY(-6px)'; this.style.boxShadow='0 16px 40px rgba(201,127,112,0.30)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
-        <div style="width:130px; height:130px; border-radius:50%; margin:0 auto 24px; background:#fff; overflow:hidden; border:3px solid rgba(15,27,77,0.15);">
-          <img src="assets/team/georges.jpg" alt="Georges HETZEL" loading="lazy" width="260" height="260" style="width:100%; height:100%; object-fit:cover;" onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=&quot;width:100%;height:100%;display:grid;place-items:center;background:#fff;color:var(--royal);font-family:var(--serif);font-size:40px;&quot;>GH</div>'" />
-        </div>
-        <div style="font-size:11px; color:var(--royal-3); font-weight:600; letter-spacing:0.14em; text-transform:uppercase; opacity:0.7; margin-bottom:8px;">Directeur Technique</div>
-        <h3 style="font-size:22px; font-weight:500; margin:0 0 8px; color:var(--royal-3);">Georges HETZEL</h3>
-        <p style="font-size:14px; color:rgba(15,27,77,0.6); line-height:1.6; margin:0;">Ingénierie aquacole, RAS, biologie de la crevette.</p>
-      </article>
-      <!-- Victor — marine -->
-      <article style="background:var(--royal-3); border-radius:10px; padding:36px 32px; text-align:center; transition: transform .3s ease, box-shadow .4s ease;" class="reveal reveal-delay-3" onmouseover="this.style.transform='translateY(-6px)'; this.style.boxShadow='0 16px 40px rgba(15,27,77,0.25)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
-        <div style="width:130px; height:130px; border-radius:50%; margin:0 auto 24px; background:#fff; overflow:hidden; border:3px solid rgba(232,180,166,0.4);">
-          <img src="assets/team/victor.jpg" alt="Victor MICHEL" loading="lazy" width="260" height="260" style="width:100%; height:100%; object-fit:cover;" onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=&quot;width:100%;height:100%;display:grid;place-items:center;background:#fff;color:var(--royal);font-family:var(--serif);font-size:40px;&quot;>VM</div>'" />
-        </div>
-        <div style="font-size:11px; color:var(--shrimp); font-weight:600; letter-spacing:0.14em; text-transform:uppercase; margin-bottom:8px;">Directeur Opérationnel</div>
-        <h3 style="font-size:22px; font-weight:500; margin:0 0 8px; color:#F5F4F0;">Victor MICHEL</h3>
-        <p style="font-size:14px; color:rgba(245,244,240,0.55); line-height:1.6; margin:0;">Opérations site, partenariats, déploiement industriel.</p>
-      </article>
     </div>
   </div>
 </section>

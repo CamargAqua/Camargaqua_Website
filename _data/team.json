@@ -1,0 +1,22 @@
+{
+  "members": [
+    {
+      "name": "Adrien RIEU",
+      "role": "Président",
+      "desc": "Stratégie, financement, gouvernance.",
+      "photo": "/assets/team/adrien.jpg"
+    },
+    {
+      "name": "Georges HETZEL",
+      "role": "Directeur Technique",
+      "desc": "Ingénierie aquacole, RAS, biologie de la crevette.",
+      "photo": "/assets/team/georges.jpg"
+    },
+    {
+      "name": "Victor MICHEL",
+      "role": "Directeur Opérationnel",
+      "desc": "Opérations site, partenariats, déploiement industriel.",
+      "photo": "/assets/team/victor.jpg"
+    }
+  ]
+}
