@@ -145,6 +145,103 @@
       .catch(function () {}); // static HTML fallback remains
   }
 
+  // ——— Disable inline hover transforms on touch devices ———
+  var isTouch = ('ontouchstart' in window) || navigator.maxTouchPoints > 0;
+  if (isTouch) {
+    document.querySelectorAll('[onmouseover], [onmouseout]').forEach(function (el) {
+      el.removeAttribute('onmouseover');
+      el.removeAttribute('onmouseout');
+      el.style.transform = '';
+    });
+  }
+
+  // ——— Mobile horizontal sliders ———
+  function makeSlider(el, bgVar) {
+    if (!el || el.children.length < 2) return;
+    // Mark as slider
+    el.classList.add('mobile-slider');
+    if (bgVar) el.style.setProperty('--slider-bg-inner', bgVar);
+
+    // For timeline: hide the absolute connecting line (previous sibling)
+    if (el.classList.contains('timeline-steps')) {
+      var prev = el.previousElementSibling;
+      if (prev) prev.style.display = 'none';
+    }
+
+    // Wrap in slider-wrap
+    var wrap = document.createElement('div');
+    wrap.className = 'slider-wrap';
+    el.parentNode.insertBefore(wrap, el);
+
+    // Hint
+    var hint = document.createElement('div');
+    hint.className = 'slider-hint';
+    hint.textContent = 'Faire glisser';
+    wrap.appendChild(hint);
+
+    wrap.appendChild(el);
+
+    // Dots
+    var dots = document.createElement('div');
+    dots.className = 'slider-dots';
+    var items = el.children;
+    for (var i = 0; i < items.length; i++) {
+      var dot = document.createElement('span');
+      if (i === 0) dot.classList.add('active');
+      (function(idx) {
+        dot.addEventListener('click', function () {
+          el.children[idx].scrollIntoView({ behavior:'smooth', block:'nearest', inline:'start' });
+        });
+      })(i);
+      dots.appendChild(dot);
+    }
+    wrap.appendChild(dots);
+
+    // Sync dots on scroll
+    el.addEventListener('scroll', function () {
+      var center = el.scrollLeft + el.clientWidth / 3;
+      var active = 0;
+      for (var j = 0; j < items.length; j++) {
+        if (items[j].offsetLeft <= center) active = j;
+      }
+      dots.querySelectorAll('span').forEach(function (d, k) {
+        d.classList.toggle('active', k === active);
+      });
+    }, { passive: true });
+  }
+
+  // Only activate sliders on mobile
+  if (window.innerWidth <= 900) {
+    var seen = new WeakSet();
+    function trySlider(el) {
+      if (!el || seen.has(el)) return;
+      seen.add(el);
+      makeSlider(el, null);
+    }
+
+    // By CSS class
+    document.querySelectorAll('.grid-4col, .grid-3col, .grid-2col').forEach(trySlider);
+
+    // By explicit JS marker class
+    document.querySelectorAll('.js-mobile-slider').forEach(trySlider);
+
+    // Inline grid styles — both with and without space after colon
+    var allEls = document.querySelectorAll('[style*="grid-template-columns"]');
+    allEls.forEach(function(g) {
+      var s = g.getAttribute('style') || '';
+      if (/repeat\([34]/.test(s) || /1fr 1fr/.test(s) || /1\.4fr 1fr/.test(s)) {
+        if (g.children.length >= 2) trySlider(g);
+      }
+    });
+  }
+
+  // Always init existing .slider-wrap
+  document.querySelectorAll('.slider-wrap').forEach(function (wrap) {
+    var track = wrap.querySelector('.mobile-slider');
+    if (!track) return;
+    // already handled above
+  });
+
   // ——— Mark active nav link ———
   var path = location.pathname.split('/').pop() || 'index.html';
   document.querySelectorAll('nav.primary a, .mobile-nav-overlay a').forEach(function (a) {
