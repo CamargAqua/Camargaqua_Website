@@ -70,6 +70,9 @@
 .home-hero {
   position: relative;
   min-height: clamp(480px, 80vh, 760px);
+}
+@media (max-width: 640px) {
+  .home-hero { min-height: clamp(280px, 50vh, 400px); }
   display: flex;
   align-items: stretch;
   overflow: hidden;

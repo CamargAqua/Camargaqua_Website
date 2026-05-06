@@ -162,10 +162,50 @@
     el.classList.add('mobile-slider');
     if (bgVar) el.style.setProperty('--slider-bg-inner', bgVar);
 
-    // For timeline: hide the absolute connecting line (previous sibling)
+    // For timeline: hide the absolute connecting line + build progress bar
     if (el.classList.contains('timeline-steps')) {
       var prev = el.previousElementSibling;
       if (prev) prev.style.display = 'none';
+
+      // Build progress bar with dots
+      var bar = document.createElement('div');
+      bar.className = 'timeline-progress-bar';
+      var fill = document.createElement('div');
+      fill.className = 'tpb-fill';
+      bar.appendChild(fill);
+      var nSteps = el.children.length;
+      var dots = [];
+      for (var d = 0; d < nSteps; d++) {
+        var dot = document.createElement('div');
+        dot.className = 'tpb-dot' + (d === 0 ? ' active' : '');
+        dots.push(dot);
+        bar.appendChild(dot);
+        // Click dot to navigate
+        (function(idx) {
+          dot.addEventListener('click', function() {
+            el.scrollTo({ left: idx * el.clientWidth, behavior: 'smooth' });
+          });
+        })(d);
+      }
+      // Insert bar before the slider
+      el.parentNode.insertBefore(bar, el);
+
+      // Remove default dots (will be handled by bar)
+      el._hasProgressBar = true;
+      el._fill = fill;
+      el._tpbDots = dots;
+      el._nSteps = nSteps;
+
+      // Override scroll sync for timeline
+      el.addEventListener('scroll', function() {
+        var step = Math.round(el.scrollLeft / el.clientWidth);
+        step = Math.max(0, Math.min(step, nSteps - 1));
+        dots.forEach(function(d2, i) {
+          d2.classList.toggle('active', i === step);
+          d2.classList.toggle('done', i < step);
+        });
+        fill.style.width = (step / (nSteps - 1) * 100) + '%';
+      }, { passive: true });
     }
 
     // Wrap in slider-wrap
@@ -215,24 +255,22 @@
     var seen = new WeakSet();
     function trySlider(el) {
       if (!el || seen.has(el)) return;
+      // Never convert image/layout grids (pf-grid, anchor-grid, pt-grid, ras-grid, infra)
+      var skip = ['pf-grid','anchor-grid','pt-grid','ras-grid','produit-hero-grid',
+                  'anchor-image','project-body','anchor-copy'];
+      if (skip.some(function(c){ return el.classList.contains(c); })) return;
+      // Skip if contains large image elements (layout grids, not card grids)
+      if (el.querySelector('.anchor-image, .pf-image, .pt-image, .produit-hero-img')) return;
+      // Skip if it's a flex container used for layout (not cards)
+      var style = el.getAttribute('style') || '';
+      if (/1\.15fr|1\.2fr|1\.4fr|1\.05fr|0\.95fr/.test(style)) return; // skip asymmetric layout grids
       seen.add(el);
       makeSlider(el, null);
     }
 
-    // By CSS class
+    // Only target: CSS utility classes and explicit markers
     document.querySelectorAll('.grid-4col, .grid-3col, .grid-2col').forEach(trySlider);
-
-    // By explicit JS marker class
     document.querySelectorAll('.js-mobile-slider').forEach(trySlider);
-
-    // Inline grid styles — both with and without space after colon
-    var allEls = document.querySelectorAll('[style*="grid-template-columns"]');
-    allEls.forEach(function(g) {
-      var s = g.getAttribute('style') || '';
-      if (/repeat\([34]/.test(s) || /1fr 1fr/.test(s) || /1\.4fr 1fr/.test(s)) {
-        if (g.children.length >= 2) trySlider(g);
-      }
-    });
   }
 
   // Always init existing .slider-wrap
