@@ -2,12 +2,12 @@
    CamargAqua — design tokens & global styles
    =================================================================== */
 :root {
-  /* Palette — fond blush rosé, premium et vivant */
-  --bg:        #FAE9E2;        /* rose blush pâle, chaud et distinctif */
-  --bg-soft:   #F2D8D0;        /* rose doux pour respiration de sections */
-  --bg-warm:   #EAC8BC;        /* rose soutenu pour zones d'accent */
-  --pearl:     #DDB5A8;
-  --line:      #D4A99A;        /* filets rose-terracotta chaud */
+  /* Palette — fond blush neutre, accent fuchsia techno */
+  --bg:        #FAF0F4;        /* blush très légèrement rosé-cool */
+  --bg-soft:   #F3E0EA;        /* rose doux pour respiration de sections */
+  --bg-warm:   #EAC8D8;        /* rose moyen pour zones d'accent */
+  --pearl:     #DDA8C4;
+  --line:      #E0B0CC;        /* filets rose-fuchsia doux */
 
   --royal:     #1B2A6B;
   --royal-2:   #243580;
@@ -15,10 +15,10 @@
   --ocean:     #3854A8;
   --ocean-2:   #6E84C4;
 
-  --shrimp:        #E8B4A6;
-  --shrimp-soft:   #F2C9BE;
-  --shrimp-pale:   #F8DDD4;
-  --shrimp-deep:   #C97F70;
+  --shrimp:        #D6007A;    /* fuchsia vif — accent principal */
+  --shrimp-soft:   #E8409A;    /* fuchsia moyen */
+  --shrimp-pale:   #FFD6EB;    /* fuchsia très pâle — backgrounds */
+  --shrimp-deep:   #A8005E;    /* fuchsia profond — textes accent */
 
   --ink:       var(--royal);
   --muted:     #5A6680;
@@ -118,9 +118,9 @@ p { text-wrap: pretty; font-family: var(--sans); }
   font-style: normal;
 }
 
-/* ——— Top bar — sticky partout, fixed sur desktop ——— */
+/* ——— Top bar — fixed partout ——— */
 .topbar {
-  position: sticky; /* mobile: colle en haut au scroll */
+  position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 50;
   background: color-mix(in oklab, var(--bg) 94%, transparent);
@@ -128,9 +128,9 @@ p { text-wrap: pretty; font-family: var(--sans); }
   -webkit-backdrop-filter: saturate(140%) blur(12px);
   border-bottom: 1px solid color-mix(in oklab, var(--line) 60%, transparent);
 }
+body { padding-top: 72px; } /* offset for fixed topbar on mobile */
 @media (min-width: 901px) {
-  .topbar { position: fixed; }
-  body    { padding-top: 100px; }
+  body { padding-top: 100px; }
 }
 .topbar-inner {
   display: flex; align-items: center; justify-content: space-between;
@@ -1124,7 +1124,8 @@ nav.primary a:hover::before { width: 100%; }
 .team-card-photo img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  object-position: center bottom;
   object-position: center 15%;
   display: block;
   transition: transform .6s ease;
@@ -1401,7 +1402,7 @@ img[complete] + .render-placeholder { display: none !important; }
     padding-bottom: 12px !important;
   }
   .grid-3col > .team-card {
-    flex: 0 0 80vw !important;
+    flex: 0 0 70vw !important;
     min-width: 0 !important;
     height: clamp(220px, 62vw, 300px) !important;
     scroll-snap-align: start !important;
@@ -1553,24 +1554,6 @@ img[complete] + .render-placeholder { display: none !important; }
 /* Swipe hint text — hidden */
 .slider-hint { display: none !important; }
 
-/* ——— Auto-scroll progress bar ——— */
-.slider-progress {
-  height: 2px;
-  background: rgba(211,169,154,0.25);
-  border-radius: 1px;
-  margin-top: 10px;
-  overflow: hidden;
-}
-.slider-progress-fill {
-  height: 100%;
-  width: 0;
-  background: var(--shrimp-deep);
-  border-radius: 1px;
-}
-@keyframes slider-fill {
-  from { width: 0; }
-  to   { width: 100%; }
-}
 
 /* ——— Disable touch hover effects (no bounce on tap) ——— */
 @media (hover: none) and (pointer: coarse) {
@@ -1588,126 +1571,86 @@ img[complete] + .render-placeholder { display: none !important; }
 @media (max-width: 900px) {
   .timeline-steps { position: static !important; }
 
-  /* Conteneur slider */
+  /* ——— Frise : marquee compact, style ordinateur ——— */
+  /* Le slider-wrap parent reçoit overflow:hidden via JS */
   .timeline-steps.mobile-slider {
+    /* Remplace le scroll snap par une animation CSS ping-pong */
+    overflow: visible !important;
+    width: max-content !important;
+    scroll-snap-type: none !important;
+    touch-action: auto !important;
     gap: 0 !important;
-    padding-bottom: 8px !important;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    touch-action: pan-x;
+    padding-bottom: 0 !important;
+    animation: timeline-march 18s ease-in-out 1.2s infinite alternate;
+    will-change: transform;
   }
 
-  /* Chaque étape : pleine largeur, sans fond ni bordure */
+  /* Chaque étape : compact et centré comme sur desktop */
   .timeline-steps.mobile-slider > * {
-    width: 100vw !important;
-    max-width: 100vw !important;
+    width: 130px !important;
+    max-width: 130px !important;
+    min-height: unset !important;
     flex-shrink: 0 !important;
     background: transparent !important;
     border: none !important;
     border-radius: 0 !important;
     box-shadow: none !important;
-    padding: 0 max(24px, calc(env(safe-area-inset-left, 0px) + 20px)) !important;
+    padding: 0 8px !important;
     display: flex !important;
     flex-direction: column !important;
-    align-items: flex-start !important;
-    text-align: left !important;
+    align-items: center !important;
+    text-align: center !important;
     gap: 0 !important;
-    min-height: 180px;
+    scroll-snap-align: none !important;
   }
 
-  /* Icône */
+  /* Icône — taille desktop */
   .timeline-steps.mobile-slider > * > div:first-child {
-    margin-bottom: 16px !important;
-    width: 44px; height: 44px;
-    border-radius: 50%;
-    background: var(--shrimp-pale);
-    display: grid; place-items: center;
-    flex-shrink: 0;
+    width: 28px !important; height: 28px !important;
+    border-radius: 50% !important;
+    margin-bottom: 10px !important;
+    flex-shrink: 0 !important;
+    display: grid !important; place-items: center !important;
   }
 
   /* Heure label */
   .timeline-steps.mobile-slider > * > div:nth-child(2) {
-    font-size: 11px !important;
-    font-weight: 700;
-    letter-spacing: 0.1em;
+    font-size: 10px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.08em !important;
     color: var(--shrimp-deep) !important;
-    text-transform: uppercase;
-    margin-bottom: 8px !important;
+    text-transform: uppercase !important;
+    margin-bottom: 5px !important;
   }
 
   /* Titre étape */
   .timeline-steps.mobile-slider > * > div:nth-child(3) {
-    font-family: var(--display) !important;
-    font-size: 26px !important;
-    font-weight: 700 !important;
+    font-family: var(--sans) !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
     color: var(--royal) !important;
-    line-height: 1.1;
-    margin-bottom: 10px !important;
-    letter-spacing: 0.02em;
+    line-height: 1.2 !important;
+    margin-bottom: 4px !important;
+    letter-spacing: 0 !important;
   }
 
   /* Description */
   .timeline-steps.mobile-slider > * > p {
-    font-size: 15px !important;
+    font-size: 11px !important;
     color: var(--muted) !important;
-    line-height: 1.6;
+    line-height: 1.45 !important;
     margin: 0 !important;
   }
 }
 
-/* Barre de progression JS injectée */
-.timeline-progress-bar {
-  display: none;
+/* Animation marquee ping-pong (aller-retour fluide, pas de saut) */
+@keyframes timeline-march {
+  from { transform: translateX(0); }
+  to   { transform: translateX(calc(-4 * 130px)); }
 }
-@media (max-width: 900px) {
-  .timeline-progress-bar {
-    display: flex;
-    align-items: center;
-    gap: 0;
-    margin-bottom: 28px;
-    position: relative;
-  }
-  .timeline-progress-bar::before {
-    content: '';
-    position: absolute;
-    top: 50%; left: 0; right: 0;
-    height: 2px;
-    background: var(--line);
-    transform: translateY(-50%);
-    z-index: 0;
-  }
-  .tpb-fill {
-    position: absolute;
-    top: 50%; left: 0;
-    height: 2px;
-    background: var(--shrimp-deep);
-    transform: translateY(-50%);
-    z-index: 1;
-    transition: width 0.35s cubic-bezier(0.16,1,0.3,1);
-    width: 0%;
-  }
-  .tpb-dot {
-    width: 10px; height: 10px;
-    border-radius: 50%;
-    border: 2px solid var(--line);
-    background: var(--bg);
-    z-index: 2;
-    flex: 1;
-    position: relative;
-    transition: border-color .3s ease, background .3s ease;
-    cursor: pointer;
-  }
-  .tpb-dot:first-child { margin-left: 0; }
-  .tpb-dot.active {
-    border-color: var(--shrimp-deep);
-    background: var(--shrimp-deep);
-    transform: scale(1.3);
-  }
-  .tpb-dot.done {
-    border-color: var(--shrimp);
-    background: var(--shrimp);
-  }
-}
+
+/* timeline-progress-bar supprimée — remplacée par le marquee CSS */
+.timeline-progress-bar { display: none !important; }
 
 /* ——— Reduced motion ——— */
 @media (prefers-reduced-motion: reduce) {

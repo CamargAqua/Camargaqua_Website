@@ -162,132 +162,61 @@
     el.classList.add('mobile-slider');
     if (bgVar) el.style.setProperty('--slider-bg-inner', bgVar);
 
-    // For timeline: hide the absolute connecting line + build progress bar
+    // For timeline: only hide the absolute connecting line (marquee CSS handles the rest)
     if (el.classList.contains('timeline-steps')) {
       var prev = el.previousElementSibling;
       if (prev) prev.style.display = 'none';
-
-      // Build progress bar with dots
-      var bar = document.createElement('div');
-      bar.className = 'timeline-progress-bar';
-      var fill = document.createElement('div');
-      fill.className = 'tpb-fill';
-      bar.appendChild(fill);
-      var nSteps = el.children.length;
-      var dots = [];
-      for (var d = 0; d < nSteps; d++) {
-        var dot = document.createElement('div');
-        dot.className = 'tpb-dot' + (d === 0 ? ' active' : '');
-        dots.push(dot);
-        bar.appendChild(dot);
-        // Click dot to navigate
-        (function(idx) {
-          dot.addEventListener('click', function() {
-            el.scrollTo({ left: idx * el.clientWidth, behavior: 'smooth' });
-          });
-        })(d);
-      }
-      // Insert bar before the slider
-      el.parentNode.insertBefore(bar, el);
-
-      // Remove default dots (will be handled by bar)
-      el._hasProgressBar = true;
-      el._fill = fill;
-      el._tpbDots = dots;
-      el._nSteps = nSteps;
-
-      // Override scroll sync for timeline
-      el.addEventListener('scroll', function() {
-        var step = Math.round(el.scrollLeft / el.clientWidth);
-        step = Math.max(0, Math.min(step, nSteps - 1));
-        dots.forEach(function(d2, i) {
-          d2.classList.toggle('active', i === step);
-          d2.classList.toggle('done', i < step);
-        });
-        fill.style.width = (step / (nSteps - 1) * 100) + '%';
-      }, { passive: true });
     }
+
+    var isTimeline = el.classList.contains('timeline-steps');
 
     // Wrap in slider-wrap
     var wrap = document.createElement('div');
     wrap.className = 'slider-wrap';
+    // Timeline uses CSS marquee animation — parent must clip the overflow
+    if (isTimeline) wrap.style.overflow = 'hidden';
     el.parentNode.insertBefore(wrap, el);
 
     wrap.appendChild(el);
 
-    // Dots
-    var dots = document.createElement('div');
-    dots.className = 'slider-dots';
+    // Dots (skip for timeline — it has its own progress bar)
     var items = el.children;
     var nSlides = items.length;
-    for (var i = 0; i < nSlides; i++) {
-      var dot = document.createElement('span');
-      if (i === 0) dot.classList.add('active');
-      (function(idx) {
-        dot.addEventListener('click', function () {
-          el.children[idx].scrollIntoView({ behavior:'smooth', block:'nearest', inline:'start' });
+    if (!isTimeline) {
+      var dots = document.createElement('div');
+      dots.className = 'slider-dots';
+      for (var i = 0; i < nSlides; i++) {
+        var dot = document.createElement('span');
+        if (i === 0) dot.classList.add('active');
+        (function(idx) {
+          dot.addEventListener('click', function () {
+            el.children[idx].scrollIntoView({ behavior:'smooth', block:'nearest', inline:'start' });
+          });
+        })(i);
+        dots.appendChild(dot);
+      }
+      wrap.appendChild(dots);
+
+      // Sync dots on scroll
+      el.addEventListener('scroll', function () {
+        var center = el.scrollLeft + el.clientWidth / 3;
+        var active = 0;
+        for (var j = 0; j < items.length; j++) {
+          if (items[j].offsetLeft <= center) active = j;
+        }
+        dots.querySelectorAll('span').forEach(function (d, k) {
+          d.classList.toggle('active', k === active);
         });
-      })(i);
-      dots.appendChild(dot);
+      }, { passive: true });
+
+      // Nudge once to reveal the next card, then snap back
+      if (nSlides > 1) {
+        setTimeout(function () {
+          el.scrollTo({ left: 48, behavior: 'smooth' });
+          setTimeout(function () { el.scrollTo({ left: 0, behavior: 'smooth' }); }, 500);
+        }, 800);
+      }
     }
-    wrap.appendChild(dots);
-
-    // Auto-scroll progress bar (skip timeline — it has its own bar)
-    var autoTimer = null;
-    var progressEl = null;
-    var fillEl = null;
-    var autoStep = 0;
-
-    if (!el.classList.contains('timeline-steps') && nSlides > 1) {
-      progressEl = document.createElement('div');
-      progressEl.className = 'slider-progress';
-      fillEl = document.createElement('div');
-      fillEl.className = 'slider-progress-fill';
-      progressEl.appendChild(fillEl);
-      wrap.appendChild(progressEl);
-
-      function startFill() {
-        if (!fillEl) return;
-        fillEl.style.animation = 'none';
-        fillEl.offsetWidth; // force reflow
-        fillEl.style.animation = 'slider-fill 3.5s linear forwards';
-      }
-
-      function advanceSlide() {
-        autoStep = (autoStep + 1) % nSlides;
-        el.children[autoStep].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
-        startFill();
-      }
-
-      function startAuto() {
-        clearInterval(autoTimer);
-        autoTimer = setInterval(advanceSlide, 3500);
-        startFill();
-      }
-
-      function pauseAuto() {
-        clearInterval(autoTimer);
-        if (fillEl) fillEl.style.animation = 'none';
-      }
-
-      startAuto();
-
-      el.addEventListener('touchstart', function () { pauseAuto(); }, { passive: true });
-      el.addEventListener('touchend',   function () { setTimeout(startAuto, 2000); }, { passive: true });
-    }
-
-    // Sync dots on scroll
-    el.addEventListener('scroll', function () {
-      var center = el.scrollLeft + el.clientWidth / 3;
-      var active = 0;
-      for (var j = 0; j < items.length; j++) {
-        if (items[j].offsetLeft <= center) active = j;
-      }
-      autoStep = active;
-      dots.querySelectorAll('span').forEach(function (d, k) {
-        d.classList.toggle('active', k === active);
-      });
-    }, { passive: true });
   }
 
   // Only activate sliders on mobile
