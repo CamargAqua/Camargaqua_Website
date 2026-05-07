@@ -213,19 +213,14 @@
     wrap.className = 'slider-wrap';
     el.parentNode.insertBefore(wrap, el);
 
-    // Hint
-    var hint = document.createElement('div');
-    hint.className = 'slider-hint';
-    hint.textContent = 'Faire glisser';
-    wrap.appendChild(hint);
-
     wrap.appendChild(el);
 
     // Dots
     var dots = document.createElement('div');
     dots.className = 'slider-dots';
     var items = el.children;
-    for (var i = 0; i < items.length; i++) {
+    var nSlides = items.length;
+    for (var i = 0; i < nSlides; i++) {
       var dot = document.createElement('span');
       if (i === 0) dot.classList.add('active');
       (function(idx) {
@@ -237,6 +232,50 @@
     }
     wrap.appendChild(dots);
 
+    // Auto-scroll progress bar (skip timeline — it has its own bar)
+    var autoTimer = null;
+    var progressEl = null;
+    var fillEl = null;
+    var autoStep = 0;
+
+    if (!el.classList.contains('timeline-steps') && nSlides > 1) {
+      progressEl = document.createElement('div');
+      progressEl.className = 'slider-progress';
+      fillEl = document.createElement('div');
+      fillEl.className = 'slider-progress-fill';
+      progressEl.appendChild(fillEl);
+      wrap.appendChild(progressEl);
+
+      function startFill() {
+        if (!fillEl) return;
+        fillEl.style.animation = 'none';
+        fillEl.offsetWidth; // force reflow
+        fillEl.style.animation = 'slider-fill 3.5s linear forwards';
+      }
+
+      function advanceSlide() {
+        autoStep = (autoStep + 1) % nSlides;
+        el.children[autoStep].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+        startFill();
+      }
+
+      function startAuto() {
+        clearInterval(autoTimer);
+        autoTimer = setInterval(advanceSlide, 3500);
+        startFill();
+      }
+
+      function pauseAuto() {
+        clearInterval(autoTimer);
+        if (fillEl) fillEl.style.animation = 'none';
+      }
+
+      startAuto();
+
+      el.addEventListener('touchstart', function () { pauseAuto(); }, { passive: true });
+      el.addEventListener('touchend',   function () { setTimeout(startAuto, 2000); }, { passive: true });
+    }
+
     // Sync dots on scroll
     el.addEventListener('scroll', function () {
       var center = el.scrollLeft + el.clientWidth / 3;
@@ -244,6 +283,7 @@
       for (var j = 0; j < items.length; j++) {
         if (items[j].offsetLeft <= center) active = j;
       }
+      autoStep = active;
       dots.querySelectorAll('span').forEach(function (d, k) {
         d.classList.toggle('active', k === active);
       });

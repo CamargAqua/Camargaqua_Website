@@ -24,13 +24,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="assets/site.css" />
 <style>
-.anchor-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(36px, 5vw, 80px); align-items: start; }
-.anchor-copy p { font-size: 17px; line-height: 1.7; color: var(--royal-2); margin: 0 0 18px; }
+.anchor-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 4vw, 56px); align-items: center; }
+.anchor-copy p { font-size: 15px; line-height: 1.65; color: var(--royal-2); margin: 0 0 12px; }
 .anchor-copy p strong { color: var(--royal); font-weight: 600; }
 .anchor-copy p .pink { color: var(--shrimp-deep); font-weight: 500; }
-.anchor-image { aspect-ratio: 4/5; border-radius: 6px; overflow: hidden; position: relative; }
+.anchor-image { aspect-ratio: 3/2; border-radius: 6px; overflow: hidden; position: relative; }
 .anchor-image img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; }
-@media (max-width: 900px) { .anchor-grid { grid-template-columns: 1fr; } }
+@media (max-width: 900px) { .anchor-grid { grid-template-columns: 1fr; } .anchor-image { aspect-ratio: 16/9; } }
 
 .engagements { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
 .eng { background: var(--bg-soft); border-radius: 6px; padding: 36px 28px; }
@@ -85,7 +85,7 @@
 <hr class="section-sep" />
 
 <!-- ═══ POURQUOI LA CAMARGUE ═══ -->
-<section style="padding: clamp(64px,8vw,110px) 0;">
+<section style="padding: clamp(40px,5vw,72px) 0;">
   <div class="wrap">
     <div class="chapter-label reveal">
       <span class="ch-num">—</span>
@@ -93,14 +93,12 @@
     </div>
     <div class="anchor-grid reveal reveal-delay-1">
       <div class="anchor-copy">
-        <h2 style="margin-top: 0; font-size: clamp(36px, 4.4vw, 56px); font-weight: 300; margin-bottom: 28px;">On aurait pu choisir <span class="it">ailleurs.</span></h2>
-        <p>On a choisi ici.</p>
-        <p>La Camargue est l'un des rares endroits en France où l'on peut accéder à de l'<strong>eau de mer méditerranéenne en direct</strong>, sur un foncier disponible, à proximité immédiate d'infrastructures portuaires et logistiques. C'est une conjonction rare.</p>
-        <p>Port-Saint-Louis-du-Rhône, c'est le croisement du Rhône et de la Méditerranée. Une ville industrielle avec un port en eau profonde, entourée d'une nature classée Réserve de biosphère UNESCO. Personne ne vient élever des crevettes ici. C'est précisément pour ça qu'on l'a choisi.</p>
-        <p>Notre conviction : <strong>le terroir, ça se construit. On commence maintenant.</strong></p>
+        <h2 style="margin-top: 0; font-size: clamp(30px, 3.6vw, 46px); font-weight: 300; margin-bottom: 20px;">On aurait pu choisir <span class="it">ailleurs.</span></h2>
+        <p>La Camargue offre un accès direct à l'<strong>eau de mer méditerranéenne</strong>, sur un foncier acquis, à deux pas d'un port en eau profonde. Une conjonction rare, introuvable ailleurs en France.</p>
+        <p>Port-Saint-Louis-du-Rhône : croisement du Rhône et de la Méditerranée, entouré d'une Réserve de biosphère UNESCO. Notre conviction : <strong>le terroir, ça se construit. On commence maintenant.</strong></p>
       </div>
       <div class="anchor-image reveal reveal-delay-2">
-        <img src="https://images.unsplash.com/photo-1604065858253-9398c3fafe66?w=1400&q=80&auto=format&fit=crop" alt="Marais de Camargue au crépuscule" loading="lazy" width="1400" height="1750" />
+        <img src="https://images.unsplash.com/photo-1604065858253-9398c3fafe66?w=1200&q=80&auto=format&fit=crop" alt="Marais de Camargue" loading="lazy" width="1200" height="800" />
       </div>
     </div>
   </div>
