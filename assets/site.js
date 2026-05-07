@@ -8,12 +8,35 @@
   }
   window.scrollTo(0, 0);
 
+  // ——— Timeline marquee : démarre quand visible ———
+  if (window.innerWidth <= 900) {
+    var timelineObs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        entry.target.classList.toggle('anim-play', entry.isIntersecting);
+      });
+    }, { threshold: 0.25 });
+    document.querySelectorAll('.timeline-steps').forEach(function (el) {
+      timelineObs.observe(el);
+    });
+  }
+
   // ——— Scroll reveal ———
   var observer = new IntersectionObserver(function (entries) {
     entries.forEach(function (entry) {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
         observer.unobserve(entry.target);
+        // 6 — déclencher clip-reveal sur h2 enfants (desktop uniquement)
+        if (window.innerWidth > 900) {
+          setTimeout(function () {
+            entry.target.querySelectorAll('h2.clip-reveal').forEach(function (h) {
+              h.classList.add('clip-in');
+            });
+            if (entry.target.tagName === 'H2' && entry.target.classList.contains('clip-reveal')) {
+              entry.target.classList.add('clip-in');
+            }
+          }, 180);
+        }
       }
     });
   }, { threshold: 0.10, rootMargin: '0px 0px -30px 0px' });
@@ -248,6 +271,168 @@
     if (!track) return;
     // already handled above
   });
+
+  // ——— A — Parallaxe hero (toutes les pages) ———
+  var parallaxSpeed = isTouch ? 0.12 : 0.28;
+
+  // Home hero — translateY sur le div .bg
+  var heroBg = document.querySelector('.home-hero .bg');
+  if (heroBg) {
+    window.addEventListener('scroll', function () {
+      var scrolled = window.pageYOffset;
+      var hero = heroBg.parentElement;
+      if (hero && scrolled < hero.offsetHeight * 1.8) {
+        heroBg.style.transform = 'translateY(' + (scrolled * parallaxSpeed) + 'px)';
+      }
+    }, { passive: true });
+  }
+
+  // Page heroes (projet, produit, ancrage…) — décalage background-position
+  var pageHero = document.querySelector('.page-hero-bg');
+  if (pageHero) {
+    var bgPosBase = 35; // position initiale en %
+    window.addEventListener('scroll', function () {
+      var scrolled = window.pageYOffset;
+      var heroH   = pageHero.offsetHeight;
+      if (scrolled < heroH * 1.5) {
+        var shift = bgPosBase + scrolled * (isTouch ? 0.008 : 0.018);
+        pageHero.style.backgroundPositionY = shift + '%';
+      }
+    }, { passive: true });
+  }
+
+  // ——— C — Tilt 3D sur les cartes (desktop uniquement) ———
+  if (!isTouch) {
+    document.querySelectorAll('.team-card, .stat-card, .pillar').forEach(function (card) {
+      card.addEventListener('mousemove', function (e) {
+        var rect  = card.getBoundingClientRect();
+        var x = (e.clientX - rect.left) / rect.width  - 0.5;
+        var y = (e.clientY - rect.top)  / rect.height - 0.5;
+        card.style.transform =
+          'perspective(700px) rotateX(' + (-y * 9) + 'deg) rotateY(' + (x * 9) + 'deg) translateY(-6px) scale(1.02)';
+        card.style.boxShadow = '0 20px 50px rgba(15,27,77,0.18)';
+      });
+      card.addEventListener('mouseleave', function () {
+        card.style.transform = '';
+        card.style.boxShadow = '';
+      });
+    });
+  }
+
+  // ═══════════════════════════════════════════════
+  // 1 — Révélation hero h1 mot par mot
+  // ═══════════════════════════════════════════════
+  function splitHeroWords(el) {
+    if (!el) return;
+    var nodes = Array.from(el.childNodes);
+    el.innerHTML = '';
+    var delay = 0.05;
+    nodes.forEach(function (node) {
+      var words = [];
+      if (node.nodeType === 3) {
+        // nœud texte — séparer par mots
+        node.textContent.split(/(\s+)/).forEach(function (chunk) {
+          if (!chunk.trim()) { el.appendChild(document.createTextNode(chunk)); return; }
+          words.push({ text: chunk, el: null });
+        });
+        words.forEach(function (w) {
+          var ww = document.createElement('span'); ww.className = 'word-wrap';
+          var wi = document.createElement('span'); wi.className = 'word';
+          wi.textContent = w.text; wi.style.animationDelay = delay + 's';
+          delay += 0.09; ww.appendChild(wi); el.appendChild(ww);
+        });
+      } else {
+        // span (.it, em…) — traiter comme un mot entier
+        var ww = document.createElement('span'); ww.className = 'word-wrap';
+        var wi = document.createElement('span'); wi.className = 'word';
+        wi.appendChild(node.cloneNode(true)); wi.style.animationDelay = delay + 's';
+        delay += 0.09; ww.appendChild(wi); el.appendChild(ww);
+      }
+    });
+  }
+  document.querySelectorAll('.home-hero h1, .page-hero-bg h1').forEach(splitHeroWords);
+
+  // ═══════════════════════════════════════════════
+  // 2 — Curseur personnalisé fuchsia
+  // ═══════════════════════════════════════════════
+  if (!isTouch) {
+    document.body.classList.add('has-custom-cursor');
+    var cur = document.createElement('div');
+    cur.className = 'custom-cursor';
+    document.body.appendChild(cur);
+    var mx = 0, my = 0, cx2 = 0, cy2 = 0;
+    document.addEventListener('mousemove', function (e) { mx = e.clientX; my = e.clientY; });
+    (function tickCursor() {
+      cx2 += (mx - cx2) * 0.14;
+      cy2 += (my - cy2) * 0.14;
+      cur.style.left = cx2 + 'px';
+      cur.style.top  = cy2 + 'px';
+      requestAnimationFrame(tickCursor);
+    })();
+    document.querySelectorAll('a, button, .btn, .team-card, .pillar, .market-card, .product-card').forEach(function (el) {
+      el.addEventListener('mouseenter', function () { cur.classList.add('grow'); });
+      el.addEventListener('mouseleave', function () { cur.classList.remove('grow'); });
+    });
+  }
+
+  // ═══════════════════════════════════════════════
+  // 4 — Watermarks géants en arrière-plan
+  // ═══════════════════════════════════════════════
+  (function () {
+    var wms = [
+      { sel: '.terroir-block',                     text: '100%',  light: false },
+      { sel: 'section[style*="royal-3"]',           text: '95%',   light: true  },
+      { sel: '.pf-grid',                            text: 'J+0',   light: false },
+      { sel: '.timeline-steps',                     text: 'J+0',   light: false },
+    ];
+    wms.forEach(function (cfg) {
+      var target = document.querySelector(cfg.sel);
+      if (!target) return;
+      var section = target.closest('section') || target.parentElement;
+      if (!section) return;
+      var wm = document.createElement('div');
+      wm.className = 'section-wm' + (cfg.light ? ' light' : '');
+      wm.setAttribute('aria-hidden', 'true');
+      wm.textContent = cfg.text;
+      if (window.getComputedStyle(section).position === 'static') {
+        section.style.position = 'relative';
+      }
+      section.style.overflow = 'hidden';
+      section.appendChild(wm);
+    });
+  })();
+
+  // ═══════════════════════════════════════════════
+  // 6 — Clip-path reveal sur les h2 (desktop seulement)
+  // ═══════════════════════════════════════════════
+  if (window.innerWidth > 900) {
+    document.querySelectorAll('h2').forEach(function (el) {
+      el.classList.add('clip-reveal');
+      if (!el.closest('.reveal')) {
+        var h2io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting) { e.target.classList.add('clip-in'); h2io.unobserve(e.target); }
+          });
+        }, { threshold: 0 });   /* 0 = dès qu'un pixel est visible */
+        h2io.observe(el);
+      }
+    });
+  }
+
+  // ═══════════════════════════════════════════════
+  // 7 — Boutons magnétiques
+  // ═══════════════════════════════════════════════
+  if (!isTouch) {
+    document.querySelectorAll('.btn-primary, .topbar .cta').forEach(function (btn) {
+      btn.addEventListener('mousemove', function (e) {
+        var r = btn.getBoundingClientRect();
+        var x = (e.clientX - r.left  - r.width  / 2) * 0.3;
+        var y = (e.clientY - r.top   - r.height / 2) * 0.3;
+        btn.style.transform = 'translate(' + x + 'px,' + y + 'px)';
+      });
+      btn.addEventListener('mouseleave', function () { btn.style.transform = ''; });
+    });
+  }
 
   // ——— Mark active nav link ———
   var path = location.pathname.split('/').pop() || 'index.html';

@@ -70,14 +70,25 @@
 .home-hero {
   position: relative;
   min-height: clamp(480px, 80vh, 760px);
+  overflow: hidden; /* nécessaire pour le parallaxe */
 }
 /* Mobile hero height handled by site.css */
 .home-hero .bg {
-  position: absolute; inset: 0; z-index: -2;
+  position: absolute;
+  top: -15%; left: 0; right: 0; bottom: -15%; /* extra hauteur pour parallaxe */
+  z-index: -2;
   background-image: url("https://images.unsplash.com/photo-1562747981-1975c624e26e?w=2400&q=85&auto=format&fit=crop");
   background-size: cover;
   background-position: center 40%;
-  filter: saturate(0.92);
+  will-change: transform, filter;
+  animation: water-shimmer 14s ease-in-out infinite;
+}
+/* G — effet eau : oscillation subtile */
+@keyframes water-shimmer {
+  0%   { filter: saturate(0.88) brightness(1.00); }
+  30%  { filter: saturate(0.94) brightness(0.97) blur(0.3px); }
+  65%  { filter: saturate(0.90) brightness(1.02); }
+  100% { filter: saturate(0.88) brightness(1.00); }
 }
 .home-hero::before {
   content: ""; position: absolute; inset: 0; z-index: -1;
@@ -104,12 +115,7 @@
   letter-spacing: -0.022em;
   text-shadow: 0 1px 12px rgba(250,233,226,0.5);
 }
-/* .it on hero — italic terracotta, no box */
-.home-hero h1 .it {
-  background: none;
-  color: var(--shrimp-deep);
-  padding: 0;
-}
+/* .it hérite de site.css — var(--shrimp) */
 .home-hero .lede { max-width: 44ch; margin-top: 20px; font-size: clamp(20px, 2vw, 26px); }
 .home-hero-meta {
   display: grid; gap: 18px;
@@ -334,7 +340,7 @@
           <a class="btn btn-primary" href="projet.html">Découvrir le projet</a>
         </div>
         <div class="hero-kpi reveal reveal-delay-2">
-          <span class="hero-kpi-num">250</span><span class="hero-kpi-unit">t/an</span>
+          <span class="hero-kpi-num" data-target="250">0</span><span class="hero-kpi-unit">t/an</span>
           <span class="hero-kpi-sep">—</span>
           <span class="hero-kpi-label">Production visée · Phase 1 · Foncier acquis</span>
         </div>
