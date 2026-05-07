@@ -102,11 +102,11 @@ h1, h2, h3, h4, h5 {
   text-wrap: balance;
 }
 h1 { font-weight: 700; letter-spacing: 0.01em; }
-h2 { font-weight: 600; }
+h2 { font-weight: 300; font-size: clamp(48px, 5.8vw, 88px) !important; line-height: 1.05; }
 h3 { font-weight: 600; }
 h4 { font-weight: 600; letter-spacing: 0.02em; }
 /* Italic accent words use Barlow Condensed Italic */
-.it      { font-family: var(--display); font-style: italic; color: var(--shrimp-deep); font-weight: 400; }
+.it      { font-family: var(--display); font-style: italic; color: #E8106E; font-weight: 400; }
 .it-blue { font-family: var(--display); font-style: italic; color: var(--ocean);  font-weight: 400; }
 p { text-wrap: pretty; font-family: var(--sans); }
 .lede {
@@ -1434,9 +1434,9 @@ img[complete] + .render-placeholder { display: none !important; }
   .lede { font-size: 16px !important; }
 
   /* ——— Typographie ——— */
-  h1 { font-size: clamp(30px, 8.5vw, 46px) !important; line-height: 1.05 !important; }
-  h2 { font-size: clamp(24px, 7vw, 36px) !important; }
-  h3 { font-size: clamp(18px, 5vw, 24px) !important; }
+  h1 { font-size: clamp(38px, 9.5vw, 60px) !important; line-height: 1.05 !important; }
+  h2 { font-size: clamp(42px, 11vw, 64px) !important; }
+  h3 { font-size: clamp(24px, 6.5vw, 34px) !important; }
 
   /* ——— Hero principal — centré sur l'image ——— */
   .home-hero {
