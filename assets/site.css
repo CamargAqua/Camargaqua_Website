@@ -1662,8 +1662,6 @@ img[complete] + .render-placeholder { display: none !important; }
   }
 }
 
-}
-
 /* Animation marquee ping-pong (aller-retour fluide, pas de saut) */
 @keyframes timeline-march {
   from { transform: translateX(0); }
