@@ -14,7 +14,7 @@
       entries.forEach(function (entry) {
         entry.target.classList.toggle('anim-play', entry.isIntersecting);
       });
-    }, { threshold: 0.25 });
+    }, { threshold: 0, rootMargin: '0px 0px -5% 0px' });
     document.querySelectorAll('.timeline-steps').forEach(function (el) {
       timelineObs.observe(el);
     });
@@ -383,7 +383,7 @@
       { sel: '.terroir-block',                     text: '100%',  light: false },
       { sel: 'section[style*="royal-3"]',           text: '95%',   light: true  },
       { sel: '.pf-grid',                            text: 'J+0',   light: false },
-      { sel: '.timeline-steps',                     text: 'J+0',   light: false },
+      // .timeline-steps retiré — overflow:hidden perturbe l'animation marquee
     ];
     wms.forEach(function (cfg) {
       var target = document.querySelector(cfg.sel);
