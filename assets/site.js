@@ -8,19 +8,7 @@
   }
   window.scrollTo(0, 0);
 
-  // ——— Timeline marquee : démarre quand visible ———
-  if (window.innerWidth <= 900) {
-    var timelineObs = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        entry.target.classList.toggle('anim-play', entry.isIntersecting);
-      });
-    }, { threshold: 0, rootMargin: '0px 0px -5% 0px' });
-    document.querySelectorAll('.timeline-steps').forEach(function (el) {
-      timelineObs.observe(el);
-    });
-  }
-
-  // ——— Scroll reveal ———
+// ——— Scroll reveal ———
   var observer = new IntersectionObserver(function (entries) {
     entries.forEach(function (entry) {
       if (entry.isIntersecting) {
