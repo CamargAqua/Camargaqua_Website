@@ -184,8 +184,11 @@
     // Wrap in slider-wrap
     var wrap = document.createElement('div');
     wrap.className = 'slider-wrap';
-    // Timeline uses CSS marquee animation — parent must clip the overflow
-    if (isTimeline) wrap.style.overflow = 'hidden';
+    // Timeline : clip-path au lieu de overflow:hidden (iOS Safari compatible)
+    if (isTimeline) {
+      wrap.style.clipPath = 'inset(0)';
+      wrap.style.webkitClipPath = 'inset(0)';
+    }
     el.parentNode.insertBefore(wrap, el);
 
     wrap.appendChild(el);
