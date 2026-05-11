@@ -30,8 +30,8 @@
   --serif:   "Barlow Condensed", "Arial Narrow", Arial, sans-serif; /* compat alias */
   --mono:    "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
 
-  --maxw: 1320px;
-  --gutter: clamp(28px, 5vw, 80px); /* plus d'air sur desktop */
+  --maxw: 1440px;
+  --gutter: clamp(24px, 3vw, 48px);
 }
 
 * { box-sizing: border-box; }
@@ -1586,97 +1586,61 @@ img[complete] + .render-placeholder { display: none !important; }
   * { transition-property: background, color, border-color, opacity !important; }
 }
 
-/* ——— Timeline steps — design épuré sans carte ——— */
-@media (max-width: 900px) {
-  .timeline-steps { position: static !important; }
+/* ——— Timeline J+0 : carousel swipe mobile avec ligne directrice ——— */
+@media (max-width: 640px) {
+  /* Ligne de connexion desktop = cachée */
+  .timeline-steps ~ div,
+  [style*="position: absolute"][style*="height: 1px"] { display: none !important; }
 
-  /* ——— Frise : marquee compact, style ordinateur ——— */
-  /* Le slider-wrap parent reçoit overflow:hidden via JS */
-  .timeline-steps.mobile-slider {
-    /* Remplace le scroll snap par une animation CSS ping-pong */
-    overflow: visible !important;
-    width: max-content !important;
-    scroll-snap-type: none !important;
-    touch-action: auto !important;
+  .timeline-steps {
+    display: flex !important;
+    flex-direction: row !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch !important;
     gap: 0 !important;
-    padding-bottom: 0 !important;
-    -webkit-animation: timeline-march 18s ease-in-out 0.6s infinite alternate;
-    animation: timeline-march 18s ease-in-out 0.6s infinite alternate;
-    will-change: transform;
-    -webkit-transform: translateZ(0); /* force GPU layer iOS */
-    transform: translateZ(0);
+    padding-bottom: 20px !important;
+    grid-template-columns: unset !important;
+    position: static !important;
   }
 
-  /* Chaque étape : compact et centré comme sur desktop */
-  .timeline-steps.mobile-slider > * {
-    width: 130px !important;
-    max-width: 130px !important;
-    min-height: unset !important;
-    flex-shrink: 0 !important;
-    background: transparent !important;
-    border: none !important;
-    border-radius: 0 !important;
-    box-shadow: none !important;
-    padding: 0 8px !important;
+  /* Chaque étape = vignette scrollable */
+  .timeline-steps > div {
+    flex: 0 0 65vw !important;
+    min-width: 0 !important;
+    scroll-snap-align: start !important;
+    position: relative !important;
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
     text-align: center !important;
-    gap: 0 !important;
-    scroll-snap-align: none !important;
+    padding: 0 12px !important;
   }
 
-  /* Icône — taille desktop */
-  .timeline-steps.mobile-slider > * > div:first-child {
-    width: 28px !important; height: 28px !important;
-    border-radius: 50% !important;
-    margin-bottom: 10px !important;
+  /* Ligne continue passant par les icônes */
+  .timeline-steps > div::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 14px !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: 1px !important;
+    background: var(--shrimp) !important;
+    z-index: 0 !important;
+  }
+  /* Première étape : ligne commence au centre */
+  .timeline-steps > div:first-child::before { left: 50% !important; }
+  /* Dernière étape : ligne s'arrête au centre */
+  .timeline-steps > div:last-child::before { right: 50% !important; }
+
+  /* Icône flotte au-dessus de la ligne */
+  .timeline-steps > div > div:first-child {
+    position: relative !important;
+    z-index: 1 !important;
+    margin-bottom: 12px !important;
     flex-shrink: 0 !important;
-    display: grid !important; place-items: center !important;
-  }
-
-  /* Heure label */
-  .timeline-steps.mobile-slider > * > div:nth-child(2) {
-    font-size: 10px !important;
-    font-weight: 700 !important;
-    letter-spacing: 0.08em !important;
-    color: var(--shrimp-deep) !important;
-    text-transform: uppercase !important;
-    margin-bottom: 5px !important;
-  }
-
-  /* Titre étape */
-  .timeline-steps.mobile-slider > * > div:nth-child(3) {
-    font-family: var(--sans) !important;
-    font-size: 13px !important;
-    font-weight: 600 !important;
-    color: var(--royal) !important;
-    line-height: 1.2 !important;
-    margin-bottom: 4px !important;
-    letter-spacing: 0 !important;
-  }
-
-  /* Description */
-  .timeline-steps.mobile-slider > * > p {
-    font-size: 11px !important;
-    color: var(--muted) !important;
-    line-height: 1.45 !important;
-    margin: 0 !important;
   }
 }
-
-/* Animation marquee ping-pong (aller-retour fluide, pas de saut) */
-@-webkit-keyframes timeline-march {
-  from { -webkit-transform: translateX(0) translateZ(0); }
-  to   { -webkit-transform: translateX(calc(-4 * 130px)) translateZ(0); }
-}
-@keyframes timeline-march {
-  from { transform: translateX(0) translateZ(0); }
-  to   { transform: translateX(calc(-4 * 130px)) translateZ(0); }
-}
-
-/* timeline-progress-bar supprimée — remplacée par le marquee CSS */
-.timeline-progress-bar { display: none !important; }
 
 /* ═══ 1 — Révélation hero h1 mot par mot ═══ */
 .word-wrap {
@@ -1696,28 +1660,6 @@ img[complete] + .render-placeholder { display: none !important; }
   to   { transform: translateY(0);    opacity: 1; }
 }
 
-/* ═══ 2 — Curseur fuchsia ═══ */
-body.has-custom-cursor,
-body.has-custom-cursor * { cursor: none !important; }
-.custom-cursor {
-  position: fixed;
-  top: 0; left: 0;
-  width: 16px; height: 16px;
-  border-radius: 50%;
-  background: var(--shrimp);
-  pointer-events: none;
-  z-index: 9999;
-  transform: translate(-50%, -50%);
-  mix-blend-mode: multiply;
-  will-change: left, top;
-  transition: width .22s ease, height .22s ease, background .22s ease, border .22s ease;
-}
-.custom-cursor.grow {
-  width: 42px; height: 42px;
-  background: transparent;
-  border: 2px solid var(--shrimp);
-  mix-blend-mode: normal;
-}
 
 /* ═══ 4 — Watermark géant ═══ */
 .section-wm {

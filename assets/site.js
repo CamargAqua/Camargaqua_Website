@@ -238,6 +238,13 @@
     var seen = new WeakSet();
     function trySlider(el) {
       if (!el || seen.has(el)) return;
+      seen.add(el);
+      // Timeline J+0 : CSS-only scroll-snap carousel — just hide desktop line
+      if (el.classList.contains('timeline-steps')) {
+        var prev = el.previousElementSibling;
+        if (prev) prev.style.display = 'none';
+        return;
+      }
       // Never convert image/layout grids (pf-grid, anchor-grid, pt-grid, ras-grid, infra)
       var skip = ['pf-grid','anchor-grid','pt-grid','ras-grid','produit-hero-grid',
                   'anchor-image','project-body','anchor-copy'];
@@ -247,7 +254,6 @@
       // Skip if it's a flex container used for layout (not cards)
       var style = el.getAttribute('style') || '';
       if (/1\.15fr|1\.2fr|1\.4fr|1\.05fr|0\.95fr/.test(style)) return; // skip asymmetric layout grids
-      seen.add(el);
       makeSlider(el, null);
     }
 
@@ -343,28 +349,6 @@
   }
   document.querySelectorAll('.home-hero h1, .page-hero-bg h1').forEach(splitHeroWords);
 
-  // ═══════════════════════════════════════════════
-  // 2 — Curseur personnalisé fuchsia
-  // ═══════════════════════════════════════════════
-  if (!isTouch) {
-    document.body.classList.add('has-custom-cursor');
-    var cur = document.createElement('div');
-    cur.className = 'custom-cursor';
-    document.body.appendChild(cur);
-    var mx = 0, my = 0, cx2 = 0, cy2 = 0;
-    document.addEventListener('mousemove', function (e) { mx = e.clientX; my = e.clientY; });
-    (function tickCursor() {
-      cx2 += (mx - cx2) * 0.14;
-      cy2 += (my - cy2) * 0.14;
-      cur.style.left = cx2 + 'px';
-      cur.style.top  = cy2 + 'px';
-      requestAnimationFrame(tickCursor);
-    })();
-    document.querySelectorAll('a, button, .btn, .team-card, .pillar, .market-card, .product-card').forEach(function (el) {
-      el.addEventListener('mouseenter', function () { cur.classList.add('grow'); });
-      el.addEventListener('mouseleave', function () { cur.classList.remove('grow'); });
-    });
-  }
 
   // ═══════════════════════════════════════════════
   // 4 — Watermarks géants en arrière-plan
