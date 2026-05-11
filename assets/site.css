@@ -30,8 +30,8 @@
   --serif:   "Barlow Condensed", "Arial Narrow", Arial, sans-serif; /* compat alias */
   --mono:    "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
 
-  --maxw: 1440px;
-  --gutter: clamp(24px, 3vw, 48px);
+  --maxw: 1680px;
+  --gutter: max(20px, 4vw);
 }
 
 * { box-sizing: border-box; }
