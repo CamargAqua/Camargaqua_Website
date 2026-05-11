@@ -1586,29 +1586,34 @@ img[complete] + .render-placeholder { display: none !important; }
   * { transition-property: background, color, border-color, opacity !important; }
 }
 
-/* ——— Timeline J+0 : carousel swipe mobile avec ligne directrice ——— */
+/* ——— Timeline J+0 : défilement automatique avec ligne directrice ——— */
 @media (max-width: 640px) {
   /* Ligne de connexion desktop = cachée */
-  .timeline-steps ~ div,
   [style*="position: absolute"][style*="height: 1px"] { display: none !important; }
 
+  /* Conteneur : flex row animé (pas de scroll manuel) */
   .timeline-steps {
     display: flex !important;
     flex-direction: row !important;
-    overflow-x: auto !important;
-    scroll-snap-type: x mandatory !important;
-    -webkit-overflow-scrolling: touch !important;
+    overflow: visible !important;
+    scroll-snap-type: none !important;
     gap: 0 !important;
-    padding-bottom: 20px !important;
+    width: max-content !important;
     grid-template-columns: unset !important;
     position: static !important;
+    /* Animation ping-pong automatique */
+    -webkit-animation: tl-autoplay 16s ease-in-out 1.2s infinite alternate;
+    animation:         tl-autoplay 16s ease-in-out 1.2s infinite alternate;
+    will-change: transform;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
   }
 
-  /* Chaque étape = vignette scrollable */
+  /* Chaque étape = vignette 65vw */
   .timeline-steps > div {
-    flex: 0 0 65vw !important;
+    width: 65vw !important;
+    flex-shrink: 0 !important;
     min-width: 0 !important;
-    scroll-snap-align: start !important;
     position: relative !important;
     display: flex !important;
     flex-direction: column !important;
@@ -1628,10 +1633,8 @@ img[complete] + .render-placeholder { display: none !important; }
     background: var(--shrimp) !important;
     z-index: 0 !important;
   }
-  /* Première étape : ligne commence au centre */
   .timeline-steps > div:first-child::before { left: 50% !important; }
-  /* Dernière étape : ligne s'arrête au centre */
-  .timeline-steps > div:last-child::before { right: 50% !important; }
+  .timeline-steps > div:last-child::before  { right: 50% !important; }
 
   /* Icône flotte au-dessus de la ligne */
   .timeline-steps > div > div:first-child {
@@ -1640,6 +1643,16 @@ img[complete] + .render-placeholder { display: none !important; }
     margin-bottom: 12px !important;
     flex-shrink: 0 !important;
   }
+}
+
+/* Ping-pong : aller jusqu'à la dernière étape, retour */
+@-webkit-keyframes tl-autoplay {
+  from { -webkit-transform: translateX(0) translateZ(0); }
+  to   { -webkit-transform: translateX(calc(-4 * 65vw)) translateZ(0); }
+}
+@keyframes tl-autoplay {
+  from { transform: translateX(0) translateZ(0); }
+  to   { transform: translateX(calc(-4 * 65vw)) translateZ(0); }
 }
 
 /* ═══ 1 — Révélation hero h1 mot par mot ═══ */

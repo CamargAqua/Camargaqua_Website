@@ -239,10 +239,15 @@
     function trySlider(el) {
       if (!el || seen.has(el)) return;
       seen.add(el);
-      // Timeline J+0 : CSS-only scroll-snap carousel — just hide desktop line
+      // Timeline J+0 : animation auto-play — clip container + cacher ligne desktop
       if (el.classList.contains('timeline-steps')) {
         var prev = el.previousElementSibling;
         if (prev) prev.style.display = 'none';
+        // Wrap dans un conteneur qui clipe l'overflow de l'animation
+        var clip = document.createElement('div');
+        clip.style.cssText = 'overflow:hidden; width:100%; -webkit-clip-path:inset(0); clip-path:inset(0);';
+        el.parentNode.insertBefore(clip, el);
+        clip.appendChild(el);
         return;
       }
       // Never convert image/layout grids (pf-grid, anchor-grid, pt-grid, ras-grid, infra)
