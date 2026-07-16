@@ -39,6 +39,17 @@
   .map-satellite-wrap { aspect-ratio: 4/3 !important; } /* un peu plus haute sur mobile */
   .map-svg-france     { display: none; }                /* SVG France inutile sur petit écran */
 }
+
+/* Supervision bassin — point qui pulse */
+@keyframes ras-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(214,0,122,0.55); }
+  60% { box-shadow: 0 0 0 12px rgba(214,0,122,0); }
+}
+/* Frise J+0 — point qui voyage le long de la ligne */
+@keyframes ca-travel {
+  0% { left: 0%; }
+  100% { left: 100%; }
+}
 </style>
 <!-- Weglot — traduction EN -->
 <script type="text/javascript" src="https://cdn.weglot.com/weglot.min.js"></script>
@@ -205,6 +216,32 @@
         <p style="font-size: 13px; color: var(--muted); line-height: 1.6; margin: 0;">Lot unitaire, de l'écloserie au client final.</p>
       </div>
     </div>
+
+    <!-- ═══ SUPERVISION BASSIN — démo live ═══ -->
+    <div class="reveal reveal-delay-3" style="background: var(--royal-3); border-radius: 10px; padding: clamp(28px,3vw,44px); margin-top: 32px;">
+      <div style="display:flex; align-items:center; gap:12px; margin-bottom:28px;">
+        <span style="width:8px; height:8px; border-radius:50%; background:var(--shrimp); animation:ras-pulse 2.6s ease-in-out infinite;"></span>
+        <span style="font-family:var(--mono); font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:rgba(245,244,240,0.65);">Supervision bassin — paramètres cibles (démonstration)</span>
+      </div>
+      <div style="display:grid; grid-template-columns: repeat(4,1fr); gap:clamp(16px,2vw,32px);">
+        <div>
+          <div style="font-family:var(--mono); font-size:10px; letter-spacing:0.18em; text-transform:uppercase; color:var(--shrimp); margin-bottom:12px;">Température</div>
+          <div style="font-family:var(--serif); font-size:clamp(34px,3vw,48px); font-weight:300; color:#F5F4F0; line-height:1;"><span data-live="28,0.12,0.3,1">28,0</span><span style="font-size:0.42em; font-style:italic; color:rgba(245,244,240,0.55); margin-left:6px;">°C</span></div>
+        </div>
+        <div>
+          <div style="font-family:var(--mono); font-size:10px; letter-spacing:0.18em; text-transform:uppercase; color:var(--shrimp); margin-bottom:12px;">Oxygène dissous</div>
+          <div style="font-family:var(--serif); font-size:clamp(34px,3vw,48px); font-weight:300; color:#F5F4F0; line-height:1;"><span data-live="5.5,0.1,0.5,1">5,5</span><span style="font-size:0.42em; font-style:italic; color:rgba(245,244,240,0.55); margin-left:6px;">mg/L</span></div>
+        </div>
+        <div>
+          <div style="font-family:var(--mono); font-size:10px; letter-spacing:0.18em; text-transform:uppercase; color:var(--shrimp); margin-bottom:12px;">Salinité</div>
+          <div style="font-family:var(--serif); font-size:clamp(34px,3vw,48px); font-weight:300; color:#F5F4F0; line-height:1;"><span data-live="33,0.2,0.22,1">33,0</span><span style="font-size:0.42em; font-style:italic; color:rgba(245,244,240,0.55); margin-left:6px;">g/L</span></div>
+        </div>
+        <div>
+          <div style="font-family:var(--mono); font-size:10px; letter-spacing:0.18em; text-transform:uppercase; color:var(--shrimp); margin-bottom:12px;">pH</div>
+          <div style="font-family:var(--serif); font-size:clamp(34px,3vw,48px); font-weight:300; color:#F5F4F0; line-height:1;"><span data-live="7,0.5,0.4,2">7,00</span></div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -345,7 +382,9 @@
     <!-- Frise horizontale -->
     <div style="position: relative; padding-top: 20px;" class="reveal reveal-delay-2">
       <!-- Ligne de connexion -->
-      <div style="position: absolute; top: 34px; left: calc(100%/10); right: calc(100%/10); height: 1px; background: linear-gradient(to right, var(--shrimp) 0%, var(--shrimp) 70%, var(--line) 100%); z-index: 0;"></div>
+      <div style="position: absolute; top: 34px; left: calc(100%/10); right: calc(100%/10); height: 1px; background: linear-gradient(to right, var(--shrimp) 0%, var(--shrimp) 70%, var(--line) 100%); z-index: 0;">
+        <span style="position:absolute; top:-5px; left:0; width:12px; height:12px; border-radius:50%; background:var(--shrimp); animation: ca-travel 14s linear infinite, ras-pulse 2.8s ease-in-out infinite;"></span>
+      </div>
       <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; position: relative; z-index: 1;" class="js-mobile-slider timeline-steps">
         <!-- Étape 1 -->
         <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
@@ -460,5 +499,22 @@
 </footer>
 
 <script src="assets/site.js" defer></script>
+<script>
+// Supervision bassin — oscillation démo des paramètres (data-live="base,amplitude,vitesse,décimales")
+(function () {
+  var els = document.querySelectorAll('[data-live]');
+  if (!els.length) return;
+  var t0 = performance.now();
+  setInterval(function () {
+    var s = (performance.now() - t0) / 1000;
+    els.forEach(function (el) {
+      var parts = el.getAttribute('data-live').split(',').map(Number);
+      var base = parts[0], amp = parts[1], speed = parts[2], dec = parts[3];
+      var val = base + amp * Math.sin(s * speed + base);
+      el.textContent = val.toFixed(dec).replace('.', ',');
+    });
+  }, 150);
+})();
+</script>
 </body>
 </html>

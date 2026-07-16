@@ -140,6 +140,18 @@
   .home-hero::before { background: linear-gradient(180deg, rgba(250,233,226,0.88) 0%, rgba(250,233,226,0.65) 65%, rgba(15,27,77,0.25) 100%); }
 }
 
+/* ——— Marquee bandeau défilant ——— */
+.marquee-wrap { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 16px 0; overflow: hidden; background: var(--bg); }
+.marquee-track { display: flex; width: max-content; animation: marquee-scroll 42s linear infinite; }
+.marquee-group { display: flex; align-items: center; gap: 0; }
+.marquee-item { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--royal); padding: 0 28px; white-space: nowrap; }
+.marquee-dot { color: var(--shrimp); font-size: 8px; }
+@keyframes marquee-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@media (max-width: 640px) {
+  .marquee-item { font-size: 10px; padding: 0 18px; }
+  .marquee-track { animation-duration: 26s; }
+}
+
 .manifesto { padding: clamp(70px, 9vw, 130px) 0; position: relative; }
 .manifesto-grid {
   display: grid;
@@ -342,6 +354,7 @@
         </p>
         <div style="display:flex; gap: 12px; margin-top: 28px; flex-wrap: wrap;">
           <a class="btn btn-primary" href="projet.html">Découvrir le projet</a>
+          <a class="btn" href="produit.html">Le produit</a>
         </div>
         <div class="hero-kpi reveal reveal-delay-2">
           <span class="hero-kpi-num" data-target="250">0</span><span class="hero-kpi-unit">t/an</span>
@@ -349,6 +362,29 @@
           <span class="hero-kpi-label">Production visée · Phase 1 · Foncier acquis</span>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="marquee-wrap" aria-hidden="true">
+  <div class="marquee-track">
+    <div class="marquee-group">
+      <span class="marquee-item">Eau de mer directe</span><span class="marquee-dot">●</span>
+      <span class="marquee-item">Zéro antibiotique</span><span class="marquee-dot">●</span>
+      <span class="marquee-item">Jamais congelée · J+0</span><span class="marquee-dot">●</span>
+      <span class="marquee-item">100&nbsp;% française</span><span class="marquee-dot">●</span>
+      <span class="marquee-item">Camargue · Réserve UNESCO</span><span class="marquee-dot">●</span>
+      <span class="marquee-item">Zéro rejet</span><span class="marquee-dot">●</span>
+      <span class="marquee-item">Traçabilité unitaire</span><span class="marquee-dot">●</span>
+    </div>
+    <div class="marquee-group">
+      <span class="marquee-item">Eau de mer directe</span><span class="marquee-dot">●</span>
+      <span class="marquee-item">Zéro antibiotique</span><span class="marquee-dot">●</span>
+      <span class="marquee-item">Jamais congelée · J+0</span><span class="marquee-dot">●</span>
+      <span class="marquee-item">100&nbsp;% française</span><span class="marquee-dot">●</span>
+      <span class="marquee-item">Camargue · Réserve UNESCO</span><span class="marquee-dot">●</span>
+      <span class="marquee-item">Zéro rejet</span><span class="marquee-dot">●</span>
+      <span class="marquee-item">Traçabilité unitaire</span><span class="marquee-dot">●</span>
     </div>
   </div>
 </section>
@@ -390,14 +426,18 @@
       <span class="ch-title" style="color: rgba(250,233,226,0.45); letter-spacing: 0.14em;">L'opportunité de marché</span>
     </div>
     <div style="max-width: 56ch; margin-bottom: clamp(48px,6vw,72px);" class="reveal reveal-delay-1">
-      <h2 style="color:#F5F4F0; font-size: clamp(36px,4.8vw,64px); font-weight:300; line-height:1.08; margin-bottom:24px;">
-        Un marché massif. <span style="font-style:italic; color:var(--shrimp);">Une dépendance totale.</span>
+      <h2 style="color:#F5F4F0; font-size: clamp(36px,4.8vw,64px); font-weight:300; line-height:1.08;">
+        La France importe <span style="font-style:italic; color:var(--shrimp);">95&nbsp;% de ses crevettes.</span>
       </h2>
-      <p style="font-size:17px; line-height:1.75; color:rgba(245,244,240,0.65); margin:0;">
-        La France consomme la crevette par millions de portions par an — sans en produire. CamargAqua change l'équation, sur un marché en croissance, avec une empreinte carbone divisée par dix.
-      </p>
     </div>
-    <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px;">
+    <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:16px;" class="js-mobile-slider">
+      <!-- Carte 0 : dépendance import -->
+      <div style="background:rgba(232,180,166,0.10); border-left:3px solid var(--shrimp-deep); border-radius:0 10px 10px 0; padding:36px 32px; transition: background .3s ease, transform .3s ease;" class="reveal reveal-delay-1" onmouseover="this.style.background='rgba(232,180,166,0.20)'; this.style.transform='translateY(-4px)'" onmouseout="this.style.background='rgba(232,180,166,0.10)'; this.style.transform='translateY(0)'">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--shrimp)" stroke-width="1.5" style="margin-bottom:20px;"><path d="M3 3h18v18H3z"/><path d="M3 15l5-5 4 4 7-7"/></svg>
+        <div style="font-family:var(--serif); font-size:clamp(48px,5.5vw,72px); font-weight:300; color:#F5F4F0; line-height:1;"><span data-target="95">0</span><span style="font-size:0.36em; color:var(--shrimp); margin-left:3px;">%</span></div>
+        <div style="font-size:11px; color:rgba(245,244,240,0.55); margin-top:16px; letter-spacing:0.06em; font-weight:600; text-transform:uppercase;">Crevettes importées</div>
+        <p style="font-size:14px; color:rgba(245,244,240,0.5); margin:10px 0 0; line-height:1.6;">des crevettes consommées en France sont importées.</p>
+      </div>
       <!-- Carte 1 : croissance du marché -->
       <div style="background:rgba(245,244,240,0.07); border-left:3px solid var(--shrimp); border-radius:0 10px 10px 0; padding:36px 32px; transition: background .3s ease, transform .3s ease;" class="reveal reveal-delay-1" onmouseover="this.style.background='rgba(232,180,166,0.16)'; this.style.transform='translateY(-4px)'" onmouseout="this.style.background='rgba(245,244,240,0.07)'; this.style.transform='translateY(0)'">
         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--shrimp)" stroke-width="1.5" style="margin-bottom:20px;"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="14 7 21 7 21 14"/></svg>
@@ -435,13 +475,9 @@
         <div class="eyebrow">Le produit</div>
         <h2 style="margin-top:14px;">Une crevette <em>élevée en eau de mer.</em></h2>
         <p>Chair ferme, goût franc, fraîcheur d'une régularité absolue. Récoltée à pleine maturité, expédiée le jour même.</p>
-        <div class="quick-attrs">
-          <div class="qa"><div class="k">Origine</div><div class="v">France · Camargue</div></div>
-          <div class="qa"><div class="k">Fraîcheur</div><div class="v">J+0 / J+1</div></div>
-          <div class="qa"><div class="k">Méthode</div><div class="v">Sans antibiotique</div></div>
-          <div class="qa"><div class="k">Traçabilité</div><div class="v">Lot unitaire</div></div>
+        <div style="margin-top:24px;">
+          <a class="btn btn-primary" href="produit.html">Découvrir le produit</a>
         </div>
-        <a class="btn btn-primary" href="produit.html">Découvrir le produit</a>
       </div>
     </div>
   </div>
@@ -521,22 +557,22 @@
       </div>
     </header>
     <div class="grid-4col" style="gap:16px;">
-      <div style="background:var(--bg-soft); border-radius:8px; padding:28px 24px; border-left:4px solid var(--shrimp);" class="reveal reveal-delay-1">
+      <div style="background:var(--bg-soft); border-radius:8px; padding:28px 24px; border-left:4px solid var(--shrimp); transition:transform .3s ease, box-shadow .3s ease;" class="reveal reveal-delay-1" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 14px 34px rgba(27,42,107,0.10)'" onmouseout="this.style.transform=''; this.style.boxShadow=''">
         <div style="font-size:11px; color:var(--shrimp-deep); font-weight:600; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:14px;">✓ Réalisé</div>
         <h4 style="font-size:20px; font-weight:500; margin:0 0 10px;">Foncier acquis</h4>
         <p style="font-size:14px; color:var(--muted); margin:0; line-height:1.6;">Site de Port-Saint-Louis-du-Rhône sécurisé. Accès eau de mer confirmé.</p>
       </div>
-      <div style="background:var(--bg-soft); border-radius:8px; padding:28px 24px; border-left:4px solid var(--shrimp);" class="reveal reveal-delay-2">
+      <div style="background:var(--bg-soft); border-radius:8px; padding:28px 24px; border-left:4px solid var(--shrimp); transition:transform .3s ease, box-shadow .3s ease;" class="reveal reveal-delay-2" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 14px 34px rgba(27,42,107,0.10)'" onmouseout="this.style.transform=''; this.style.boxShadow=''">
         <div style="font-size:11px; color:var(--shrimp-deep); font-weight:600; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:14px;">✓ Réalisé</div>
         <h4 style="font-size:20px; font-weight:500; margin:0 0 10px;">Études validées</h4>
         <p style="font-size:14px; color:var(--muted); margin:0; line-height:1.6;">Faisabilité technique, modèle RAS, choix de l'espèce (<em>L. vannamei</em>).</p>
       </div>
-      <div style="background:var(--royal-3); border-radius:8px; padding:28px 24px; border-left:4px solid var(--shrimp-deep);" class="reveal reveal-delay-3">
+      <div style="background:var(--royal-3); border-radius:8px; padding:28px 24px; border-left:4px solid var(--shrimp-deep); transition:transform .3s ease, box-shadow .3s ease;" class="reveal reveal-delay-3" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 14px 34px rgba(15,27,77,0.28)'" onmouseout="this.style.transform=''; this.style.boxShadow=''">
         <div style="font-size:11px; color:var(--shrimp); font-weight:600; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:14px;">⟳ En cours</div>
         <h4 style="font-size:20px; font-weight:500; margin:0 0 10px; color:#F5F4F0;">Levée de fonds</h4>
         <p style="font-size:14px; color:rgba(245,244,240,0.6); margin:0; line-height:1.6;">Tour d'amorçage ouvert aux investisseurs qualifiés.</p>
       </div>
-      <div style="background:var(--bg-soft); border-radius:8px; padding:28px 24px; border-left:4px solid var(--line);" class="reveal reveal-delay-4">
+      <div style="background:var(--bg-soft); border-radius:8px; padding:28px 24px; border-left:4px solid var(--line); transition:transform .3s ease, box-shadow .3s ease;" class="reveal reveal-delay-4" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 14px 34px rgba(27,42,107,0.10)'" onmouseout="this.style.transform=''; this.style.boxShadow=''">
         <div style="font-size:11px; color:var(--muted); font-weight:600; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:14px;">◦ À venir</div>
         <h4 style="font-size:20px; font-weight:500; margin:0 0 10px;">Production phase 1</h4>
         <p style="font-size:14px; color:var(--muted); margin:0; line-height:1.6;">250 t/an. Première crevette française d'envergure industrielle.</p>
