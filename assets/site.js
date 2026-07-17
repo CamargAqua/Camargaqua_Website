@@ -90,7 +90,7 @@
     if (e.key === 'Escape') closeMenu();
   });
 
-  // ——— Contact form: envoi direct via Netlify Forms ———
+  // ——— Contact form: envoi direct via Formspree ———
   var form = document.getElementById('contact-form');
   if (form) {
     form.addEventListener('submit', function (e) {
@@ -108,16 +108,20 @@
         return;
       }
 
-      var data = new URLSearchParams(new FormData(form)).toString();
-      fetch('/contact.html', {
+      fetch(form.action, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: data
-      }).then(function () {
-        form.reset();
-        if (status) {
-          status.className = 'form-status ok';
-          status.textContent = 'Message envoyé. Nous vous répondons sous 48 h ouvrées.';
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      }).then(function (response) {
+        if (response.ok) {
+          form.reset();
+          if (status) {
+            status.className = 'form-status ok';
+            status.textContent = 'Message envoyé. Nous vous répondons sous 48 h ouvrées.';
+          }
+        } else if (status) {
+          status.className = 'form-status err';
+          status.textContent = 'Erreur d’envoi. Réessayez ou écrivez-nous directement à victor.michel1@camargaqua.com.';
         }
       }).catch(function () {
         if (status) {

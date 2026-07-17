@@ -43,9 +43,9 @@ Aucune configuration serveur n'est nécessaire (pas de PHP, pas de Node, pas de 
 
 ## Formulaire de contact
 
-Envoi direct côté serveur via **Netlify Forms** (`data-netlify="true"` + honeypot anti-spam dans `contact.html`, soumission en `fetch` dans `assets/site.js`). Le champ "Sujet" (Direction/Commercial/Presse/Partenariat/Autre) est transmis dans le message pour triage manuel — pas de routage automatique vers des boîtes différentes.
+Envoi direct côté serveur via **Formspree** (endpoint `https://formspree.io/f/mkodjpya`, soumission en `fetch` dans `assets/site.js`, notification anti-spam intégrée). Le champ "Sujet" (Direction/Commercial/Presse/Partenariat/Autre) est transmis dans le message pour triage manuel — pas de routage automatique vers des boîtes différentes.
 
-À faire une fois déployé : **Netlify → Site settings → Forms → Form notifications → Add notification → Email notification** → `victor.michel1@camargaqua.com`.
+Notifications envoyées à `victor.michel1@camargaqua.com` (adresse configurée dans le compte Formspree). Après le premier déploiement, vérifier l'email de confirmation Formspree envoyé à cette adresse — sans confirmation, l'endpoint bloque les soumissions.
 
 ## Photographies
 
