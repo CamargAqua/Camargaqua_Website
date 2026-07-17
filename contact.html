@@ -6,7 +6,7 @@
 <title>Contact — CamargAqua</title>
 <meta name="description" content="Contactez CamargAqua : direction, commercial, presse. Port-Saint-Louis-du-Rhône, Camargue. Réponse sous 48 h ouvrées." />
 <meta name="theme-color" content="#FBF3EC" />
-<link rel="canonical" href="https://camargaqua.fr/contact.html" />
+<link rel="canonical" href="https://camargaqua.com/contact.html" />
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -84,7 +84,11 @@
   <div class="wrap">
     <div class="contact-grid">
 
-      <form id="contact-form" class="form" novalidate>
+      <form id="contact-form" class="form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+        <input type="hidden" name="form-name" value="contact" />
+        <p style="position:absolute; left:-9999px;" aria-hidden="true">
+          <label>Ne pas remplir si humain : <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
+        </p>
         <div class="form-row">
           <div class="field"><label for="f-nom">Nom *</label><input id="f-nom" name="nom" type="text" autocomplete="name" placeholder="Votre nom" required /></div>
           <div class="field"><label for="f-mail">Email *</label><input id="f-mail" name="email" type="email" autocomplete="email" placeholder="vous@exemple.fr" required /></div>

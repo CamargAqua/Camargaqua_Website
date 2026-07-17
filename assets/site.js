@@ -90,16 +90,14 @@
     if (e.key === 'Escape') closeMenu();
   });
 
-  // ——— Contact form: mailto fallback ———
+  // ——— Contact form: envoi direct via Netlify Forms ———
   var form = document.getElementById('contact-form');
   if (form) {
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       var status = form.querySelector('.form-status');
       var nom   = (form.querySelector('#f-nom')  || {}).value || '';
-      var org   = (form.querySelector('#f-org')  || {}).value || '';
       var email = (form.querySelector('#f-mail') || {}).value || '';
-      var type  = (form.querySelector('#f-type') || {}).value || '';
       var msg   = (form.querySelector('#f-msg')  || {}).value || '';
 
       if (!nom.trim() || !email.trim() || !msg.trim()) {
@@ -110,27 +108,23 @@
         return;
       }
 
-      var routing = {
-        'Direction':   'direction@camargaqua.fr',
-        'Commercial':  'commercial@camargaqua.fr',
-        'Presse':      'presse@camargaqua.fr',
-        'Partenariat': 'direction@camargaqua.fr',
-        'Autre':       'contact@camargaqua.fr'
-      };
-      var to = routing[type] || 'contact@camargaqua.fr';
-      var subject = '[' + type + '] Contact — ' + nom;
-      var body = 'Nom : ' + nom + '\nOrganisation : ' + org +
-                 '\nEmail : ' + email + '\nDemande : ' + type +
-                 '\n\n' + msg;
-
-      window.location.href = 'mailto:' + to +
-        '?subject=' + encodeURIComponent(subject) +
-        '&body='    + encodeURIComponent(body);
-
-      if (status) {
-        status.className = 'form-status ok';
-        status.textContent = 'Votre messagerie va s’ouvrir avec le message pré-rempli. Si rien ne se passe, écrivez-nous directement à ' + to + '.';
-      }
+      var data = new URLSearchParams(new FormData(form)).toString();
+      fetch('/contact.html', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: data
+      }).then(function () {
+        form.reset();
+        if (status) {
+          status.className = 'form-status ok';
+          status.textContent = 'Message envoyé. Nous vous répondons sous 48 h ouvrées.';
+        }
+      }).catch(function () {
+        if (status) {
+          status.className = 'form-status err';
+          status.textContent = 'Erreur d’envoi. Réessayez ou écrivez-nous directement à victor.michel1@camargaqua.com.';
+        }
+      });
     });
   }
 

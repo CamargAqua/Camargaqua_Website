@@ -36,26 +36,16 @@ Aucune configuration serveur n'est nécessaire (pas de PHP, pas de Node, pas de 
 
 ## Une fois en ligne
 
-1. Remplacer le domaine `camargaqua.fr` par le vrai domaine si différent dans :
-   - `sitemap.xml` (5 URLs)
-   - `robots.txt` (1 URL)
-   - balises `<link rel="canonical">` et `<meta property="og:*">` de chaque page
-2. Compléter `legal/mentions-legales.html` (SIRET, RCS, capital, TVA, directeur de publication, hébergeur).
-3. Soumettre le sitemap dans **Google Search Console** : `https://camargaqua.fr/sitemap.xml`.
+1. ~~Remplacer le domaine `camargaqua.fr` par le vrai domaine~~ → fait, domaine réel `camargaqua.com` (`camargaqua.fr` n'est pas enregistré).
+2. Compléter `legal/mentions-legales.html` (SIRET, RCS, capital, TVA, directeur de publication, hébergeur) → fait, données sourcées sur [annuaire-entreprises.data.gouv.fr](https://annuaire-entreprises.data.gouv.fr/entreprise/camargaqua-939829818).
+3. Soumettre le sitemap dans **Google Search Console** : `https://camargaqua.com/sitemap.xml`.
 4. Remplacer le numéro de téléphone dans `contact.html` (actuellement masqué).
 
 ## Formulaire de contact
 
-Le formulaire ouvre le client mail de l'utilisateur avec un message pré-rempli, routé selon le type de demande :
-- Direction → `direction@camargaqua.fr`
-- Commercial → `commercial@camargaqua.fr`
-- Presse → `presse@camargaqua.fr`
-- Partenariat → `direction@camargaqua.fr`
-- Autre → `contact@camargaqua.fr`
+Envoi direct côté serveur via **Netlify Forms** (`data-netlify="true"` + honeypot anti-spam dans `contact.html`, soumission en `fetch` dans `assets/site.js`). Le champ "Sujet" (Direction/Commercial/Presse/Partenariat/Autre) est transmis dans le message pour triage manuel — pas de routage automatique vers des boîtes différentes.
 
-Pour un envoi serveur (sans ouvrir le client mail), brancher **Formspree** ou **Netlify Forms** :
-- ajouter `action="https://formspree.io/f/XXXX" method="POST"` au `<form>` dans `contact.html`
-- supprimer le bloc `if (form) { ... }` dans `assets/site.js`
+À faire une fois déployé : **Netlify → Site settings → Forms → Form notifications → Add notification → Email notification** → `victor.michel1@camargaqua.com`.
 
 ## Photographies
 

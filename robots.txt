@@ -4,4 +4,4 @@ Disallow: /legal/
 Disallow: /design_extracted/
 Disallow: /design.tar.gz
 
-Sitemap: https://camargaqua.fr/sitemap.xml
+Sitemap: https://camargaqua.com/sitemap.xml
