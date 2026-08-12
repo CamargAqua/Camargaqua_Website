@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <title>Le Projet — CamargAqua</title>
-<meta name="description" content="Une unité d'aquaculture de précision en Camargue, parmi les plus avancées d'Europe : système recirculé, biosécurité, traçabilité unitaire." />
+<meta name="description" content="Une unité d'aquaculture de précision en Camargue, parmi les plus avancées d'Europe : système recirculé, biosécurité, traçabilité unitaire, trois formats de crevette." />
 <meta name="theme-color" content="#FBF3EC" />
 <link rel="canonical" href="https://camargaqua.com/projet.html" />
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
@@ -87,10 +87,10 @@
 
 <section class="page-hero page-hero-bg" style="
   background-image:
-    linear-gradient(105deg, rgba(250,233,226,0.93) 0%, rgba(250,233,226,0.82) 42%, rgba(250,233,226,0.42) 68%, rgba(15,27,77,0.15) 100%),
-    url('https://images.unsplash.com/photo-1628859742240-269783f56d17?w=2400&q=85&auto=format&fit=crop');
+    linear-gradient(105deg, rgba(250,233,226,0.70) 0%, rgba(250,233,226,0.48) 42%, rgba(250,233,226,0.18) 68%, rgba(15,27,77,0.08) 100%),
+    url('assets/renders/port-saint-louis-site.jpg');
   background-size: cover;
-  background-position: center 50%;
+  background-position: center 68%;
   min-height: clamp(340px, 45vh, 560px);
 ">
   <div class="wrap" style="position:relative; z-index:1;">
@@ -208,7 +208,7 @@
         <h2 style="font-size: clamp(32px, 4vw, 52px); font-weight: 300;">Circuit fermé, <span class="it">contrôle total.</span></h2>
       </div>
       <div class="head-meta">
-        <p class="lede">Un système RAS (Recirculating Aquaculture System) : l'eau est filtrée, purifiée et réinjectée en boucle. Zéro rejet. Zéro dépendance aux aléas naturels.</p>
+        <p class="lede">Un système RAS (Recirculating Aquaculture System) : l'eau est filtrée, purifiée et réinjectée en boucle — zéro rejet, zéro dépendance aux aléas naturels.</p>
       </div>
     </header>
     <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;" class="reveal reveal-delay-2 js-mobile-slider">
@@ -277,7 +277,7 @@
         <h2 style="font-size: clamp(32px,4.2vw,54px); font-weight: 300; color: #F5F4F0; line-height: 1.1; margin-bottom: 20px;">
           Au cœur du Sud.<br /><span style="color: var(--shrimp); font-weight: 300;">À portée de France.</span>
         </h2>
-        <p style="font-size: 16px; color: rgba(245,244,240,0.6); line-height: 1.75; margin-bottom: 36px; max-width: 38ch;">Port-Saint-Louis-du-Rhône est le seul point de France où la Méditerranée, le Rhône et une zone industrielle se rencontrent. Un avantage logistique unique.</p>
+        <p style="font-size: 16px; color: rgba(245,244,240,0.6); line-height: 1.75; margin-bottom: 36px; max-width: 38ch;">Port-Saint-Louis-du-Rhône est le seul point de France où la Méditerranée, le Rhône et une zone industrielle se croisent — un avantage logistique qu'on ne retrouve nulle part ailleurs dans le pays.</p>
         <!-- Ville distances -->
         <div style="display: flex; flex-direction: column; gap: 0;">
           <div style="display: flex; align-items: center; justify-content: space-between; padding: 14px 0; border-bottom: 1px solid rgba(245,244,240,0.08);">
@@ -335,22 +335,12 @@
       <!-- Vue satellite + carte France -->
       <div style="display: flex; flex-direction: column; gap: 16px;">
 
-        <!-- Satellite Google Maps — vue figée sur Port Napoléon -->
+        <!-- Photo aérienne réelle du site — remplace l'ancien embed Google Maps -->
         <div class="map-satellite-wrap" style="position: relative; border-radius: 10px; overflow: hidden; aspect-ratio: 16/9; border: 1px solid rgba(245,244,240,0.08);">
-          <!-- iframe décalée pour masquer la barre Google du haut ; filtre atténue les marqueurs colorés -->
-          <iframe
-            src="https://www.google.com/maps?ll=43.378192,4.834862&z=15&t=k&output=embed"
-            style="border:0; position:absolute; top:-44px; left:0; width:100%; height:calc(100% + 44px);
-                   pointer-events:none; filter:saturate(0.45) brightness(0.97);"
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            title="Vue satellite Port-Saint-Louis-du-Rhône">
-          </iframe>
-          <!-- Overlay bloque tout clic/zoom -->
-          <div style="position:absolute; inset:0; z-index:1;"></div>
+          <img src="assets/renders/port-saint-louis-site.jpg" alt="Vue aérienne réelle de Port-Saint-Louis-du-Rhône, zone d'implantation CamargAqua" loading="lazy" style="width:100%; height:100%; object-fit:cover; display:block;" width="2000" height="1125" />
           <!-- Badge -->
-          <div style="position:absolute; bottom:12px; left:12px; z-index:2; background:rgba(15,27,77,0.88); backdrop-filter:blur(8px); padding:8px 14px; border-radius:6px; pointer-events:none;">
-            <div style="font-size:9px; color:var(--shrimp); font-weight:700; letter-spacing:0.12em; text-transform:uppercase; margin-bottom:2px;">Vue satellite</div>
+          <div style="position:absolute; bottom:12px; left:12px; z-index:2; background:rgba(15,27,77,0.88); backdrop-filter:blur(8px); padding:8px 14px; border-radius:6px;">
+            <div style="font-size:9px; color:var(--shrimp); font-weight:700; letter-spacing:0.12em; text-transform:uppercase; margin-bottom:2px;">Vue réelle · pas un rendu</div>
             <div style="font-size:13px; color:#F5F4F0; font-weight:500;">Port-Saint-Louis-du-Rhône</div>
           </div>
         </div>
@@ -394,7 +384,7 @@
     </div>
     <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 32px; margin-bottom: 48px;" class="reveal reveal-delay-1">
       <h2 style="font-size: clamp(32px,4vw,52px); font-weight: 300; max-width: 16ch;">La même journée, <span class="it">livrée.</span></h2>
-      <p style="font-size: clamp(15px,1.4vw,18px); color: var(--muted); line-height: 1.75; margin: 6px 0 0; max-width: 28ch; text-align: right; flex-shrink: 0;">La crevette importée traverse les océans en <strong style="color:var(--muted); font-weight:600;">21 jours surgelée.</strong><br />La nôtre est dans votre assiette en <strong style="color:var(--royal); font-weight:600;">6 heures.</strong></p>
+      <p style="font-size: clamp(15px,1.4vw,18px); color: var(--muted); line-height: 1.75; margin: 6px 0 0; max-width: 28ch; text-align: right; flex-shrink: 0;">La crevette importée traverse les océans en <strong style="color:var(--muted); font-weight:600;">21 jours surgelée.</strong><br />Notre gamme fraîche est dans votre assiette en <strong style="color:var(--royal); font-weight:600;">6 heures.</strong></p>
     </div>
     <!-- Frise horizontale -->
     <div style="position: relative; padding-top: 20px;" class="reveal reveal-delay-2">
@@ -454,9 +444,9 @@
     <div style="margin-top: 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 3px; border-radius: 14px; overflow: hidden;" class="reveal reveal-delay-3">
       <!-- CamargAqua -->
       <div style="background: var(--royal); padding: clamp(24px,3vw,36px);">
-        <div style="font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--shrimp); margin-bottom: 16px;">CamargAqua</div>
+        <div style="font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--shrimp); margin-bottom: 16px;">CamargAqua — gamme fraîche</div>
         <div style="font-size: clamp(44px,5.5vw,68px); font-weight: 300; color: #F5F4F0; line-height: 1; margin-bottom: 10px;">6 h</div>
-        <div style="font-size: 14px; color: rgba(245,244,240,0.6); line-height: 1.6;">De la Camargue à votre table.<br />Fraîche · Jamais surgelée · 80 km.</div>
+        <div style="font-size: 14px; color: rgba(245,244,240,0.6); line-height: 1.6;">De la Camargue à votre table.<br />Jamais surgelée · 80 km.</div>
       </div>
       <!-- Importée -->
       <div style="background: var(--bg-soft); padding: clamp(24px,3vw,36px);">
@@ -474,7 +464,7 @@
   <div class="wrap">
     <div style="background: var(--shrimp); border-radius: 6px; padding: clamp(48px, 6vw, 80px); display: grid; grid-template-columns: 1.4fr 1fr; gap: 32px; align-items: end;">
       <div>
-        <h2 style="color: var(--royal); font-size: clamp(32px, 4vw, 48px); font-weight: 300;">Un produit qui découle<br />de cette <span class="it" style="color: var(--royal-3);">maîtrise.</span></h2>
+        <h2 style="color: var(--royal); font-size: clamp(32px, 4vw, 48px); font-weight: 300;">Trois formats qui découlent<br />de cette <span class="it" style="color: var(--royal-3);">maîtrise.</span></h2>
       </div>
       <div style="display: flex; gap: 12px; justify-content: flex-end; flex-wrap: wrap;">
         <a class="btn btn-primary" href="produit.html" style="background: var(--royal); border-color: var(--royal); color: var(--bg);">Le produit</a>
